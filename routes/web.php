@@ -27,3 +27,7 @@ Route::get('contacts', 'Controller@contacts');
 //})->name('login');
 
 Route::get('catalog', 'Catalog@main')->name('catalog');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
