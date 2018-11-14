@@ -13,6 +13,39 @@
 
     </head>
     <body>
+    <div class="fastmenu">
+       <ul>
+            <li>Паркетный Мир</li>
+            <li>все виды паркета по лучшим ценам</li>
+        </ul>
+        <ul>
+            <li>Симферополь</li>
+            <li>пр. Победы, 129/2</li>
+        </ul>
+        <ul>
+            <li>8(978) 816 01 66</li>
+            <li>8(978) 880 82 06</li>
+        </ul>
+        <ul>
+            <li class="fastmenu__work_today">Сегодня до 18:00</li>
+            <div>
+                <ul>
+                    <li>ПН-ПТ: 09:00 - 18:00</li>
+                    <li>СБ: 09:00 - 16:00</li>
+                </ul>
+            </div>
+        </ul>
+    </div>
+    <menu class="mainmenu">
+        <ul>
+            <li>Главная</li>
+            <li>Каталог товаров</li>
+            <li>Статьи</li>
+            <li>О нас</li>
+            <li>Контакты</li>
+        </ul>
+    </menu>
+<!--
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -40,5 +73,6 @@
                 </div>
             </div>
         </div>
+-->
     </body>
 </html>

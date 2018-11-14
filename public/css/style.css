@@ -8,6 +8,15 @@ body {
     margin: 0;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
 .full-height {
     height: 100vh;
 }
@@ -48,4 +57,73 @@ body {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+.fastmenu {
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    justify-content: space-around;
+    padding: 5px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #a4c2dc;
+    color: #000;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.fastmenu__work_today {
+    border-bottom: 1px dotted;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.fastmenu__work_today ~ div > ul {
+    display: none;
+    position: absolute;
+    background: #333;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 5px;
+    padding: 10px;
+    bottom: -45px;
+    color: #a4c2dc;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    transition: 0.4s;
+    text-align: right;
+}
+
+.fastmenu__work_today:hover ~ div > ul {
+    display: block;
+    transition: 0.4s;
+}
+
+menu {
+    margin-top: 44px; 
+    background:  #3c3c3c;
+    padding: 0px;
+}
+
+menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    line-height: 40px;
+}
+
+menu ul li {
+    display: block;
+    color: #fff;
+    cursor: pointer;
+    height: 100%;
+    padding: 0 20px;
+    transition: 0.2s;
+}
+
+menu ul li:hover {
+    background: #a4c2dc;
+    color: #333;
+    transition: 0.2s;
 }
