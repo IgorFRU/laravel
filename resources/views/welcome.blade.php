@@ -97,6 +97,20 @@
             </li>
         </ul>
     </menu>
+
+    <section class="headsection">
+        <div class="wrap">
+            
+            14646
+        </div>
+    </section>
+    
+    <section class="headsection">
+        <div class="wrap">
+            
+            14646
+        </div>
+    </section>
 <!--
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
