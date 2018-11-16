@@ -10,9 +10,13 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic-ext" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 
     </head>
     <body>
+
+    <!-- MENU START -->
+
     <div class="menu">
         <div class="topmenu">
             <div class="wrap">
@@ -25,9 +29,22 @@
                         <a href="#">Статьи</a>
                         <a href="#" class="topmenu__left__red">Акции</a>
                     </div>
+
+
+                    <div>
+                        <li class="topmenu__work_today"><i class="fas fa-clock"></i>
+Сегодня до 18:00</li>
+                        <div>
+                            <ul>
+                                <li>ПН-ПТ: 09:00 - 18:00</li>
+                                <li>СБ: 09:00 - 16:00</li>
+                                <li class="redtext">ВС: ВЫХОДНОЙ</li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="topmenu__right">
-                        <a href="#">Вход</a>
-                        <a href="#">Регистрация</a>
+                        <a href="#"><i class="fas fa-sign-in-alt"></i>  Вход</a>
+                        <a href="#"><i class="fas fa-user-plus"></i>  Регистрация</a>
                     </div>
                 </div>
             </div>
@@ -43,26 +60,21 @@
                         <li>Симферополь</li>
                         <li>пр. Победы, 129/2</li>
                     </ul>
-                    <ul>
-                        <li>8(978) 816 01 66</li>
-                        <li>8(978) 880 82 06</li>
-                    </ul>
-                    <ul>
-                        <li class="fastmenu__work_today">Сегодня до 18:00</li>
-                        <div>
-                            <ul>
-                                <li>ПН-ПТ: 09:00 - 18:00</li>
-                                <li>СБ: 09:00 - 16:00</li>
-                            </ul>
-                        </div>
+                    <ul class="fastmenu__body__tel">
+                        
+                            <li>8(978) 816 01 66</li>
+                            <li class="fastmenu__body__tel__hide">8(978) 880 82 06</li>
+                        
+                        <li><a href="#">Обратный звонок</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
     <menu class="mainmenu">
         <ul class="mainmenu__ul">
-            <li class="mainmenu__li"><a href="#" class="mainmenu__a">Главная</a></li>
+            <li class="mainmenu__li"><a href="#" class="mainmenu__a"><i class="fas fa-home"></i></a></li>
             <li class="mainmenu__li"><a href="#" class="mainmenu__a">Полы</a>
                 <ul>
                     <li><a href="#">Паркет штучный</a></li>
@@ -97,6 +109,8 @@
             </li>
         </ul>
     </menu>
+
+    <!-- MENU END -->
 
     <section class="headsection">
         <div class="wrap">

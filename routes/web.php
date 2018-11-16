@@ -16,9 +16,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::get('/{id}',function($id){
-  echo 'ID: '.$id;
-});*/
+Route::get('/{category}',function($category){
+  echo 'Category: '.$category;
+});
+
+Route::get('/{category}/{subcategory}',function($category, $subcategory){
+  echo 'Category: '.$category.'. subcategory: '.$subcategory;
+});
+
+Route::get('/{category}/{subcategory}/{product}',function($category, $subcategory, $product){
+  echo 'Category: '.$category.'. subcategory: '.$subcategory.'. product: '.$product;
+});
 
 Route::get('contacts', 'Controller@contacts');
 

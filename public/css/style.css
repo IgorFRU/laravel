@@ -17,6 +17,10 @@ li {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 .full-height {
     height: 100vh;
 }
@@ -59,6 +63,10 @@ li {
     margin-bottom: 30px;
 }
 
+.redtext {
+    color: #e96363;
+}
+
 .menu {
     position: fixed;
     width: 100%;
@@ -72,7 +80,9 @@ li {
 }
 
 .topmenu {
-    background: #a4c2dc;
+    /*background: #a4c2dc;*/
+    background: #8f8f8f;
+    border-bottom: 1px solid rgba(252, 141, 65, 0.5);
 }
 
 .topmenu__body {
@@ -106,8 +116,13 @@ li {
     color: #fff !important;
 }
 
+
+.topmenu__right:hover .topmenu__right__tooltip {
+
+}
+
 .topmenu__right a {
-    margin-left: 20px;
+    margin-left: 10px;
     text-decoration: none;
     color: #fff;
     font-weight: bold;
@@ -139,29 +154,54 @@ li {
     
 }
 
-.fastmenu__work_today {
+.fastmenu__body__tel a {
+    color: #a4c2dc;
+    border-bottom: 1px dotted;
+}
+
+.fastmenu__body__tel__hide {
+    transform: scaleY(0);    
+    transform-origin: top;
+    transition: ease 0.5s;
+    display: inherit;
+}
+
+.fastmenu__body__tel li:hover ~ .fastmenu__body__tel__hide {
+    transform: scaleY(1);   
+    transform-origin: top;
+    transition: ease 0.5s;
+    display: inherit;
+}
+
+.topmenu__work_today {
     border-bottom: 1px dotted;
     display: block;
     position: relative;
     cursor: pointer;
+    margin: 5px 0;
+    color: #333;
+    font-weight: bold;
 }
 
-.fastmenu__work_today ~ div > ul {
-    display: none;
+.topmenu__work_today ~ div > ul {
+    display: inherit;
     position: absolute;
     background: #333;
-    border: 1px solid rgba(0,0,0,0.5);
-    border-radius: 5px;
+    /*border: 1px solid rgba(0,0,0,0.5);*/
     padding: 10px;
-    bottom: -45px;
+    top: 26px;
     color: #a4c2dc;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
     transition: 0.4s;
     text-align: right;
+    transform: scaleY(0);   
+    transform-origin: top;
 }
 
-.fastmenu__work_today:hover ~ div > ul {
-    display: block;
+.topmenu__work_today:hover ~ div > ul {
+    display: inherit;
+    transform: scaleY(1);   
+    transform-origin: top;
     transition: 0.4s;
 }
 
