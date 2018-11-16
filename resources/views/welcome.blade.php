@@ -16,62 +16,62 @@
     <body>
 
     <!-- MENU START -->
+    <header>
+        <div class="menu">
+            <div class="topmenu">
+                <div class="wrap">
+                    <div class="topmenu__body">
+                        <div class="topmenu__left">
+                            <a href="#">О нас</a>
+                            <a href="#">Доставка</a>
+                            <a href="#">Оплата</a>
+                            <a href="#">Контакты</a>
+                            <a href="#">Статьи</a>
+                            <a href="#" class="topmenu__left__red">Акции</a>
+                        </div>
 
-    <div class="menu">
-        <div class="topmenu">
-            <div class="wrap">
-                <div class="topmenu__body">
-                    <div class="topmenu__left">
-                        <a href="#">О нас</a>
-                        <a href="#">Доставка</a>
-                        <a href="#">Оплата</a>
-                        <a href="#">Контакты</a>
-                        <a href="#">Статьи</a>
-                        <a href="#" class="topmenu__left__red">Акции</a>
-                    </div>
 
-
-                    <div>
-                        <li class="topmenu__work_today"><i class="fas fa-clock"></i>
-Сегодня до 18:00</li>
                         <div>
-                            <ul>
-                                <li>ПН-ПТ: 09:00 - 18:00</li>
-                                <li>СБ: 09:00 - 16:00</li>
-                                <li class="redtext">ВС: ВЫХОДНОЙ</li>
-                            </ul>
+                            <li class="topmenu__work_today"><i class="fas fa-clock"></i>
+    Сегодня до 18:00</li>
+                            <div>
+                                <ul>
+                                    <li>ПН-ПТ: 09:00 - 18:00</li>
+                                    <li>СБ: 09:00 - 16:00</li>
+                                    <li class="redtext">ВС: ВЫХОДНОЙ</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="topmenu__right">
+                            <a href="#"><i class="fas fa-sign-in-alt"></i>  Вход</a>
+                            <a href="#"><i class="fas fa-user-plus"></i>  Регистрация</a>
                         </div>
                     </div>
-                    <div class="topmenu__right">
-                        <a href="#"><i class="fas fa-sign-in-alt"></i>  Вход</a>
-                        <a href="#"><i class="fas fa-user-plus"></i>  Регистрация</a>
+                </div>
+            </div>
+            <div class="fastmenu">
+                <div class="wrap">
+                    <div class="fastmenu__body">
+                       <ul>
+                            <li>Паркетный Мир</li>
+                            <li>все виды паркета по лучшим ценам</li>
+                        </ul>
+                        <ul>
+                            <li>Симферополь</li>
+                            <li>пр. Победы, 129/2</li>
+                        </ul>
+                        <ul class="fastmenu__body__tel">
+                            
+                                <li>8(978) 816 01 66</li>
+                                <li class="fastmenu__body__tel__hide">8(978) 880 82 06</li>
+                            
+                            <li><a href="#">Обратный звонок</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="fastmenu">
-            <div class="wrap">
-                <div class="fastmenu__body">
-                   <ul>
-                        <li>Паркетный Мир</li>
-                        <li>все виды паркета по лучшим ценам</li>
-                    </ul>
-                    <ul>
-                        <li>Симферополь</li>
-                        <li>пр. Победы, 129/2</li>
-                    </ul>
-                    <ul class="fastmenu__body__tel">
-                        
-                            <li>8(978) 816 01 66</li>
-                            <li class="fastmenu__body__tel__hide">8(978) 880 82 06</li>
-                        
-                        <li><a href="#">Обратный звонок</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </header>
     <menu class="mainmenu">
         <ul class="mainmenu__ul">
             <li class="mainmenu__li"><a href="#" class="mainmenu__a"><i class="fas fa-home"></i></a></li>
@@ -112,19 +112,45 @@
 
     <!-- MENU END -->
 
-    <section class="headsection">
-        <div class="wrap">
+    <main>
+        <article>
+            <div class="headarticle">
+                <section class="headsection">
+                    <div class="wrap content">
+                        <h1>Продажа, укладка и ремонт паркета в Крыму</h1>
+<!--
+                        <div class="headsection__boxes">
+                            <div class="headsection__box">
+                                
+                            </div>
+                            <div class="headsection__box">
+                                
+                            </div>
+                            <div class="headsection__box">
+                                
+                            </div>
+                            <div class="headsection__box">
+                                
+                            </div>
+                            <div class="headsection__box">
+                                
+                            </div>
+                        </div>
+-->
+                    </div>
+                </section>
+            </div>
+            <section>
+                <div class="wrap content">
+                    
+                    14646
+                </div>
+            </section>
+        </article>
+        <aside>
             
-            14646
-        </div>
-    </section>
-    
-    <section class="headsection">
-        <div class="wrap">
-            
-            14646
-        </div>
-    </section>
+        </aside>
+    </main>
 <!--
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))

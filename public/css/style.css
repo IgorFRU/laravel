@@ -287,9 +287,43 @@ menu .mainmenu__ul .mainmenu__li .mainmenu__a:hover {
     filter: blur(0);
 }
 
-.headsection {
+
+.headarticle {
     height: 100vh;
     min-height: 300px;
     background: url("/imgs/parquet_background_01.jpg");
+    background-attachment: fixed;
     background-size: cover;
+    overflow: hidden;
+}
+.headsection {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    background-size: cover;
+    padding-top: 160px;
+    position: relative;
+}
+
+.headsection h1 {
+    color: #fff;
+    font-size: 34px;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 0 4px rgba(0,0,0,0.7);
+}
+
+.headsection__boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+.headsection__box {
+    width: 20%;
+    height: 200px;
+    background: rgba(255,255,255,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    margin: 0 20px;
 }

@@ -22,8 +22,14 @@ class CreateProductsTable extends Migration
         
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('category', 32);
-            $table->smallinteger('parrent');
+            $table->string('title', 32);
+            $table->timestamps();
+        });
+        
+        Schema::create('subcategories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title', 32);
+            $table->smallinteger('category_id');
             $table->timestamps();
         });
         
@@ -77,9 +83,9 @@ class CreateProductsTable extends Migration
             $table->string('product_name', 100);
             $table->string('alias', 100)->unique();
             $table->integer('category_id')->unsigned()->nullable();
-            $table->integer('manufacturer')->unsigned()->nullable();
+            $table->integer('manufacturer_id')->unsigned()->nullable();
             $table->integer('price')->unsigned()->nullable();
-            $table->integer('currency')->unsigned();
+            $table->integer('currency_id')->unsigned();
             $table->smallinteger('sale')->nullable();
             $table->integer('sale_type')->unsigned()->nullable();
             $table->string('short_description', 255)->nullable();
@@ -96,9 +102,9 @@ class CreateProductsTable extends Migration
         });        
         
         Schema::table('products', function(Blueprint $table){
-            $table->foreign('category')->references('id')->on('categories')->onDelete('set null')->onUpdate('cascade');
-            $table->foreign('manufacturer')->references('id')->on('manufactures')->onDelete('set null')->onUpdate('cascade');
-            $table->foreign('currency')->references('id')->on('currencies');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('manufacturer_id')->references('id')->on('manufactures')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('currency_id')->references('id')->on('currencies');
             $table->foreign('sale_type')->references('id')->on('discount_type')->onDelete('set null')->onUpdate('cascade');
             $table->foreign('unit')->references('id')->on('units')->onDelete('set null')->onUpdate('cascade');
         });
