@@ -76,7 +76,7 @@ class CreateProductsTable extends Migration
             $table->integer('inner_scu')->unique();
             $table->string('product_name', 100);
             $table->string('alias', 100)->unique();
-            $table->integer('category')->unsigned()->nullable();
+            $table->integer('category_id')->unsigned()->nullable();
             $table->integer('manufacturer')->unsigned()->nullable();
             $table->integer('price')->unsigned()->nullable();
             $table->integer('currency')->unsigned();
