@@ -16,17 +16,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{category}',function($category){
-  echo 'Category: '.$category;
-});
+Route::resource('/admin', 'Admin\AdminResource');
 
-Route::get('/{category}/{subcategory}',function($category, $subcategory){
-  echo 'Category: '.$category.'. subcategory: '.$subcategory;
-});
+//Route::get('/{category}', 'CatalogController@category')->name('category');
 
-Route::get('/{category}/{subcategory}/{product}',function($category, $subcategory, $product){
-  echo 'Category: '.$category.'. subcategory: '.$subcategory.'. product: '.$product;
-});
+Route::get('/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory');
+
+Route::get('/{category}/{subcategory}/{product}/{parameter?}', 'CatalogController@product')->name('product');
+
+
+
+//Route::get('/{category}',function($category){
+//  echo 'Category: '.$category;
+//});
+
+/*
+Route::get('/{category}/{subcategory}/{product}/{parameter?}',function($category, $subcategory, $product, $parameter = null){
+    
+    $output = 'Category: '.$category.'. subcategory: '.$subcategory.'. product: '.$product;
+    if($parameter) {
+        $output .= '// параметр: '.$parameter;
+    }
+    
+    echo $output;
+});*/
 
 Route::get('contacts', 'Controller@contacts');
 
@@ -34,7 +47,7 @@ Route::get('contacts', 'Controller@contacts');
 //  // code here
 //})->name('login');
 
-Route::get('catalog', 'Catalog@main')->name('catalog');
+
 
 Auth::routes();
 
