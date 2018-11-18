@@ -21,6 +21,32 @@ a {
     text-decoration: none;
 }
 
+.logo__body {
+    text-transform: uppercase;
+/*    background: #4c6f79;*/
+/*    border: 3px solid #fff;*/
+    border-bottom: 1px solid #fff;
+}
+
+.logo__body a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.logo__body h1 {
+    font-size: 28px;
+    padding: 0 5px 0 5px;
+    margin: 0;
+    color: #fff;
+    display: block;
+    text-align: center;
+}
+
+.logo__tagline {
+    font-size: 12px;
+}
+
 .full-height {
     height: 100vh;
 }
@@ -141,36 +167,52 @@ a {
     width: 100%;
     background: #2a2a2a;
     color: #fc9f5b;
-    /*box-shadow: 0 0 4px rgba(0,0,0,0.2);*/
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    height: 66px;
 }
 
 .fastmenu__body {
     display: flex;
     flex-direction: row;
-    font-size: 14px;
+    align-items: flex-start;
+    font-size: 16px;
     justify-content: space-between;
     width: 100%;
-    height: 70px;
     
 }
 
+.fastmenu__body__tel {
+    margin-top: 6px;
+}
+
 .fastmenu__body__tel a {
+    color: #fc9f5b;
+    border-bottom: 1px dotted;
+}
+
+.fastmenu__body__tel .callme {
     color: #a4c2dc;
     border-bottom: 1px dotted;
+    font-size: 14.5px;
 }
 
 .fastmenu__body__tel__hide {
     transform: scaleY(0);    
     transform-origin: top;
     transition: ease 0.5s;
-    display: inherit;
+    display: none;
 }
 
-.fastmenu__body__tel li:hover ~ .fastmenu__body__tel__hide {
+.fastmenu__body__tel:hover li ~ .fastmenu__body__tel__hide {
     transform: scaleY(1);   
     transform-origin: top;
     transition: ease 0.5s;
-    display: inherit;
+    display: block;
+}
+
+.fastmenu__body__tel:hover {
+    background: #2a2a2a;
 }
 
 .topmenu__work_today {
@@ -205,10 +247,14 @@ a {
     transition: 0.4s;
 }
 
+.fastmenu__location {
+    margin: 6px 0;
+}
+
 menu {
-    margin-top: 108px; 
+    margin-top: 96px; 
     margin-bottom: 0;
-    background:  #2a2a2a;
+    background:  #252525;
     padding: 0px;
     z-index: 2;
     font-size: 16px;
@@ -290,7 +336,7 @@ menu .mainmenu__ul .mainmenu__li .mainmenu__a:hover {
 
 .headarticle {
     height: 100vh;
-    min-height: 300px;
+    min-height: 500px;
     background: url("/imgs/parquet_background_01.jpg");
     background-attachment: fixed;
     background-size: cover;
@@ -299,18 +345,123 @@ menu .mainmenu__ul .mainmenu__li .mainmenu__a:hover {
 .headsection {
     height: 100%;
     width: 100%;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    background: linear-gradient(rgba(18, 80, 111, 0.4), rgba(18, 80, 111, 0.4));
     background-size: cover;
-    padding-top: 160px;
+/*    padding-top: 160px;*/
     position: relative;
 }
 
+.headsection__body {
+    height: 100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+.headsection__body__left {
+    width: 35%;
+    height: 100%;
+    background: #12506f;
+    position: relative;
+}
+
+.headsection__body__left::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    transform: rotate(12deg);
+    background: #12506f;    
+    display: block;
+    border: 0;
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    border-right: 7px solid rgba(0, 0, 0, 0.5);
+}
+
+.headsection__body__left h1 {
+    position: absolute;
+    top: calc(40% - 35px);
+    color: #fff;
+    font-size: 34px;
+    text-transform: uppercase;
+    text-align: left;
+    text-shadow: 0 0 4px rgba(0,0,0,0.7);
+    letter-spacing: 2px;
+    left: 50px;
+    z-index: 1;
+    width: 110%;
+}
+
+.headsection__body__right {
+    
+    height: 100%;
+    width: 65%;
+}
+
 .headsection h1 {
+/*
     color: #fff;
     font-size: 34px;
     text-transform: uppercase;
     text-align: center;
     text-shadow: 0 0 4px rgba(0,0,0,0.7);
+    letter-spacing: 2px;
+    position: absolute;
+    top: calc(50% - 35px);
+    width: 100%;
+    left: 0;
+*/
+}
+
+.headsection__form {
+/*
+    position: absolute;
+    top: calc(50% + 100px);
+    width: 100%;
+    left: 0;
+*/
+}
+
+.headsection__form form {    
+/*
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.5);
+*/
+/*    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.5));*/
+/*    display: inline-block;*/
+/*    box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
+}
+
+.headsection__form form input[type="text"],
+.headsection__form form input[type="submit"]{
+/*
+    border: 0;
+    background: #333;
+    padding: 10px;
+    color: #fff;
+    font-size: 16px;
+*/
+}
+
+.headsection__form form input[type="submit"] {
+/*
+    cursor: pointer;
+    background: #2466ad;
+    border-bottom: 2px solid;
+    padding-bottom: 8px;
+    transition: 0.5s;
+*/
+}
+
+.headsection__form form input[type="submit"]:hover {
+/*
+    background: #eb782a;
+    transition: 0.5s;
+*/
 }
 
 .headsection__boxes {
