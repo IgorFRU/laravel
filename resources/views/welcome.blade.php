@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="js/main.js" defer></script>
+
     </head>
     <body>
 
@@ -71,6 +74,11 @@
                         </ul>
                     </div>
                 </div>
+                                
+            </div>
+            <div class="fastmenu__tosmall">
+                    <span></span>
+                    <span></span>
             </div>
         </div>
     </header>
@@ -215,7 +223,6 @@
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                    <a href="{{ URL::route('catalog') }}">Каталог товаров</a>
                 </div>
             </div>
         </div>

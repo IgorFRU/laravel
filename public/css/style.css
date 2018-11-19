@@ -43,6 +43,11 @@ a {
     text-align: center;
 }
 
+.logo.hide {
+    opacity: 0;
+    transition: 0.3s;
+}
+
 .logo__tagline {
     font-size: 12px;
 }
@@ -170,6 +175,54 @@ a {
     box-shadow: 0 0 4px rgba(0,0,0,0.5);
     box-sizing: border-box;
     height: 66px;
+    position: relative;
+    transition: 0.3s;  
+}
+
+.fastmenu.active {
+    height: 10px;
+    background: #fc9f5b; 
+    overflow: hidden; 
+    transition: 0.3s;  
+}
+
+.fastmenu__tosmall {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    background: #fc9f5b;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+.fastmenu__tosmall > span {
+    width: 20px;
+    height: 4px;
+    border-radius: 2px;
+    background: #333;
+    position: absolute;
+    bottom: calc(50% - 2px);
+    left: 5px;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.fastmenu__tosmall > span:nth-of-type(2) {
+    
+}
+
+.fastmenu__tosmall > span.active:nth-of-type(1) {
+    transform: translateX(0) rotate(180deg);
+}
+
+
+.fastmenu__tosmall > span.active:nth-of-type(2) {
+    transform: translateX(0) rotate(-90deg);
+    transition: 0.5s;
 }
 
 .fastmenu__body {
@@ -238,6 +291,7 @@ a {
     text-align: right;
     transform: scaleY(0);   
     transform-origin: top;
+    z-index: 1;
 }
 
 .topmenu__work_today:hover ~ div > ul {
@@ -260,6 +314,7 @@ menu {
     font-size: 16px;
     position: absolute;
     width: 100%;
+    transition: 0.3s;
 }
 
 menu .mainmenu__ul {
