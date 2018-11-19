@@ -12,6 +12,7 @@
 			$('.mainmenu').css('margin-top', '40px');
 		}
 		$('.fastmenu').toggleClass('active');
+		$('.fastmenu__tosmall').toggleClass('active');
 		$('.fastmenu__tosmall > span').toggleClass('active');
 		$('.logo').toggleClass('hide');
 		

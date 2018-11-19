@@ -176,13 +176,13 @@ a {
     box-sizing: border-box;
     height: 66px;
     position: relative;
+    overflow: hidden; 
     transition: 0.3s;  
 }
 
 .fastmenu.active {
     height: 10px;
     background: #fc9f5b; 
-    overflow: hidden; 
     transition: 0.3s;  
 }
 
@@ -197,6 +197,23 @@ a {
     text-align: center;
     cursor: pointer;
     box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.fastmenu__tosmall.active {
+    width: 200px;
+    transition: 0.2s;
+}
+
+.fastmenu__tosmall p {
+    padding-left: 35px;
+    color: #fff;
+    display: inline-block;
+    margin: 0;
+    line-height: 30px;
+    font-weight: bolder;
+    font-size: 18px;
 }
 
 .fastmenu__tosmall > span {

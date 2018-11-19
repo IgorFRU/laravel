@@ -79,6 +79,7 @@
             <div class="fastmenu__tosmall">
                     <span></span>
                     <span></span>
+                    <p>"Паркетный мир"</p>
             </div>
         </div>
     </header>
