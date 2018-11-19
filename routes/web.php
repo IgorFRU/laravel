@@ -20,9 +20,9 @@ Route::resource('/admin', 'Admin\AdminResource');
 
 //Route::get('/{category}', 'CatalogController@category')->name('category');
 
-Route::get('/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory');
+Route::get('/catalog/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory');
 
-Route::get('/{category}/{subcategory}/{product}/{parameter?}', 'CatalogController@product')->name('product');
+Route::get('/catalog/{category}/{subcategory}/{product}/{parameter?}', 'CatalogController@product')->name('product');
 
 
 
