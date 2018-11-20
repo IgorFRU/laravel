@@ -9,7 +9,7 @@
 			$('.mainmenu').css('margin-top', marginMainMenu);
 		} else {
 			clickToSmall = true;
-			$('.mainmenu').css('margin-top', '40px');
+			$('.mainmenu').css('margin-top', '45px');
 		}
 		$('.fastmenu').toggleClass('active');
 		$('.fastmenu__tosmall').toggleClass('active');
@@ -27,6 +27,7 @@
 				oldScroll = $(window).scrollTop();
 				$('.fastmenu').addClass('active');		
 				$('.fastmenu__tosmall > span').addClass('active');
+                $('.fastmenu__tosmall').addClass('active');
 				$('.logo').addClass('hide');
 			};
 
@@ -34,6 +35,7 @@
 				oldScroll = $(window).scrollTop();
 				$('.fastmenu').removeClass('active');
 				$('.fastmenu__tosmall > span').removeClass('active');
+                $('.fastmenu__tosmall').removeClass('active');
 				$('.logo').removeClass('hide');
 			}
 		}	
