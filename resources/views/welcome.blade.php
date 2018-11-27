@@ -110,8 +110,13 @@
                     <li><a href="#">Клей для пробки</a></li>
                 </ul>
             </li>
-            <li class="mainmenu__li"><a href="#" class="mainmenu__a">Погонаж</a></li>
-            <li class="mainmenu__li"><a href="#" class="mainmenu__a">Расходные материалы</a></li>
+            <li class="mainmenu__li"><a href="#" class="mainmenu__a">Погонаж и расходные материалы</a>
+                <ul>
+                    <li><a href="#">Плинтус</a></li>
+                    <li><a href="#">Подложка</a></li>
+                    <li><a href="#">Прочее</a></li>
+                </ul>
+            </li>
             <li class="mainmenu__li"><a href="#" class="mainmenu__a">Услуги</a>
                 <ul>
                     <li><a href="#">Работы</a></li>
@@ -130,16 +135,29 @@
                         <div class="headsection__body">
                            <div class="headsection__body__left">
                                 <h1>Продажа, укладка и ремонт паркета в Крыму</h1>
-                                <div class="headsection__form">
-                                    <form action="">
-                                        <input type="text" placeholder="Имя">
-                                        <input type="text" placeholder="Номер телефона">
-                                        <input type="submit" value="Сделать заказ">
-                                    </form>
+                                <h2 class="headsection__body__left__text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam molestiae commodi non reprehenderit incidunt ex, beatae placeat, deleniti, cum veritatis amet nihil animi tenetur. Quasi repellat itaque, blanditiis nobis! Libero?
+                                </h2>
+                                <div class="headsection__btn">
+                                    <div class="btn main_btn">
+                                       <div class="main_btn__left">
+                                           <i class="fas fa-ruble-sign"></i>
+                                       </div>
+                                       <div class="main_btn__right">
+                                           Сделать заказ
+                                       </div>
+                                    </div>
+                                    <div class="btn help_btn">
+                                       <div class="help_btn__left">
+                                           <i class="fas fa-question"></i>
+                                       </div>
+                                       <div class="help_btn__right">
+                                           Консультация
+                                       </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="headsection__body__right">
-                                
+                            <div class="headsection__body__right">                                
                             </div>
                         </div>
 <!--

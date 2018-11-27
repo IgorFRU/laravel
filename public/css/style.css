@@ -98,6 +98,17 @@ a {
     color: #e96363;
 }
 
+.btn {
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
 .menu {
     position: fixed;
     width: 100%;
@@ -425,7 +436,7 @@ menu .mainmenu__ul .mainmenu__li .mainmenu__a:hover {
 
 .headarticle {
     height: 100vh;
-    min-height: 500px;
+    min-height: 600px;
     background: url("/imgs/parquet_background_01.jpg");
     background-attachment: fixed;
     background-size: cover;
@@ -438,6 +449,7 @@ menu .mainmenu__ul .mainmenu__li .mainmenu__a:hover {
     background-size: cover;
 /*    padding-top: 160px;*/
     position: relative;
+    padding: 0;
 }
 
 .headsection__body {
@@ -450,12 +462,16 @@ menu .mainmenu__ul .mainmenu__li .mainmenu__a:hover {
 }
 
 .headsection__body__left {
-    width: 35%;
+    flex: 4;
     height: 100%;
-    background: #12506f;
+/*    background: #12506f;*/
     position: relative;
+    padding-right: 10px;
+    background-image: linear-gradient(0deg,#484e5d 0,#343c50 100%);
+    background-color: #343c50;
 }
 
+/*
 .headsection__body__left::after {
     content: '';
     width: 100%;
@@ -469,10 +485,11 @@ menu .mainmenu__ul .mainmenu__li .mainmenu__a:hover {
     left: 20%;
     border-right: 7px solid rgba(0, 0, 0, 0.5);
 }
+*/
 
 .headsection__body__left h1 {
     position: absolute;
-    top: calc(40% - 35px);
+    top: 30%;
     color: #fff;
     font-size: 34px;
     text-transform: uppercase;
@@ -481,13 +498,155 @@ menu .mainmenu__ul .mainmenu__li .mainmenu__a:hover {
     letter-spacing: 2px;
     left: 50px;
     z-index: 1;
-    width: 110%;
+/*    width: 100%;*/
 }
 
-.headsection__body__right {
-    
+.headsection__body__left__text {
+    position: absolute;
+    top: 57%;
+    left: 50px;
+    font-size: 16px;
+    color: #fff;
+    z-index: 1;
+    font-weight: 200;
+}
+
+.headsection__body__left__text::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 200px;
+/*    left: calc(50% - 100px);*/
+    height: calc(100% + 40px);
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    top: -20px;
+}
+
+
+/*.headsection__body__left .main_btn {
+    position: absolute;
+    top: 80%;
+    color: #fff;
+    background: #fc8d41;
+    border: 2px solid #f96915;
+    border-bottom: 5px solid #f96915;
+    font-size: 18px;
+    font-weight: 400;
+    left: 50px;
+    margin: 0 auto;
+    z-index: 1;
+    transition: ease 0.5s;
+}*/
+
+.headsection__btn {
+    position: absolute;
+    top: 80%;    
+    left: 50px;
+    z-index: 1;
+    text-transform: uppercase;
+    width: 150%;
+}
+
+.headsection__body__left .main_btn {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0 auto;
+    transition: ease 0.5s;
+    padding: 0;
+}
+
+.headsection__body__left .main_btn .main_btn__left {
+    border-radius: 4px 0 0 4px;
+    background: #333;
+    color: #bababa;
+    display: inline-block;
+    padding: 10px 20px;
+    border-bottom: 5px solid #242424;
+    transition: ease 0.5s;
+}
+
+.headsection__body__left .main_btn .main_btn__right {
+    border-radius: 0 4px 4px 0;
+    color: #fff;
+    background: #fc8d41;
+    border-bottom: 5px solid #f96915;
+    display: inline-block;
+    padding: 10px;
+    margin-left: -5px;
+    transition: ease 0.5s;
+}
+
+.headsection__body__left .main_btn:hover,
+.headsection__body__left .help_btn:hover {
+/*    transform: scale(1.01);*/
+}
+
+.headsection__body__left .main_btn:hover .main_btn__right {
+    background: #ff9a55;
+    border-bottom: 5px solid #f8772c;
+    transition: ease 0.5s;
+}
+
+.headsection__body__left .main_btn:hover .main_btn__left {
+    background: #3c3c3c;
+    border-bottom: 5px solid #292929;
+    transition: ease 0.5s;
+}
+
+.headsection__body__left .help_btn {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    margin-left: 10px;
+    z-index: 1;
+    transition: ease 0.5s;
+    padding: 0;
+}
+
+.headsection__body__left .help_btn .help_btn__left {
+    border-radius: 4px 0 0 4px;
+    background: #333;
+    color: #bababa;
+    display: inline-block;
+    padding: 10px 20px;
+    border-bottom: 5px solid #242424;
+    transition: ease 0.5s;
+}
+
+.headsection__body__left .help_btn .help_btn__right {
+    border-radius: 0 4px 4px 0;
+    color: #fff;
+    background: #2685b5;
+    border-bottom: 5px solid #176084;
+    display: inline-block;
+    padding: 10px;
+    margin-left: -5px;
+    transition: ease 0.5s;
+}
+
+.headsection__body__left .help_btn:hover .help_btn__right {
+    background: #2992c7;
+    border-bottom: 5px solid #1b6a91;
+    transition: ease 0.5s;
+}
+
+.headsection__body__left .help_btn:hover .help_btn__left {
+    background: #3c3c3c;
+    border-bottom: 5px solid #292929;
+    transition: ease 0.5s;
+}
+
+.headsection__body__right {    
     height: 100%;
-    width: 65%;
+    flex: 4;
+}
+
+.headsection__body__left .main_btn,
+.headsection__body__left .help_btn {
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
 }
 
 .headsection h1 {
