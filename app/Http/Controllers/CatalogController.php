@@ -7,6 +7,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+
+
 class CatalogController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -16,11 +18,10 @@ class CatalogController extends BaseController
         
 //        echo __METHOD__;
         $output = 'Категория/раздел: '.$category.'.<br>Подкатегория: '.$subcategory.'.<br>Товар: '.$product;
-    if($parameter) {
-        $output .= '<br><b>Дополнительный необязательный параметр: '.$parameter.'<b>';
-    }
-    
-    echo $output;
-        
+        if($parameter) {
+            $output .= '<br><b>Дополнительный необязательный параметр: '.$parameter.'</b>';
+        }
+
+        echo $output;        
     }
 }

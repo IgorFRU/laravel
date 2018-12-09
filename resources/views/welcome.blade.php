@@ -72,6 +72,21 @@
                             
                             <li><a href="#" class="callme">Обратный звонок</a></li>
                         </ul>
+                        <div class="fastmenu__body__right">
+                            <div class="fastmenu__body__right__search">
+                                <i class="fas fa-search"></i>
+                                <div class="search__form">
+                                    <form action="">
+                                        <input type="search" placeholder="Поиск..." name="search">
+                                    </form>
+                                </div>
+                                
+                            </div>
+                            <div class="fastmenu__body__right__shopping_cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>5</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                                 
@@ -116,6 +131,15 @@
                     <li><a href="#">Подложка</a></li>
                     <li><a href="#">Прочее</a></li>
                 </ul>
+            </li>
+            <li class="mainmenu__li"><a href="#" class="mainmenu__a">Лестницы</a>
+<!--
+                <ul>
+                    <li><a href="#">Плинтус</a></li>
+                    <li><a href="#">Подложка</a></li>
+                    <li><a href="#">Прочее</a></li>
+                </ul>
+-->
             </li>
             <li class="mainmenu__li"><a href="#" class="mainmenu__a">Услуги</a>
                 <ul>
@@ -181,6 +205,123 @@
 -->
                 </section>
             </div>
+            <section class="top1">
+                <div class="wrap">
+                    <div class="top1__boxes">
+                        <div class="top1_box">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Паркет из тика в ванной комнате</p>
+                            </a>
+                        </div>
+                        <div class="top1_box">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Масла OSMO - отличная защита деревянных фасадов</p>
+                            </a>
+                        </div>
+                        <div class="top1_box">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Паркет из тика в ванной комнате</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="categories">
+                <div class="wrap">
+                   <h2>Категории товаров и услуг</h2>
+                    <div class="categories__boxes">
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
+                                <p>Паркетная доска</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">1571,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Трехслойная доска, пригодная как для полного приклеивания к основанию, так и для "плавающей" укладки. Возможна укладка на полы с подогревом. Паркетная доска обычно покрыта лаком или маслом.</span>
+                                    </div>
+                                </div>                  
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Массивная доска</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">1900,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Крупноформатный натуральный паркет. Срок службы - не менее 50 лет. Крепится только полным приклеиванием к фанере. Выпускается как без покрытия, так и обработанный на заводе лаком или маслом.</span>
+                                    </div>  
+                                </div>                     
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Паркет штучный</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">890,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Классический паркет как из классических, так и из экзотических пород дерева. Клеится на фанеру или очень качественную стяжку. Возможно тонирование лаками или маслами и восками.</span>
+                                    </div> 
+                                </div>
+                                                                
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Инженерная доска</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">3500,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Двухслойная доска, состоящая из ФСФ-ванеры и 4-6 миллиметрового слоя из ценных пород древесины. Возможна укладка на полы с подогремом, непосредственно на стяжку.</span>
+                                    </div> 
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Пробковый паркет</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">1791,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Натуральный паркет из коры португальского пробкового дуба. Пробковый паркет невероятно теплый и очень простой в уходе. Замковые и клеевые варианты исполнения.</span>
+                                    </div>  
+                                </div>                        
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section>
                 <div class="wrap content">
                     
