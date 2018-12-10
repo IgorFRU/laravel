@@ -181,7 +181,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="headsection__body__right">                                
+                            <div class="headsection__body__right">  
+                                <div class="temp_hum">
+                                    <div class="temp_hum__temp">
+                                        <p>18-22</p>
+                                        <span>идеальная температура воздуха для паркета</span>
+                                    </div>
+                                    <div class="temp_hum__hum">
+                                        <p>45-65</p>
+                                        <span>идеальная влажность воздуха для паркета</span>
+                                    </div>
+                                </div>                                                              
                             </div>
                         </div>
 <!--
@@ -231,7 +241,7 @@
             </section>
             <section class="categories">
                 <div class="wrap">
-                   <h2>Категории товаров и услуг</h2>
+                   <h2>Полы</h2>
                     <div class="categories__boxes">
                         <div class="categories__boxes__category">
                             <a href="#">
@@ -336,6 +346,9 @@
                                 </div>                        
                             </a>
                         </div>
+                    </div>
+                    <h2>Стены</h2>
+                    <div class="categories__boxes">
                         <div class="categories__boxes__category">
                             <a href="#">
                                 <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
@@ -387,6 +400,9 @@
                                 </div>                        
                             </a>
                         </div>
+                    </div>
+                    <h2>Химия</h2>
+                    <div class="categories__boxes">
                         <div class="categories__boxes__category">
                             <a href="#">
                                 <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
@@ -434,6 +450,77 @@
                                    </div>
                                    <div class="categories__boxes__category__info">
                                         <span>Сложнокомпонентные масла и воски от ведущих европейских производителей. Широкая линейка продуктов как для внутренних, так и для наружных работ. Простое нанесение и обслуживание.</span>
+                                    </div> 
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
+                                <p>Клей для пробки</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">2950,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Специальные контактные клеи для пробкового паркета (клеевого) и стеновых пробковых панелей.</span>
+                                    </div>  
+                                </div>                        
+                            </a>
+                        </div>
+                    </div>
+                    <h2>Погонаж и расходные материалы</h2>
+                    <div class="categories__boxes">
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Плинтус</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">250,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Шпонированный плинтус.</span>
+                                    </div> 
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
+                                <p>Подложка</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">50,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Только качественная проверенная подложка для настила под паркетную доску, ламинат и замковую пробку.</span>
+                                    </div>  
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Прочее</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">150,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Мелкие расходные материалы.</span>
                                     </div> 
                                 </div>                        
                             </a>

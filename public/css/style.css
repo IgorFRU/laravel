@@ -716,6 +716,27 @@ menu .mainmenu__ul .mainmenu__li .mainmenu__a:hover {
 .headsection__body__right {    
     height: 100%;
     flex: 4;
+    position: relative;
+}
+
+.temp_hum {
+    position: absolute;
+    
+    left: 0;
+    width: 360px;
+    top: 0;
+    transform: translate(50%, 250%);
+    display: flex;
+    flex-direction: row;
+}
+
+.temp_hum__temp {
+    background: #222;
+    color: #fff;
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+    text-align: center;
 }
 
 .headsection__body__left .main_btn,
@@ -870,11 +891,11 @@ section.categories .categories__boxes {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 section.categories .categories__boxes .categories__boxes__category {
-    width: 200px;
+    width: 250px;
     height: 200px;
     overflow: hidden;
     margin: 10px;
