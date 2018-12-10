@@ -216,7 +216,7 @@
                         </div>
                         <div class="top1_box">
                             <a href="#">
-                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
                                 <p>Масла OSMO - отличная защита деревянных фасадов</p>
                             </a>
                         </div>
@@ -269,7 +269,7 @@
                         </div>
                         <div class="categories__boxes__category">
                             <a href="#">
-                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
                                 <p>Паркет штучный</p>
                                 <div class="categories__boxes__category__price">
                                     от <span class="price">890,00</span> <i class="fas fa-ruble-sign"></i>
@@ -304,7 +304,7 @@
                         </div>
                         <div class="categories__boxes__category">
                             <a href="#">
-                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
                                 <p>Пробковый паркет</p>
                                 <div class="categories__boxes__category__price">
                                     от <span class="price">1791,00</span> <i class="fas fa-ruble-sign"></i>
@@ -316,6 +316,125 @@
                                    <div class="categories__boxes__category__info">
                                         <span>Натуральный паркет из коры португальского пробкового дуба. Пробковый паркет невероятно теплый и очень простой в уходе. Замковые и клеевые варианты исполнения.</span>
                                     </div>  
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Ламинат</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">650,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Довольно прочные, простые в укладке и эксплуатации полы. Качественный ламинат прекрасно эксплуатируется в офисных помещениях с высокой нагрузкой. Благодаря замковому соединению с монтажом ламината справится даже не очень подготовленные мастер.</span>
+                                    </div> 
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
+                                <p>Пробковые стеновые панели</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">900,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Натуральный паркет из коры португальского пробкового дуба. Пробковый паркет невероятно теплый и очень простой в уходе. Замковые и клеевые варианты исполнения.</span>
+                                    </div>  
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Ламинированные стеновые панели</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">3550,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Современное декоративное решение для стен. 3D исполнение, быстрый монтаж, все необходимые расходные материалы. Несколько вариантов декора.</span>
+                                    </div> 
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
+                                <p>Шпонированные стеновые панели</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">4450,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>2D и 3D шпонированные панели для стен из дуба (разные цвета) и экзотических пород дерева. Быстрый, простой монтаж, все необходимые аксессуары, отличное качество.</span>
+                                    </div>  
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Клей для паркета</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">3550,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Качественный паркетный клей - залог длительной эксплуатации паркетных полов, именно поэтому клей для паркета должен быть профессиональным от серьезного завода.</span>
+                                    </div> 
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
+                                <p>Лак для паркета</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">2950,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Большой выбор профессиональных паркетных лаков на разных основах и для разных нагрузок.</span>
+                                    </div>  
+                                </div>                        
+                            </a>
+                        </div>
+                        <div class="categories__boxes__category">
+                            <a href="#">
+                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <p>Масла и воски</p>
+                                <div class="categories__boxes__category__price">
+                                    от <span class="price">650,00</span> <i class="fas fa-ruble-sign"></i>
+                                </div>
+                                <div class="category__info">
+                                   <div class="info">
+                                       <i class="fas fa-info-circle"></i>
+                                   </div>
+                                   <div class="categories__boxes__category__info">
+                                        <span>Сложнокомпонентные масла и воски от ведущих европейских производителей. Широкая линейка продуктов как для внутренних, так и для наружных работ. Простое нанесение и обслуживание.</span>
+                                    </div> 
                                 </div>                        
                             </a>
                         </div>
