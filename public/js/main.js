@@ -21,6 +21,12 @@
 
 	
 	$(window).scroll(function() {
+		if($(window).scrollTop() > 100) {
+			$('.mainmenu__burger').addClass('active');
+		}
+		else {
+			$('.mainmenu__burger').removeClass('active');
+		}
 		if (!clickToSmall) {
 			if($(window).scrollTop() > oldScroll + 50) {
 				oldScroll = $(window).scrollTop();
