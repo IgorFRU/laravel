@@ -24,7 +24,7 @@ class AdminResource extends Controller
      */
     public function create()
     {
-        //
+        echo __METHOD__;
     }
 
     /**
@@ -33,6 +33,8 @@ class AdminResource extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
+    //метод, отрабатывающий после отправки форм (action=admin)
     public function store(Request $request)
     {
         print_r($_POST);
@@ -57,7 +59,7 @@ class AdminResource extends Controller
      */
     public function edit($id)
     {
-        //
+        echo __METHOD__;
     }
 
     /**

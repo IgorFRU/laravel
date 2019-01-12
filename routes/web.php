@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::resource('/admin', 'Admin\AdminResource');
 
-Route::get('/catalog/{category}', 'CatalogController@category')->name('category')->name('category');
+Route::get('/catalog/{category}', 'CatalogController@category')->name('category');
 
 Route::get('/catalog/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory');
 
