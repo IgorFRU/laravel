@@ -13,12 +13,16 @@ class CatalogController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
-    public function product($category, $subcategory, $product, $parameter = null) {
+    public function product($category, $subcategory, $product, $parameter = null) 
+    {
         //return 'Каталог товаров';
         
 //        echo __METHOD__;
-        $output = 'Категория/раздел: '.$category.'.<br>Подкатегория: '.$subcategory.'.<br>Товар: '.$product;
-        if($parameter) {
+        $output = 'Категория/раздел: '.$category.
+            '.<br>Подкатегория: '.$subcategory.
+            '.<br>Товар: '.$product;
+        if($parameter)
+        {
             $output .= '<br><b>Дополнительный необязательный параметр: '.$parameter.'</b>';
         }
 
