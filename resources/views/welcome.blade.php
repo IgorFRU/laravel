@@ -188,17 +188,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="headsection__body__right">  
-                                <div class="temp_hum">
-                                    <div class="temp_hum__temp">
-                                        <p>18-22</p>
-                                        <span>идеальная температура воздуха для паркета</span>
-                                    </div>
-                                    <div class="temp_hum__hum">
-                                        <p>45-65</p>
-                                        <span>идеальная влажность воздуха для паркета</span>
-                                    </div>
-                                </div>                                                              
+                            <div class="headsection__body__right">
                             </div>
                         </div>
 <!--
