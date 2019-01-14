@@ -1,22 +1,24 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Паркетный мир</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic-ext" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <title>Паркетный мир</title>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="js/main.js" defer></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 
-    </head>
-    <body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js" defer></script>
+
+</head>
+
+<body>
 
     <!-- MENU START -->
     <header>
@@ -35,8 +37,7 @@
 
 
                         <div>
-                            <li class="topmenu__work_today"><i class="fas fa-clock"></i>
-    Сегодня до 18:00</li>
+                            <li class="topmenu__work_today"><i class="fas fa-clock"></i> Сегодня до 18:00</li>
                             <div>
                                 <ul>
                                     <li>ПН-ПТ: 09:00 - 18:00</li>
@@ -55,21 +56,25 @@
             <div class="fastmenu">
                 <div class="wrap">
                     <div class="fastmenu__body">
-                       <div class="logo">
-                            <div class="logo__body"><a href="#"><h1>Паркетный Мир</h1></a></div>
+                        <div class="logo">
+                            <div class="logo__body">
+                                <a href="#">
+                                    <h1>Паркетный Мир</h1>
+                                </a>
+                            </div>
                             <div class="logo__tagline">все виды паркета в Крыму по лучшим ценам</div>
                         </div>
-                        <div class="fastmenu__location">                            
+                        <div class="fastmenu__location">
                             <ul>
-                                <li><i class="fas fa-map-marker-alt"></i>  Симферополь</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Симферополь</li>
                                 <li>пр. Победы, 129/2</li>
                             </ul>
                         </div>
                         <ul class="fastmenu__body__tel">
-                            
+
                             <li><a href="tel:+79788160166">8(978) 816 01 66</a></li>
                             <li class="fastmenu__body__tel__hide"><a href="tel:+79788808206">8(978) 880 82 06</a></li>
-                            
+
                             <li><a href="#" class="callme">Обратный звонок</a></li>
                         </ul>
                         <div class="fastmenu__body__right">
@@ -80,7 +85,7 @@
                                         <input type="search" placeholder="Поиск..." name="search">
                                     </form>
                                 </div>
-                                
+
                             </div>
                             <div class="fastmenu__body__right__shopping_cart">
                                 <i class="fas fa-shopping-cart"></i>
@@ -89,12 +94,12 @@
                         </div>
                     </div>
                 </div>
-                                
+
             </div>
             <div class="fastmenu__tosmall">
-                    <span></span>
-                    <span></span>
-                    <p>Паркетный мир</p>
+                <span></span>
+                <span></span>
+                <p>Паркетный мир</p>
             </div>
         </div>
     </header>
@@ -140,7 +145,7 @@
                 </ul>
             </li>
             <li class="mainmenu__li"><a href="#" class="mainmenu__a">Лестницы</a>
-<!--
+                <!--
                 <ul>
                     <li><a href="#">Плинтус</a></li>
                     <li><a href="#">Подложка</a></li>
@@ -163,53 +168,34 @@
         <article>
             <div class="headarticle">
                 <section class="headsection">
-                        <div class="headsection__body">
-                           <div class="headsection__body__left">
-                                <h1>Продажа, укладка и ремонт паркета в Крыму</h1>
-                                <h2 class="headsection__body__left__text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam molestiae commodi non reprehenderit incidunt ex, beatae placeat, deleniti, cum veritatis amet nihil animi tenetur. Quasi repellat itaque, blanditiis nobis! Libero?
-                                </h2>
-                                <div class="headsection__btn">
-                                    <div class="btn main_btn">
-                                       <div class="main_btn__left">
-                                           <i class="fas fa-ruble-sign"></i>
-                                       </div>
-                                       <div class="main_btn__right">
-                                           Сделать заказ
-                                       </div>
+                    <div class="headsection__body">
+                        <div class="headsection__body__left">
+                            <h1>Продажа, укладка и ремонт паркета в Крыму</h1>
+                            <h2 class="headsection__body__left__text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam molestiae commodi non reprehenderit incidunt ex, beatae placeat, deleniti, cum veritatis amet nihil animi tenetur. Quasi repellat itaque, blanditiis nobis! Libero?
+                            </h2>
+                            <div class="headsection__btn">
+                                <div class="btn main_btn">
+                                    <div class="main_btn__left">
+                                        <i class="fas fa-ruble-sign"></i>
                                     </div>
-                                    <div class="btn help_btn">
-                                       <div class="help_btn__left">
-                                           <i class="fas fa-question"></i>
-                                       </div>
-                                       <div class="help_btn__right">
-                                           Консультация
-                                       </div>
+                                    <div class="main_btn__right">
+                                        Сделать заказ
+                                    </div>
+                                </div>
+                                <div class="btn help_btn">
+                                    <div class="help_btn__left">
+                                        <i class="fas fa-question"></i>
+                                    </div>
+                                    <div class="help_btn__right">
+                                        Консультация
                                     </div>
                                 </div>
                             </div>
-                            <div class="headsection__body__right">
-                            </div>
                         </div>
-<!--
-                        <div class="headsection__boxes">
-                            <div class="headsection__box">
-                                
-                            </div>
-                            <div class="headsection__box">
-                                
-                            </div>
-                            <div class="headsection__box">
-                                
-                            </div>
-                            <div class="headsection__box">
-                                
-                            </div>
-                            <div class="headsection__box">
-                                
-                            </div>
+                        <div class="headsection__body__right">
                         </div>
--->
+                    </div>
                 </section>
             </div>
             <section class="top1">
@@ -238,7 +224,7 @@
             </section>
             <section class="categories">
                 <div class="wrap">
-                   <h2>Полы</h2>
+                    <h2>Полы</h2>
                     <div class="categories__boxes">
                         <div class="categories__boxes__category">
                             <a href="#">
@@ -527,9 +513,9 @@
             </section>
             <section>
                 <div class="wrap content">
-                    
+
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti perspiciatis labore laudantium, excepturi maiores, optio fugiat, aut atque totam, accusantium corporis animi. Obcaecati quidem voluptatum, corrupti earum beatae repudiandae aperiam!
-                    
+
                     <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus veniam rem fugiat vitae laboriosam, ipsam magni, accusamus hic, repellat reprehenderit eius voluptatibus error commodi sunt libero veritatis officia, nemo dicta.</div>
                     <div>Quos porro obcaecati, libero ut, rerum itaque, iusto amet consequuntur quaerat consectetur, dolore voluptatem aperiam eligendi necessitatibus. Natus voluptatibus, quibusdam voluptates praesentium autem eaque illum temporibus adipisci quas sunt molestias?</div>
                     <div>Natus necessitatibus temporibus pariatur nisi reiciendis assumenda nobis, molestiae vel laudantium magnam voluptates quam maiores ipsa doloribus, labore illo iure sequi earum, minima quos! Explicabo et minima, blanditiis autem voluptatibus!</div>
@@ -559,10 +545,10 @@
             </section>
         </article>
         <aside>
-            
+
         </aside>
     </main>
-<!--
+    <!--
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -590,5 +576,6 @@
             </div>
         </div>
 -->
-    </body>
+</body>
+
 </html>

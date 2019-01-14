@@ -22,13 +22,7 @@ Route::get('/catalog/{category}', 'CatalogController@category')->name('category'
 
 Route::get('/catalog/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory');
 
-Route::get('/catalog/{category}/{subcategory}/{product}/{parameter?}', 'CatalogController@product')->name('product');
-
-
-
-//Route::get('/{category}',function($category){
-//  echo 'Category: '.$category;
-//});
+Route::get('/catalog/category-{category}/{subcategory}/{product}/{parameter?}', 'CatalogController@product')->name('product');
 
 /*
 Route::get('/{category}/{subcategory}/{product}/{parameter?}',function($category, $subcategory, $product, $parameter = null){
@@ -49,6 +43,6 @@ Route::get('contacts', 'Controller@contacts');
 
 
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
