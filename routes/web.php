@@ -10,9 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function(){
+    Route::get('/', 'CoreController@core')->name('admin.core');
+});
 
 Route::get('/', function () {
-//    return view('welcome');
     $data = [
         'title' => 'Паркетный мир - Симферополь',
         'description' => 'Все виды паркета в Крыму по лучшим ценам'
@@ -21,7 +23,7 @@ Route::get('/', function () {
     return view('welcome', $data);
 });
 
-Route::resource('/admin', 'Admin\AdminResource');
+//Route::resource('/admin', 'Admin\AdminResource');
 
 Route::get('/catalog/{category}', 'CatalogController@category')->name('category');
 
@@ -42,12 +44,14 @@ Route::get('/{category}/{subcategory}/{product}/{parameter?}',function($category
 
 Route::get('contacts', 'Controller@contacts');
 
-//Route::get('login', function() {
-//  // code here
-//})->name('login');
+Route::get('login', function() {
+  // code here
+})->name('login');
 
 
 
-//Auth::routes();
+Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home', 'HomeController@index')->name('home');
