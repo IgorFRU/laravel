@@ -13,14 +13,19 @@
 
 Route::get('/', function () {
 //    return view('welcome');
-    return view('welcome');
+    $data = [
+        'title' => 'Паркетный мир - Симферополь',
+        'description' => 'Все виды паркета в Крыму по лучшим ценам'
+    ];
+    $data['breadcrumbs'] = \Request::get('breadcrumbs');
+    return view('welcome', $data);
 });
 
 Route::resource('/admin', 'Admin\AdminResource');
 
 Route::get('/catalog/{category}', 'CatalogController@category')->name('category');
 
-Route::get('/catalog/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory');
+Route::get('/catalog/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory')->middleware('breadcrumbs');
 
 Route::get('/catalog/category-{category}/{subcategory}/{product}/{parameter?}', 'CatalogController@product')->name('product');
 

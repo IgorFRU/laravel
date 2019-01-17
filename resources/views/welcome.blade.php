@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Паркетный мир</title>
+    <title>{{$title. '. ' . $description}}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic-ext" rel="stylesheet">
@@ -200,10 +200,11 @@
             </div>
             <section class="top1">
                 <div class="wrap">
+                   {{var_dump(today())}}
                     <div class="top1__boxes">
                         <div class="top1_box">
                             <a href="#">
-                                <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
+                                <img src={{asset('imgs/Tikovyie-polyi-v-vannoy.jpg')}} alt="">
                                 <p>Паркет из тика в ванной комнате</p>
                             </a>
                         </div>
