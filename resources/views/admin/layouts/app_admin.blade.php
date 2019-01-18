@@ -12,6 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://use.fontawesome.com/564e0d687f.js"></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,6 +22,7 @@
     <!-- Styles -->
     <!--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
     <link href="{{ asset('css/admin/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
 
 <body>
@@ -49,14 +52,36 @@
             <ul>
                 Магазин
                 <div class="submenu">
-                    <li><a href="#">Категории товаров</a></li>
-                    <li><a href="#">Товары</a></li>
-                    <li><a href="#">Производители</a></li>
+                    <li><a href="#">Категории товаров</a><span class="count normal_count">9</span></li>
+                    <li><a href="#">Товары</a><span class="count normal_count">980</span></li>
+                    <li><a href="#">Производители</a><span class="count normal_count">19</span></li>
+                    <li><a href="#">Характеристики</a></li>
                     <li><a href="#">Валюты</a></li>
+                    <span class="separate"></span>
+                    <li><a href="#">Заказы</a><span class="count alert_count">19</span></li>
+                    <li><a href="#">Вопросы</a><span class="count alert_count">19</span></li>
+                    <li><a href="#">Комментарии</a><span class="count normal_count">19</span></li>
                 </div>
+            </ul>
+            <ul>
+                <a href="#">Статистика</a>
+
             </ul>
         </div>
         <div class="navbar__right">
+            <ul class="currency">
+                <div class="currency__today">
+                    Сегодня
+                    <span class="currency__child"><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">58.65</span><span class="currency__red"></span></span>
+                    <span class="currency__child"><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">68.65</span><span class="currency__green"></span></span>
+                </div>
+                <div class="currency__tomorrow submenu">
+                    Завтра
+                    <span><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">58.65</span></span>
+                    <span><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">68.65</span></span>
+                </div>
+            </ul>
+            <ul><a class="nav-link" href="{{ route('mainpage') }}">Перейти на сайт</a></ul>
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
@@ -86,7 +111,13 @@
                     </div>
                 </li>
                 @endguest
+
+
+
+
+
             </ul>
+
         </div>
     </nav>
 

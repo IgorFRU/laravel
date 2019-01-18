@@ -21,7 +21,7 @@ Route::get('/', function () {
     ];
     $data['breadcrumbs'] = \Request::get('breadcrumbs');
     return view('welcome', $data);
-});
+})->name('mainpage');
 
 //Route::resource('/admin', 'Admin\AdminResource');
 
