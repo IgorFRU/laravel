@@ -23,13 +23,18 @@ class CreateProductsTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 32);
+            $table->string('img', 32);
+            $table->string('alias')->unique();
             $table->timestamps();
         });
         
         Schema::create('subcategories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 32);
-            $table->smallinteger('category_id');
+            $table->string('img', 32);
+            $table->integer('category_id')->nullable();
+            $table->string('alias')->unique();
+            $table->tinyInteger('show')->nullable();
             $table->timestamps();
         });
         
@@ -86,17 +91,17 @@ class CreateProductsTable extends Migration
             $table->integer('manufacturer_id')->unsigned()->nullable();
             $table->integer('price')->unsigned()->nullable();
             $table->integer('currency_id')->unsigned();
-            $table->smallinteger('sale')->nullable();
+            $table->integer('sale')->nullable();
             $table->integer('sale_type')->unsigned()->nullable();
             $table->string('short_description', 255)->nullable();
             $table->text('description')->nullable();
             $table->string('meta', 255)->nullable();
-            $table->boolean('show');
-            $table->boolean('recomended');
-            $table->boolean('for_sale');
-            $table->boolean('sample');
+            $table->tinyInteger('show')->nullable();
+            $table->boolean('recomended')->nullable();
+            $table->boolean('for_sale')->nullable();
+            $table->boolean('sample')->nullable();
             $table->integer('unit')->unsigned()->nullable();
-            $table->boolean('packaging_sales');
+            $table->boolean('packaging_sales')->nullable();
             $table->decimal('in_package', 6, 3)->nullable();
             $table->timestamps();    
         });        
