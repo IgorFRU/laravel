@@ -424,7 +424,100 @@ body {
     margin-right: 10px;
 }
 
-.content {
+.content90 {
+    margin: 0 auto;
     margin-top: 40px;
     padding: 20px;
+    width: 90%;
+}
+
+.grey_box {
+    background: #ddd;
+    border-radius: 5px;
+/*    border: 1px solid rgba(0, 0, 0, 0.1);*/
+    box-sizing: border-box;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.light_grey_box {
+    background: #efefef;
+    border-radius: 5px;
+/*    border: 1px solid rgba(0, 0, 0, 0.1);*/
+    box-sizing: border-box;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.categories {
+    width: 100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    /*    padding: 10px;*/
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+    margin-top: 50px;
+}
+
+.categories__title {
+    position: absolute;
+    top: -60px;
+    letter-spacing: 0.02em;
+}
+
+.category {
+    width: 30%;
+    height: 50px;
+    margin: 10px 1.66%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    cursor: pointer;
+    color: #636b6f;
+}
+
+.category__title {
+    width: 50%;
+    line-height: 50px;
+/*    border-right: 1px solid rgba(0, 0, 0, 0.1);*/
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.category__detail_watches,
+.category__detail_items {
+    width: 25%;
+    line-height: 50px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+    display: block;
+}
+
+.category__detail_watches {
+/*    border-right: 1px solid rgba(0, 0, 0, 0.1);*/
+}
+
+.category__detail_watches i,
+.category__detail_items i {
+    padding-right: 10px;
+}
+
+.category__watches_count {
+    text-align: center;
+    display: block;
+}
+
+.category__items_count {
+    text-align: center;
+    display: block;
 }

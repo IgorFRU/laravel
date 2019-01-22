@@ -77,12 +77,12 @@
                 </div>
                 <div class="currency__tomorrow submenu">
                     Завтра
-                    <span><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">58.65</span></span>
-                    <span><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">68.65</span></span>
+                    <span><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">59.65</span></span>
+                    <span><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">67.65</span></span>
                 </div>
             </ul>
             <ul><a class="nav-link" href="{{ route('mainpage') }}">Перейти на сайт</a></ul>
-            <ul class="navbar-nav ml-auto">
+            <ul>
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">
@@ -94,13 +94,13 @@
                 </li>
                 @endif
                 @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <ul>
+                    <a href="#">
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <div class="submenu">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
@@ -109,7 +109,7 @@
                             @csrf
                         </form>
                     </div>
-                </li>
+                </ul>
                 @endguest
 
 
@@ -121,7 +121,7 @@
         </div>
     </nav>
 
-    <main class="content">
+    <main class="content90">
         @yield('content')
     </main>
 
