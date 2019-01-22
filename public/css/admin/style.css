@@ -230,7 +230,8 @@ li {
 }
 
 body {
-    font-family: Raleway, sans-serif;
+    /*    font-family: Raleway, sans-serif;*/
+    font-family: sans-serif;
     font-size: 14px;
     line-height: 1.6;
     color: #636b6f;
@@ -284,6 +285,7 @@ body {
     -ms-flex-direction: row;
     -o-flex-direction: row;
     flex-direction: row;
+    z-index: 1;
 }
 
 .navbar__left,
@@ -434,7 +436,7 @@ body {
 .grey_box {
     background: #ddd;
     border-radius: 5px;
-/*    border: 1px solid rgba(0, 0, 0, 0.1);*/
+    border: 1px solid rgba(120, 120, 120, 0.1);
     box-sizing: border-box;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
@@ -442,7 +444,7 @@ body {
 .light_grey_box {
     background: #efefef;
     border-radius: 5px;
-/*    border: 1px solid rgba(0, 0, 0, 0.1);*/
+    border: 1px solid rgba(156, 156, 156, 0.1);
     box-sizing: border-box;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
@@ -463,19 +465,31 @@ body {
     justify-content: flex-start;
     flex-wrap: wrap;
     position: relative;
-    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 .categories__title {
-    position: absolute;
-    top: -60px;
+    /*    position: absolute;*/
+    /*    top: -60px;*/
+    display: block;
+    width: 100%;
+    padding: 10px;
+    padding-left: 22px;
+    margin: 0;
+    margin-bottom: 10px;
+    background: #fbfbfb;
     letter-spacing: 0.02em;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid rgba(59, 59, 59, 0.1);
 }
 
-.category {
+.category,
+.subcategory,
+.subcategory__info {
     width: 30%;
     height: 50px;
     margin: 10px 1.66%;
+    margin-top: 0;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -485,26 +499,38 @@ body {
     color: #636b6f;
 }
 
-.category__title {
+.category__title,
+.subcategory__title {
     width: 50%;
     line-height: 50px;
-/*    border-right: 1px solid rgba(0, 0, 0, 0.1);*/
+    /*    border-right: 1px solid rgba(0, 0, 0, 0.1);*/
     padding: 0 10px;
     box-sizing: border-box;
+    word-break: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .category__detail_watches,
-.category__detail_items {
+.category__detail_items,
+
+.subcategory__detail_watches,
+.subcategory__detail_items {
     width: 25%;
     line-height: 50px;
-    padding: 0 10px;
+    padding: 0 5px;
     box-sizing: border-box;
-    text-align: center;
+    text-align: left;
     display: block;
+    word-break: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .category__detail_watches {
-/*    border-right: 1px solid rgba(0, 0, 0, 0.1);*/
+    /*    border-right: 1px solid rgba(0, 0, 0, 0.1);*/
 }
 
 .category__detail_watches i,
@@ -520,4 +546,46 @@ body {
 .category__items_count {
     text-align: center;
     display: block;
+}
+
+.subcategory {
+    height: 200px;
+    display: block;
+    overflow: hidden;
+}
+
+.subcategory .category__img {
+    width: 100%;
+    height: 130px;
+    overflow: hidden;
+    position: relative;
+}
+
+.subcategory .category__img img {
+    min-height: 100%;
+    max-width: 100%;
+    transform: translateY(-25%);
+}
+
+.subcategory p{
+    margin: 0;
+    margin: 5px 10px;
+    color: #999;
+}
+
+.subcategory__info {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.subcategory__title,
+.subcategory__detail_watches,
+.subcategory__detail_items {
+    line-height: 35px;
+}
+
+.subcategory__detail_watches i,
+.subcategory__detail_items i {
+    padding-right: 10px;
 }
