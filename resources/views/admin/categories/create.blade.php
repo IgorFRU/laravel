@@ -8,12 +8,13 @@
         @slot('active') Категории @endslot
     @endcomponent
     
-    <form action="{{route('admin.category.store')}}" method="post">
-        @csrf
-        
-        {{-- Forme include --}}
-        
-        @include('admin.categories.partials.form')
-    </form>
+    <div class="categories light_grey_box">
+        <form action="{{route('admin.category.store')}}" method="post">
+            @csrf
 
+            {{-- Forme include --}}
+
+            @include('admin.categories.partials.form')
+        </form>
+    </div>
 @endsection
