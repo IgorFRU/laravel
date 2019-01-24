@@ -9,7 +9,7 @@ class Product extends Model
     protected $guarded = ['id', 'inner_scu', 'alias', 'created_at', 'created_at'];
     
     public function categories() {
-        return $this->belongsTo("app\Product");
+        return $this->belongsTo("app\Subcategory");
     }
     
     public function currencies() {

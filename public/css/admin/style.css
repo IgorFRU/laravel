@@ -433,12 +433,52 @@ body {
     width: 90%;
 }
 
+.pagination {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+}
+
+.pagination li {
+    margin-right: 5px;
+}
+
+.pagination li a,
+.pagination li span {
+    padding: 5px 10px;
+    display: block;
+}
+
+.pagination_active {
+    color: #fff;
+}
+
+.pagination_normal a{
+    color: #333;
+}
+
+.pagination_normal:hover {
+    background: #404040;
+}
+
+.pagination_normal:hover a{
+    color: #fff;
+}
+
 .grey_box {
     background: #ddd;
     border-radius: 5px;
     border: 1px solid rgba(120, 120, 120, 0.1);
     box-sizing: border-box;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .light_grey_box {
@@ -447,6 +487,16 @@ body {
     border: 1px solid rgba(156, 156, 156, 0.1);
     box-sizing: border-box;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.dark_grey_box {
+    background: #404040;
+    border-radius: 5px;
+    border: 1px solid rgba(60, 60, 60, 0.1);
+    box-sizing: border-box;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .categories {
@@ -570,6 +620,25 @@ body {
 
 .category__detail_control {
     width: 10%;
+    text-align: center;
+}
+
+.category__detail_control.edit:hover {
+    background: #24597b;
+    transition: 0.3s;
+}
+
+
+.category__detail_control.delete:hover {
+    background: #7b2424;
+    transition: 0.3s;
+}
+
+
+.category__detail_control.edit:hover a,
+.category__detail_control.delete:hover a{
+    color: #ddd;
+    transition: 0.3s;
 }
 
 .category__detail_watches {

@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('admin.categories.index', [
-            'categories' => Category::paginate(2)
+            'categories' => Category::paginate(10)
         ]);
     }
 
@@ -27,7 +27,13 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create', [
+            'category' => [],
+            //коллекция вложенных подкатегорий
+            'categories' => Category::with('children')->where('parent_id', '0')->get(),
+            //символ, обозначающий вложенность категорий
+            'delimiter' => ''
+        ]);
     }
 
     /**
@@ -38,7 +44,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //метод для массовго заполнения
+        Category::create($request->all());
+        
+        return redirect()->route('admin.category.index');
     }
 
     /**
