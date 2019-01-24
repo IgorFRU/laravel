@@ -52,7 +52,8 @@
             <ul>
                 Магазин
                 <div class="submenu">
-                    <li><a href="#">Категории товаров</a><span class="count normal_count">9</span></li>
+                    <li><a href="{{route('admin.category.index')}}">Категории</a><span class="count normal_count">9</span></li>
+                    <li><a href="#">Подкатегории</a><span class="count normal_count">29</span></li>
                     <li><a href="#">Товары</a><span class="count normal_count">980</span></li>
                     <li><a href="#">Производители</a><span class="count normal_count">19</span></li>
                     <li><a href="#">Характеристики</a></li>

@@ -483,20 +483,49 @@ body {
     border-bottom: 1px solid rgba(59, 59, 59, 0.1);
 }
 
+.categories .category__add {
+    position: absolute;
+    right: 22px;
+    top: 10px;
+    padding: 5px 10px;
+    background: #8fc2d7;
+    color: #fff;
+}
+
 .category,
 .subcategory,
 .subcategory__info {
-    width: 30%;
     height: 50px;
-    margin: 10px 1.66%;
+    margin: 10px 2.5%;
     margin-top: 0;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
     display: -o-flex;
     display: flex;
-    cursor: pointer;
     color: #636b6f;
+}
+
+.category {
+    width: 45%;
+}
+
+.category a {
+    color: #636b6f;
+    display: block;
+}
+
+.category .edit a {
+    color: #24597b;
+}
+
+.category .delete a {
+    color: #7b2424;
+}
+
+.subcategory,
+.subcategory__info {
+    width: 30%;
 }
 
 .category__title,
@@ -516,8 +545,9 @@ body {
 .category__detail_items,
 
 .subcategory__detail_watches,
-.subcategory__detail_items {
-    width: 25%;
+.subcategory__detail_items,
+
+.category__detail_control {
     line-height: 50px;
     padding: 0 5px;
     box-sizing: border-box;
@@ -527,6 +557,19 @@ body {
     white-space: nowrap;
     overflow: hidden;
     word-wrap: break-word;
+}
+
+
+.category__detail_watches,
+.category__detail_items,
+
+.subcategory__detail_watches,
+.subcategory__detail_items {
+    width: 15%;
+}
+
+.category__detail_control {
+    width: 10%;
 }
 
 .category__detail_watches {
@@ -567,7 +610,7 @@ body {
     transform: translateY(-25%);
 }
 
-.subcategory p{
+.subcategory p {
     margin: 0;
     margin: 5px 10px;
     color: #999;

@@ -26,9 +26,12 @@
         <span class="category__detail_items"><i class="fa fa-th-large" aria-hidden="true"></i>1356</span>
     </a>
     <a href="#" class="category grey_box">
+
         <div class="category__title">Название категории</div>
         <span class="category__detail_watches"><i class="fa fa-eye" aria-hidden="true"></i> 356</span>
         <span class="category__detail_items"><i class="fa fa-th-large" aria-hidden="true"></i>36</span>
+        <span class="category__detail_control edit"><a href="#"><i class="fas fa-pencil-alt">rr</i></a></span>
+        <span class="category__detail_control delete"><a href="#"><i class="far fa-trash-alt">rr</i></a></span>
     </a>
 </div>
 
