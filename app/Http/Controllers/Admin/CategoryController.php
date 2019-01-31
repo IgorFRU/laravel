@@ -69,7 +69,13 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', [
+            'category' => $category,
+            //коллекция вложенных подкатегорий
+            'categories' => Category::with('children')->where('parent_id', '0')->get(),
+            //символ, обозначающий вложенность категорий
+            'delimiter' => ''
+        ]);
     }
 
     /**
@@ -81,7 +87,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->except('alias'));
+
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -92,6 +100,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.category.index');
     }
 }
