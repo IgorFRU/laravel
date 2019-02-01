@@ -1,6 +1,6 @@
 <div class="grey_box">
 <label for="">Статус</label>
-<select name="show" id="">
+<select name="published" id="">
     
     @if(isset($category->id))
         <option value="0" @if($category->published == 0) selected="" @endif>
@@ -25,7 +25,7 @@
 <label for="">Алиас</label>
 <input type="text" name="alias" value="
     {{$category->alias ?? ""}}
-">
+" readonly>
 </div>
 <div class="grey_box">
 <label for="">Родительская категория</label>

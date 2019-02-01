@@ -460,7 +460,7 @@ body {
     color: #fff;
 }
 
-.pagination_normal a{
+.pagination_normal a {
     color: #333;
 }
 
@@ -468,7 +468,7 @@ body {
     background: #404040;
 }
 
-.pagination_normal:hover a{
+.pagination_normal:hover a {
     color: #fff;
 }
 
@@ -631,12 +631,13 @@ body {
 
 .category__detail_control.delete:hover {
     background: #7b2424;
+    color: #ddd;
     transition: 0.3s;
 }
 
 
 .category__detail_control.edit:hover a,
-.category__detail_control.delete:hover a{
+.category__detail_control.delete:hover a {
     color: #ddd;
     transition: 0.3s;
 }
@@ -700,4 +701,26 @@ body {
 .subcategory__detail_watches i,
 .subcategory__detail_items i {
     padding-right: 10px;
+}
+
+.unpublished {
+    background: #fff6d4;
+}
+
+.delete_mini_form {
+    width: 20%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+
+.delete_mini_form .category__detail_control {
+    width: 50%;
+}
+
+.delete_mini_form button {
+    background: none;
+    border: none;
 }

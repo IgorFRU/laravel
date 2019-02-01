@@ -15,8 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
+
         return view('admin.categories.index', [
-            'categories' => Category::paginate(10)
+            'categories' => Category::paginate(10),
+            'published' => Category::where('published', 1)->count(),
+            'unpublished' => Category::where('published', 0)->count()
         ]);
     }
 
@@ -45,6 +48,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //метод для массовго заполнения
+
         Category::create($request->all());
         
         return redirect()->route('admin.category.index');
@@ -101,6 +105,9 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('admin.category.index');
+        //Category::destroy($category['id']);
+
+        return redirect()->back()->with('success', 'Категория успешно удалена');
+        //return redirect()->route('admin.category.index');
     }
 }
