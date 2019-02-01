@@ -22,21 +22,14 @@ class CreateProductsTable extends Migration
         
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 32);
+            $table->unsignedInteger('parent_id');
+            $table->string('title', 64);
             $table->string('img', 32);
-            $table->string('alias')->unique();
+            $table->string('alias');
+            $table->tinyInteger('published')->default(1);
             $table->timestamps();
         });
         
-        Schema::create('subcategories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title', 32);
-            $table->string('img', 32);
-            $table->integer('category_id')->nullable();
-            $table->string('alias')->unique();
-            $table->tinyInteger('show')->nullable();
-            $table->timestamps();
-        });
         
         //обозначение валюты
         Schema::create('currencies', function (Blueprint $table) {

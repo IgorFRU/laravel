@@ -14,7 +14,7 @@ class Category extends Model
     
     //Mutators
     public function setAliasAttribute($value) {
-        $this->attributes['alias'] = Str::slug(mb_substr($this->title, 0, 40) . "-", "-");
+        $this->attributes['alias'] = Str::slug(mb_substr($this->title, 0, 60) . "-", "-");
         
         $double = Category::where('alias', $this->attributes['alias'])->first();
 

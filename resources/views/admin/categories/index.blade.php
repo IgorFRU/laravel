@@ -25,9 +25,10 @@
             <a href="{{route('admin.category.create')}}" class="category__add grey_box">Создать категорию</a>
             @forelse ($categories as $category)
 
-                <div @if(!$category->published) class="category grey_box unpublished" @else class="category grey_box" @endif>
+                <div @if(!$category->published) class="category grey_box unpublished" @else class="category white_box" @endif>
                     <div class="category__title">
-                        <a href="{{route('admin.category.show', $category)}}">{{$category->title}}</a>
+                        <a href="{{route('admin.category.show', $category)}}"><span>{{$category->title}}</span></a>
+                        <div class="tooltip">{{$category->title}}</div>
                     </div>
                     <span class="category__detail_watches"><i class="fa fa-eye" aria-hidden="true"></i>99999</span>
                     <span class="category__detail_items"><i class="fa fa-th-large" aria-hidden="true"></i>2500</span>

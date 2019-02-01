@@ -51,7 +51,8 @@ class CategoryController extends Controller
 
         Category::create($request->all());
         
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->with('success', 'Категория успешно добавлена');
+        //return redirect()->back()->with('success', 'Категория успешно сохранена');
     }
 
     /**
@@ -93,7 +94,8 @@ class CategoryController extends Controller
     {
         $category->update($request->except('alias'));
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->with('success', 'Категория успешно изменена');
+        //return redirect()->back()->with('success', 'Категория успешно изменена');
     }
 
     /**

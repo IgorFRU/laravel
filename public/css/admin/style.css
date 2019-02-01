@@ -472,13 +472,21 @@ body {
     color: #fff;
 }
 
+.white_box {
+    background: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
 .grey_box {
     background: #ddd;
     border-radius: 5px;
-    border: 1px solid rgba(120, 120, 120, 0.1);
+/*    border: 1px solid rgba(120, 120, 120, 0.1);*/
+    border: none;
     box-sizing: border-box;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    /*    overflow: hidden;*/
 }
 
 .light_grey_box {
@@ -531,7 +539,9 @@ body {
     letter-spacing: 0.02em;
     border-radius: 5px 5px 0 0;
     border-bottom: 1px solid rgba(59, 59, 59, 0.1);
+    position: relative;
 }
+
 
 .categories .category__add {
     position: absolute;
@@ -563,6 +573,7 @@ body {
 .category a {
     color: #636b6f;
     display: block;
+    overflow: hidden;
 }
 
 .category .edit a {
@@ -587,8 +598,21 @@ body {
     box-sizing: border-box;
     word-break: normal;
     white-space: nowrap;
-    overflow: hidden;
+    /*    overflow: hidden;*/
     word-wrap: break-word;
+    position: relative;
+}
+
+.category__title .tooltip {
+    display: none;
+    position: absolute;
+    top: -25px;
+    background: #efefef;
+    line-height: normal;
+    padding: 5px 10px;
+    border-radius: 5px;
+    left: 0px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 .category__detail_watches,
@@ -624,13 +648,13 @@ body {
 }
 
 .category__detail_control.edit:hover {
-    background: #24597b;
+    background: #61a7d4;
     transition: 0.3s;
 }
 
 
 .category__detail_control.delete:hover {
-    background: #7b2424;
+    background: #d26666;
     color: #ddd;
     transition: 0.3s;
 }
@@ -704,8 +728,9 @@ body {
 }
 
 .unpublished {
-    background: #fff6d4;
+    background: #404040;
 }
+
 
 .delete_mini_form {
     width: 20%;
@@ -723,4 +748,20 @@ body {
 .delete_mini_form button {
     background: none;
     border: none;
+    border-radius: 0 5px 5px 0;
+    color: #d26666;
+}
+
+.alert-success {
+    display: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #96c5a4;
+    display: inline-block;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
 }
