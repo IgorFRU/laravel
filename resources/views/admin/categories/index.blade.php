@@ -12,13 +12,13 @@
 
 
     <div>
-       @if (Session::has('success'))
-    <div class="alert alert-success">
-
-            {!! Session::get('success') !!}
-
-    </div>
-    @endif
+       
+        @if (Session::has('success'))
+            <div class="alert alert-success">
+        {!! Session::get('success') !!}
+            </div>
+        @endif
+        
         <div class="categories light_grey_box">
             <h2 class="categories__title">Категории ({{$published}}/{{$unpublished}})</h2>
 
@@ -45,7 +45,7 @@
                     </form>
 
     <!--                <span class="category__detail_control delete"><a href="{{route('admin.category.destroy', ['id'=>$category->id])}}"><i class="far fa-trash-alt"></i></a></span>-->
-                </div>
+                </div>    
 
             @empty
                 <div>Категорий нет</div>

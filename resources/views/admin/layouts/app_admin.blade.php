@@ -18,7 +18,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title }}</title>
+<!--    <title>{{ config('app.name', 'Laravel') }}</title>-->
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -39,6 +40,7 @@
 <body>
 
     <nav class="navbar">
+       @section('menu')
         <!--
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -63,7 +65,9 @@
             <ul>
                 Магазин
                 <div class="submenu">
-                    <li><a href="{{route('admin.category.index')}}">Категории</a><span class="count normal_count">{{Parquet\Category::where('published', 1)->count()}}</span></li>
+                    <li><a href="{{ route('admin.category.index') }}">Категории</a>
+                        <span class="count normal_count">{{ $published }}</span>
+                    </li>
 
                     <li><a href="#">Товары</a><span class="count normal_count">980</span></li>
                     <li><a href="#">Производители</a><span class="count normal_count">19</span></li>
@@ -131,12 +135,15 @@
             </ul>
 
         </div>
+        @show
     </nav>
 
     <main class="content90">
         @yield('content')
     </main>
-
+    @section('footer')
+        Footer
+    @show
 </body>
 
 </html>

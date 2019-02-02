@@ -15,12 +15,16 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
-        return view('admin.categories.index', [
-            'categories' => Category::paginate(10),
+        $data = array (            
+            'title' => 'АДМИН - Паркетный мир - Категории',
+            'categories' => Category::orderBy('published', 'DESC')
+                                    ->orderBy('id', 'ASC')
+                                    ->paginate(10),
             'published' => Category::where('published', 1)->count(),
             'unpublished' => Category::where('published', 0)->count()
-        ]);
+        );
+
+        return view('admin.categories.index', $data);
     }
 
     /**
@@ -74,13 +78,17 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', [
+        $data = array (            
+            'title' => 'АДМИН - Паркетный мир - Категории',
             'category' => $category,
+            'published' => Category::where('published', 1)->count(),
             //коллекция вложенных подкатегорий
             'categories' => Category::with('children')->where('parent_id', '0')->get(),
             //символ, обозначающий вложенность категорий
             'delimiter' => ''
-        ]);
+        );
+        
+        return view('admin.categories.edit', $data);
     }
 
     /**
