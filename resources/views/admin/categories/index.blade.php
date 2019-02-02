@@ -30,8 +30,8 @@
                         <a href="{{route('admin.category.show', $category)}}"><span>{{$category->title}}</span></a>
                         <div class="tooltip">{{$category->title}}</div>
                     </div>
-                    <span class="category__detail_watches"><i class="fa fa-eye" aria-hidden="true"></i>99999</span>
-                    <span class="category__detail_items"><i class="fa fa-th-large" aria-hidden="true"></i>2500</span>
+                    <span class="category__detail_watches"><i class="fa fa-eye" aria-hidden="true"></i>{{$category->views}}</span>
+                    <span class="category__detail_items"><i class="fa fa-th-large" aria-hidden="true"></i>{{$category->products}}</span>
 
 
                     <form onsubmit="if(confirm('Удалить?')) {return true} else {return false}" action="{{route('admin.category.destroy', $category)}}" class="delete_mini_form" method="post">

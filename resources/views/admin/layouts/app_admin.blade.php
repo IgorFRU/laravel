@@ -1,3 +1,13 @@
+@if($count_of_cat = Parquet\Category::select('views')->where('published', '1')->get())
+  <?php
+    $ncount_of_cat = 0;
+    foreach($count_of_cat as $var) {
+        $ncount_of_cat += $var['views'];
+    }
+  ?>
+@endif
+
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -53,8 +63,8 @@
             <ul>
                 Магазин
                 <div class="submenu">
-                    <li><a href="{{route('admin.category.index')}}">Категории</a><span class="count normal_count">9</span></li>
-                    <li><a href="#">Подкатегории</a><span class="count normal_count">29</span></li>
+                    <li><a href="{{route('admin.category.index')}}">Категории</a><span class="count normal_count">{{Parquet\Category::where('published', 1)->count()}}</span></li>
+
                     <li><a href="#">Товары</a><span class="count normal_count">980</span></li>
                     <li><a href="#">Производители</a><span class="count normal_count">19</span></li>
                     <li><a href="#">Характеристики</a></li>

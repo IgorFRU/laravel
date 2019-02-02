@@ -27,6 +27,8 @@ class CreateProductsTable extends Migration
             $table->string('img', 32);
             $table->string('alias');
             $table->tinyInteger('published')->default(1);
+            $table->integer('views')->default(0);
+            $table->integer('products')->default(0);
             $table->timestamps();
         });
         
