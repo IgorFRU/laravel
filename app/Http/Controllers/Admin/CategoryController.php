@@ -34,13 +34,18 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create', [
+        $data = array (            
+            'title' => 'АДМИН - Паркетный мир - Создание категории',
             'category' => [],
             //коллекция вложенных подкатегорий
             'categories' => Category::with('children')->where('parent_id', '0')->get(),
             //символ, обозначающий вложенность категорий
-            'delimiter' => ''
-        ]);
+            'delimiter' => '',
+            'published' => Category::where('published', 1)->count(),
+            'unpublished' => Category::where('published', 0)->count()
+        );
+        
+        return view('admin.categories.create', $data);
     }
 
     /**

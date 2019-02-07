@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('parent_id');
             $table->string('title', 64);
-            $table->string('img', 32);
+            $table->string('img', 32)->nullable();
             $table->string('alias');
             $table->tinyInteger('published')->default(1);
             $table->integer('views')->default(0);
@@ -37,7 +37,7 @@ class CreateProductsTable extends Migration
         Schema::create('currencies', function (Blueprint $table) {
             $table->increments('id');
             $table->char('currency', 3);
-            $table->string('css_style', 32);
+            $table->string('css_style', 32)->nullable();
             $table->timestamps();
         });
         
@@ -81,23 +81,29 @@ class CreateProductsTable extends Migration
             $table->integer('scu')->nullable();
             $table->integer('inner_scu')->unique();
             $table->string('product_name', 100);
-            $table->string('alias', 100)->unique();
+            $table->string('slug', 100);
             $table->integer('category_id')->unsigned()->nullable();
             $table->integer('manufacturer_id')->unsigned()->nullable();
-            $table->integer('price')->unsigned()->nullable();
+            $table->string('image_id')->nullable();
             $table->integer('currency_id')->unsigned();
+            $table->decimal('price', 6, 3)->unsigned()->nullable();
+            $table->integer('price_rub')->unsigned()->nullable();
+            $table->date('price_rub_date');
             $table->integer('sale')->nullable();
             $table->integer('sale_type')->unsigned()->nullable();
             $table->string('short_description', 255)->nullable();
             $table->text('description')->nullable();
-            $table->string('meta', 255)->nullable();
-            $table->tinyInteger('show')->nullable();
-            $table->boolean('recomended')->nullable();
-            $table->boolean('for_sale')->nullable();
-            $table->boolean('sample')->nullable();
+            $table->string('meta-title')->nullable();
+            $table->string('meta-description')->nullable();
+            $table->string('meta-keywords')->nullable();
+            $table->tinyInteger('published')->default(1);
+            $table->tinyInteger('recomended')->default(0);
+            $table->integer('views')->default(0);
+            $table->tinyInteger('for_sale')->default(0);
+            $table->tinyInteger('sample')->default(0);
             $table->integer('unit')->unsigned()->nullable();
-            $table->boolean('packaging_sales')->nullable();
-            $table->decimal('in_package', 6, 3)->nullable();
+            $table->tinyInteger('packaging_sales')->default(1);
+            $table->decimal('in_package', 6, 3)->unsigned()->nullable();
             $table->timestamps();    
         });        
         
@@ -153,6 +159,17 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('product_quick_properties');
+        Schema::dropIfExists('product_images');
+        Schema::dropIfExists('product_downloads');
+        Schema::dropIfExists('manufactures');
+        Schema::dropIfExists('categories');
+        Schema::dropIfExists('currencies');
         Schema::dropIfExists('products');
+        Schema::dropIfExists('discount_type');
+        Schema::dropIfExists('units');
+        Schema::dropIfExists('downloads');
+        Schema::dropIfExists('images');
+        Schema::dropIfExists('quick_properties');
     }
 }

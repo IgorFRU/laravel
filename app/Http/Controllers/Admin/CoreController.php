@@ -15,10 +15,12 @@ class CoreController extends Controller
 //        foreach ($count_of_categories as $var) {
 //            $count += $var['viesw'];
 //        }
+        $data = array (            
+            'title' => 'АДМИН - Паркетный мир',
+            'published' => Category::where('published', 1)->count(),
+            'unpublished' => Category::where('published', 0)->count()
+        ); 
 
-        return view('admin.core', [
-
-//            'count' => $count
-        ]);
+        return view('admin.core', $data);
     }
 }
