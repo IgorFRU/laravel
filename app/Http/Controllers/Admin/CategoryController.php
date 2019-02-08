@@ -6,6 +6,7 @@ use Parquet\Category;
 use Illuminate\Http\Request;
 use Parquet\Http\Controllers\Controller;
 
+
 class CategoryController extends Controller
 {
     /**
@@ -16,12 +17,12 @@ class CategoryController extends Controller
     public function index()
     {
         $data = array (            
-            'title' => 'АДМИН - Паркетный мир - Категории',
-            'categories' => Category::orderBy('published', 'DESC')
+            'title'         => 'АДМИН - Паркетный мир - Категории',
+            'categories'    => Category::orderBy('published', 'DESC')
                                     ->orderBy('id', 'ASC')
                                     ->paginate(10),
-            'published' => Category::where('published', 1)->count(),
-            'unpublished' => Category::where('published', 0)->count()
+            'published'     => Category::where('published', 1)->count(),
+            'unpublished'   => Category::where('published', 0)->count()
         );
 
         return view('admin.categories.index', $data);
@@ -40,9 +41,7 @@ class CategoryController extends Controller
             //коллекция вложенных подкатегорий
             'categories' => Category::with('children')->where('parent_id', '0')->get(),
             //символ, обозначающий вложенность категорий
-            'delimiter' => '',
-            'published' => Category::where('published', 1)->count(),
-            'unpublished' => Category::where('published', 0)->count()
+            'delimiter' => ''
         );
         
         return view('admin.categories.create', $data);
@@ -86,7 +85,6 @@ class CategoryController extends Controller
         $data = array (            
             'title' => 'АДМИН - Паркетный мир - Категории',
             'category' => $category,
-            'published' => Category::where('published', 1)->count(),
             //коллекция вложенных подкатегорий
             'categories' => Category::with('children')->where('parent_id', '0')->get(),
             //символ, обозначающий вложенность категорий

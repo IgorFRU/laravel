@@ -402,7 +402,8 @@ body {
 }
 
 .currency__red,
-.currency__green {
+.currency__green,
+.currency__grey {
     display: block;
     position: absolute;
     width: 8px;
@@ -418,6 +419,10 @@ body {
 
 .currency__green {
     background: #11a21c;
+}
+
+.currency__grey {
+    background: #464646;
 }
 
 .currency__value {

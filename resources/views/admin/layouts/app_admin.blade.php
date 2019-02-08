@@ -66,10 +66,10 @@
                 Магазин
                 <div class="submenu">
                     <li><a href="{{ route('admin.category.index') }}">Категории</a>
-                        <span class="count normal_count">{{ $published }}</span>
+                        <span class="count normal_count">{{ $categories_published }}</span>
                     </li>
 
-                    <li><a href="{{ route('admin.product.index') }}">Товары</a><span class="count normal_count">980</span></li>
+                    <li><a href="{{ route('admin.product.index') }}">Товары</a><span class="count normal_count">{{ $products_published }}</span></li>
                     <li><a href="#">Производители</a><span class="count normal_count">19</span></li>
                     <li><a href="#">Характеристики</a></li>
                     <li><a href="#">Валюты</a></li>
@@ -88,13 +88,29 @@
             <ul class="currency">
                 <div class="currency__today">
                     Сегодня
-                    <span class="currency__child"><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">58.65</span><span class="currency__red"></span></span>
-                    <span class="currency__child"><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">68.65</span><span class="currency__green"></span></span>
+                    <span class="currency__child"><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">{{ $cbr[0] ?? er }}</span><span 
+                    
+                    @if(isset($cbr[2]) && $cbr[2] != -1)
+                    
+                        @if(isset($cbr[0]) && $cbr[0] < $cbr[2])
+                            class="currency__red" 
+                        @elseif(isset($cbr[0]) && $cbr[0] > $cbr[2])
+                            class="currency__green"  
+                        @endif
+                        
+                    @elseif($cbr[2] == -1)
+                       
+                        class="currency__grey"
+                        
+                    @endif
+                    ></span></span>
+                    
+                    <span class="currency__child"><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">{{ $cbr[1] ?? er }}</span><span class="currency__green"></span></span>
                 </div>
                 <div class="currency__tomorrow submenu">
                     Завтра
-                    <span><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">59.65</span></span>
-                    <span><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">67.65</span></span>
+                    <span><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">{{ $cbr[2] ?? er }}</span></span>
+                    <span><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">{{ $cbr[3] ?? er }}</span></span>
                 </div>
             </ul>
             <ul><a class="nav-link" href="{{ route('mainpage') }}">Перейти на сайт</a></ul>

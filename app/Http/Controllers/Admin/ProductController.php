@@ -21,7 +21,6 @@ class ProductController extends Controller
             'products' => Product::orderBy('published', 'DESC')
                                     ->orderBy('id', 'ASC')
                                     ->paginate(10),
-            'categories' => Category::where('published', 1)->get(),
             'published' => Product::where('published', 1)->count(),
             'unpublished' => Product::where('published', 0)->count()
         ); 
@@ -35,7 +34,14 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $data = array (            
+            'title'             => 'АДМИН - Паркетный мир - Добавление товара',
+            'product'           => [],
+            'categories'        => Category::with('children')->where('parent_id', 0)->get(),
+            'delimiter'         => ''
+        ); 
+        
+        return view('admin.products.create', $data);
     }
 
     /**

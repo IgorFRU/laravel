@@ -163,6 +163,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
+        
 
         /*
          * Package Service Providers...
@@ -176,6 +178,8 @@ return [
         // Parquet\Providers\BroadcastServiceProvider::class,
         Parquet\Providers\EventServiceProvider::class,
         Parquet\Providers\RouteServiceProvider::class,
+        //My provider, who gives exchange rate
+        Parquet\Providers\CbrServiceProvider::class,
 
     ],
 
@@ -225,6 +229,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Cbr' => Parquet\Facades\Cbr::class,
 
     ],
 
