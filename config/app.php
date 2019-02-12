@@ -173,13 +173,13 @@ return [
         /*
          * Application Service Providers...
          */
-        Parquet\Providers\AppServiceProvider::class,
-        Parquet\Providers\AuthServiceProvider::class,
-        // Parquet\Providers\BroadcastServiceProvider::class,
-        Parquet\Providers\EventServiceProvider::class,
-        Parquet\Providers\RouteServiceProvider::class,
+        spp\Providers\AppServiceProvider::class,
+        app\Providers\AuthServiceProvider::class,
+        // app\Providers\BroadcastServiceProvider::class,
+        app\Providers\EventServiceProvider::class,
+        app\Providers\RouteServiceProvider::class,
         //My provider, who gives exchange rate
-        Parquet\Providers\CbrServiceProvider::class,
+        app\Providers\CbrServiceProvider::class,
 
     ],
 
@@ -229,7 +229,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Cbr' => Parquet\Facades\Cbr::class,
+        'Cbr' => app\Facades\Cbr::class,
 
     ],
 

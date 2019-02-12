@@ -1,6 +1,6 @@
 <?php
 
-namespace Parquet\Providers;
+namespace app\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\View;
 
 use Illuminate\Pagination\Paginator;
 
-use Parquet\MyClasses\Cbr;
+use app\MyClasses\Cbr;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,13 +40,13 @@ class AppServiceProvider extends ServiceProvider
         View::composer('admin.layouts.app_admin', function ($view){
             
             $data = array (
-                'categories_published'      => \Parquet\Category::where('published', 1)->count(),
-                'products_published'        => \Parquet\Product::where('published', 1)->count(),
+                'categories_published'      => \app\Category::where('published', 1)->count(),
+                'products_published'        => \app\Product::where('published', 1)->count(),
                 'cbr'                       => Cbr::get()
-                //'manufacturers_published'   => \Parquet\Product::where('published', 1)->count()
+                //'manufacturers_published'   => \app\Product::where('published', 1)->count()
             );
             
-//            $view->with('categories', \Parquet\Category::where('published', 1)->get());
+//            $view->with('categories', \app\Category::where('published', 1)->get());
             $view->with($data);
         });
     }

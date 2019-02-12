@@ -1,10 +1,10 @@
 <?php
 
-namespace Parquet\Http\Controllers\Admin;
+namespace app\Http\Controllers\Admin;
 
-use Parquet\Category;
+use app\Category;
 use Illuminate\Http\Request;
-use Parquet\Http\Controllers\Controller;
+use app\Http\Controllers\Controller;
 
 
 class CategoryController extends Controller
@@ -66,7 +66,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \Parquet\Category  $category
+     * @param  \app\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
@@ -77,7 +77,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Parquet\Category  $category
+     * @param  \spp\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
@@ -98,7 +98,7 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Parquet\Category  $category
+     * @param  \spp\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Category $category)
@@ -112,7 +112,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Parquet\Category  $category
+     * @param  \spp\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category)

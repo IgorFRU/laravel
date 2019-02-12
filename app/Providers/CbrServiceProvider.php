@@ -28,7 +28,7 @@ class CbrServiceProvider extends ServiceProvider
     {
         App::bind('Cbr', function()
         {
-            return new Parquet\MyClasses\Cbr;
+            return new app\MyClasses\Cbr;
         });
     }
 }

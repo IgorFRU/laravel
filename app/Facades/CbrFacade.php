@@ -1,6 +1,6 @@
 <?php
 
-namespace Parquet\Facades;
+namespace app\Facades;
 use Illuminate\Support\Facades\Facade;
  
 class Cbr extends Facade{

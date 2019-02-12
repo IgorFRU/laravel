@@ -23,7 +23,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "Parquet\\": "app/"
+            "app\\": "app/"
         }
     },
     "autoload-dev": {

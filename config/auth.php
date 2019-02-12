@@ -67,8 +67,9 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Parquet\User::class,
+            'model' => app\User::class,
         ],
+
 
         // 'users' => [
         //     'driver' => 'database',

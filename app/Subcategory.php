@@ -1,6 +1,6 @@
 <?php
 
-namespace Parquet;
+namespace app;
 
 use Illuminate\Database\Eloquent\Model;
 

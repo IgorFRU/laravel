@@ -1,6 +1,6 @@
 <?php
 
-namespace Parquet\MyClasses;
+namespace app\MyClasses;
 
 use \Carbon\Carbon;
 

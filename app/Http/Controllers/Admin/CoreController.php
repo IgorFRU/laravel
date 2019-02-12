@@ -1,10 +1,10 @@
 <?php
 
-namespace Parquet\Http\Controllers\Admin;
+namespace app\Http\Controllers\Admin;
 
-use Parquet\Category;
+use app\Category;
 use Illuminate\Http\Request;
-use Parquet\Http\Controllers\Controller;
+use app\Http\Controllers\Controller;
 
 class CoreController extends Controller
 {

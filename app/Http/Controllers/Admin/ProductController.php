@@ -1,11 +1,11 @@
 <?php
 
-namespace Parquet\Http\Controllers\Admin;
+namespace app\Http\Controllers\Admin;
 
-use Parquet\Product;
-use Parquet\Category;
+use app\Product;
+use app\Category;
 use Illuminate\Http\Request;
-use Parquet\Http\Controllers\Controller;
+use app\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
@@ -17,12 +17,13 @@ class ProductController extends Controller
     public function index()
     {
         $data = array (            
-            'title' => 'АДМИН - Паркетный мир - Товары',
-            'products' => Product::orderBy('published', 'DESC')
+            'title'         => 'АДМИН - Паркетный мир - Товары',
+            'products'      => Product::orderBy('published', 'DESC')
                                     ->orderBy('id', 'ASC')
                                     ->paginate(10),
-            'published' => Product::where('published', 1)->count(),
-            'unpublished' => Product::where('published', 0)->count()
+            'categories'    => [], ///oooi
+            'published'     => Product::where('published', 1)->count(),
+            'unpublished'   => Product::where('published', 0)->count()
         ); 
         return view('admin.products.index', $data);
     }
@@ -58,7 +59,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \Parquet\Product  $product
+     * @param  \app\Product  $product
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
@@ -69,7 +70,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Parquet\Product  $product
+     * @param  \app\Product  $product
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
@@ -81,7 +82,7 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Parquet\Product  $product
+     * @param  \app\Product  $product
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
@@ -92,7 +93,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Parquet\Product  $product
+     * @param  \app\Product  $product
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)

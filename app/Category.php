@@ -1,6 +1,6 @@
 <?php
 
-namespace Parquet;
+namespace app;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,14 +29,14 @@ class Category extends Model
     }
     
     public function children() {
-        return $this->hasMany("Parquet\Category", 'parent_id');
+        return $this->hasMany("app\Category", 'parent_id');
     }
     
     public function products() {
-        return $this->hasMany("Parquet\Product");
+        return $this->hasMany("app\Product");
     }
 
     public function countProducts() {
-        return $this->hasMany("Parquet\Product");
+        return $this->hasMany("app\Product");
     }
 }

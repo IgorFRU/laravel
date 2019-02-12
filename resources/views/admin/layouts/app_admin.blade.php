@@ -1,4 +1,4 @@
-@if($count_of_cat = Parquet\Category::select('views')->where('published', '1')->get())
+@if($count_of_cat = app\Category::select('views')->where('published', '1')->get())
   <?php
     $ncount_of_cat = 0;
     foreach($count_of_cat as $var) {
@@ -88,7 +88,7 @@
             <ul class="currency">
                 <div class="currency__today">
                     Сегодня
-                    <span class="currency__child"><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">{{ $cbr[0] ?? er }}</span><span 
+                    <span class="currency__child"><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">{{ $cbr[0] ?? 'er' }}</span><span
                     
                     @if(isset($cbr[2]) && $cbr[2] != -1)
                     
@@ -105,12 +105,12 @@
                     @endif
                     ></span></span>
                     
-                    <span class="currency__child"><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">{{ $cbr[1] ?? er }}</span><span class="currency__green"></span></span>
+                    <span class="currency__child"><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">{{ $cbr[1] ?? 'er' }}</span><span class="currency__green"></span></span>
                 </div>
                 <div class="currency__tomorrow submenu">
                     Завтра
-                    <span><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">{{ $cbr[2] ?? er }}</span></span>
-                    <span><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">{{ $cbr[3] ?? er }}</span></span>
+                    <span><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">{{ $cbr[2] ?? 'er' }}</span></span>
+                    <span><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">{{ $cbr[3] ?? 'er' }}</span></span>
                 </div>
             </ul>
             <ul><a class="nav-link" href="{{ route('mainpage') }}">Перейти на сайт</a></ul>
