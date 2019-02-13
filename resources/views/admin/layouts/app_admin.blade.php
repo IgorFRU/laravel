@@ -1,13 +1,3 @@
-@if($count_of_cat = app\Category::select('views')->where('published', '1')->get())
-  <?php
-    $ncount_of_cat = 0;
-    foreach($count_of_cat as $var) {
-        $ncount_of_cat += $var['views'];
-    }
-  ?>
-@endif
-
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 

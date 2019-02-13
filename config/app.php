@@ -173,13 +173,13 @@ return [
         /*
          * Application Service Providers...
          */
-        spp\Providers\AppServiceProvider::class,
+        app\Providers\AppServiceProvider::class,
         app\Providers\AuthServiceProvider::class,
         // app\Providers\BroadcastServiceProvider::class,
         app\Providers\EventServiceProvider::class,
         app\Providers\RouteServiceProvider::class,
         //My provider, who gives exchange rate
-        app\Providers\CbrServiceProvider::class,
+        //app\Providers\CbrServiceProvider::class,
 
     ],
 
@@ -229,7 +229,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Cbr' => app\Facades\Cbr::class,
+        //'Cbr' => app\Facades\Cbr::class,
 
     ],
 

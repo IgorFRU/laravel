@@ -1,6 +1,6 @@
 <?php
 
-namespace Paqrquet\Providers;
+namespace app\Providers;
  
 use Illuminate\Foundation\AliasLoader;
 
