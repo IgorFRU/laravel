@@ -5,10 +5,10 @@
 
     @component('admin.components.breadcrumb')
         @slot('parent') Главная @endslot
-        @slot('active') Категории @endslot
+        @slot('active') Добавление товара @endslot
     @endcomponent
     
-    <div class="categories light_grey_box">
+    <div class="categories light_grey_box edit_product">
         <form action="{{route('admin.product.store')}}" method="post">
             @csrf
 

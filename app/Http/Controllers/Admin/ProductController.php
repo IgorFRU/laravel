@@ -36,10 +36,10 @@ class ProductController extends Controller
     public function create()
     {
         $data = array (            
-            'title'             => 'АДМИН - Паркетный мир - Добавление товара',
-            'product'           => [],
-            'categories'        => Category::with('children')->where('parent_id', 0)->get(),
-            'delimiter'         => ''
+            'title'       => 'АДМИН - Паркетный мир - Добавление товара',
+            'product'     => [],
+            'categories'  => Category::with('children')->where('parent_id', 0)->get(),
+            'delimiter'   => ''
         ); 
         
         return view('admin.products.create', $data);

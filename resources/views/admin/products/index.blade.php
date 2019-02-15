@@ -28,6 +28,7 @@
                 <button type="submit">OK</button>
             </form>
 -->
+<!--
            <div class="drop_down grey_box">
                <span>Выбор категории</span>
                <div class="drop_down__list submenu">
@@ -38,6 +39,7 @@
                     @endforelse
                 </div>
             </div>
+-->
 
             <a href="{{route('admin.product.create')}}" class="category__add grey_box">Добавить товар</a>
             @forelse ($products as $product)

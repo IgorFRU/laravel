@@ -1,7 +1,7 @@
 {{-- Подключаемый шаблон для вывода выпадающего списка родительских категорий при создании или редактировании категории --}}
 
 
-@foreach($categories_list as $category)
+@foreach($categories as $category)
 
     <option value="{{$category->id ?? ""}}"
     
