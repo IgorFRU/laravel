@@ -5,6 +5,8 @@
 
     @component('admin.components.breadcrumb')
         @slot('parent') Главная @endslot
+        @slot('parent2') Товары @endslot
+            @slot('parent2_route') /../admin/product @endslot        
         @slot('active') Добавление товара @endslot
     @endcomponent
     

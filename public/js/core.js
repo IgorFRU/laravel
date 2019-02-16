@@ -32,14 +32,14 @@ $('.ajax_test').click(function() {
     });
     $.ajax({
     method: 'POST',
-    url: './manufacture',
+    url: './admin/manufacture/sort',
     dataType: 'json',
     data: {
         sort_by: 'manufacture',
         sort_type: 'DESC'
      },
     success:function(response) {
-       console.log(response);
+       //console.log(response);
     },
     error: function (data, textStatus, errorThrown) {
         console.log(data);

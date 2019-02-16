@@ -5,7 +5,9 @@
 
     @component('admin.components.breadcrumb')
         @slot('parent') Главная @endslot
-        @slot('active') Категории @endslot
+        @slot('parent2') Категории @endslot
+            @slot('parent2_route') /../admin/category @endslot        
+        @slot('active') Редактирование категории @endslot
     @endcomponent
 
     <div class="categories light_grey_box">

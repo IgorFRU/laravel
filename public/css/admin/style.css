@@ -802,6 +802,21 @@ body {
     color: #d26666;
 }
 
+.alerts {
+    display: none;
+    padding: 10px 20px;
+    display: inline-block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+.alerts ul li {
+    margin-top: 10px;
+    width: 100%;
+}
+
 .alert-success {
     display: none;
     padding: 10px 20px;
@@ -813,6 +828,16 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 2;
+}
+
+.alert-error {
+    background: #ff4c4c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: block;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
     z-index: 2;
 }
 

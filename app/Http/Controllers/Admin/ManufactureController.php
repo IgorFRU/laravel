@@ -19,7 +19,7 @@ class ManufactureController extends Controller
         $data = array (
             'title'         => 'АДМИН - Паркетный мир - Производители',
             'manufactures'    => Manufacture::orderBy('published', 'DESC')
-                                    ->orderBy('id', 'ASC')
+                                    ->orderBy('id', 'DESC')
                                     ->paginate(10),
             'published'     => Manufacture::where('published', 1)->count(),
             'unpublished'   => Manufacture::where('published', 0)->count(),
@@ -37,7 +37,12 @@ class ManufactureController extends Controller
      */
     public function create()
     {
-        //
+        $data = array (            
+            'title' => 'АДМИН - Паркетный мир - добавление производителя',
+            'manufacture' => [],
+        );
+        
+        return view('admin.manufactures.create', $data);
     }
 
     /**
@@ -48,7 +53,14 @@ class ManufactureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'manufacture' => 'required|unique:manufactures|min:3|max:64',
+        ]);
+        //метод для массовго заполнения
+
+        Manufacture::create($request->all());
+        
+        return redirect()->route('admin.manufacture.index')->with('success', 'Производитель успешно добавлен');
     }
 
     /**
@@ -57,7 +69,7 @@ class ManufactureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Manufacture $id)
     {
         //
     }
@@ -68,9 +80,14 @@ class ManufactureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Manufacture $manufacture)
     {
-        //
+        $data = array (            
+            'title' => 'АДМИН - Паркетный мир - редактирование производителя',
+            'manufacture' => $manufacture
+        );
+        
+        return view('admin.manufactures.edit', $data);
     }
 
     /**
@@ -80,9 +97,15 @@ class ManufactureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Manufacture $manufacture)
     {
-        //
+        $request->validate([
+            'manufacture' => 'required|min:3|max:64',
+        ]);
+        
+        $manufacture->update($request->except('slug'));
+
+        return redirect()->route('admin.manufacture.index')->with('success', 'Производитель успешно изменен');
     }
 
     /**
@@ -94,5 +117,10 @@ class ManufactureController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function sort() 
+    {
+        
     }
 }

@@ -43,7 +43,7 @@
         <!--                <span class="category__detail_control delete"><a href="{{route('admin.manufacture.destroy', ['id'=>$manufacture->id])}}"><i class="far fa-trash-alt"></i></a></span>-->
                     </div>
                     <div class="desctiption">
-                        {{ $manufacture->description }}
+                        {!! $manufacture->description !!}
                         <p>
                         @isset($sort_by)
                             {{ $sort_by }}

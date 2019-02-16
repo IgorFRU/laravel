@@ -36,7 +36,4 @@ class Category extends Model
         return $this->hasMany("app\Product");
     }
 
-    public function countProducts() {
-        return $this->hasMany("app\Product");
-    }
 }

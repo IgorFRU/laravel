@@ -14,7 +14,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/', 'CoreController@core')->name('admin.core');
     Route::resource('/category', 'CategoryController', ['as'=>'admin']);
     Route::resource('/manufacture', 'ManufactureController', ['as'=>'admin']);
-    Route::post('/manufacture', 'ManufactureController@index', ['as'=>'admin']);
+    //Route::post('/manufacture', 'ManufactureController@index', ['as'=>'admin']);
+    Route::get('/manufacture/sort', 'ManufactureController@sort', ['as'=>'admin']);
+    Route::post('/manufacture/sort', 'ManufactureController@sort', ['as'=>'admin']);
     Route::get('/product/category-{category}', 'ProductController@category', ['as'=>'admin'])->name('admin.product.category');
     Route::resource('/product', 'ProductController', ['as'=>'admin']);
 });

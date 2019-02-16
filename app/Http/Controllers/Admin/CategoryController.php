@@ -6,7 +6,6 @@ use app\Category;
 use Illuminate\Http\Request;
 use app\Http\Controllers\Controller;
 
-
 class CategoryController extends Controller
 {
     /**
@@ -19,7 +18,7 @@ class CategoryController extends Controller
         $data = array (            
             'title'         => 'АДМИН - Паркетный мир - Категории',
             'categories'    => Category::orderBy('published', 'DESC')
-                                    ->orderBy('id', 'ASC')
+                                    ->orderBy('id', 'DESC')
                                     ->paginate(10),
             'published'     => Category::where('published', 1)->count(),
             'unpublished'   => Category::where('published', 0)->count()
