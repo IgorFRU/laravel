@@ -60,7 +60,7 @@
                     </li>
 
                     <li><a href="{{ route('admin.product.index') }}">Товары</a><span class="count normal_count">{{ $products_published }}</span></li>
-                    <li><a href="#">Производители</a><span class="count normal_count">19</span></li>
+                    <li><a href="{{ route('admin.manufacture.index') }}">Производители</a><span class="count normal_count">{{ $manufactures_published }}</span></li>
                     <li><a href="#">Характеристики</a></li>
                     <li><a href="#">Валюты</a></li>
                     <span class="separate"></span>

@@ -23,3 +23,27 @@ $('.category__title').hover(
         $(this).find('.tooltip').fadeOut(100);
     }
 );
+
+$('.ajax_test').click(function() {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+    method: 'POST',
+    url: './manufacture',
+    dataType: 'json',
+    data: {
+        sort_by: 'manufacture',
+        sort_type: 'DESC'
+     },
+    success:function(response) {
+       console.log(response);
+    },
+    error: function (data, textStatus, errorThrown) {
+        console.log(data);
+
+    },
+})
+});

@@ -16,7 +16,10 @@ class CreateProductsTable extends Migration
         
         Schema::create('manufactures', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('manufacturer', 32);
+            $table->string('manufacture', 32)->unique();
+            $table->string('image_id', 64)->nullable();
+            $table->text('description')->nullable();
+            $table->tinyInteger('published')->default(1);
             $table->timestamps();
         });
         

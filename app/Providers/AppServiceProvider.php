@@ -42,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
             $data = array (
                 'categories_published'      => \app\Category::where('published', 1)->count(),
                 'products_published'        => \app\Product::where('published', 1)->count(),
+                'manufactures_published'    => \app\Manufacture::where('published', 1)->count(),
                 'cbr'                       => Cbr::get()
                 //'manufacturers_published'   => \app\Product::where('published', 1)->count()
             );

@@ -41,7 +41,7 @@
             </div>
 -->
 
-            <a href="{{route('admin.product.create')}}" class="category__add grey_box">Добавить товар</a>
+            <a href="{{route('admin.product.create')}}" class="category__add grey_box"><i class="fas fa-plus"></i></a>
             @forelse ($products as $product)
 
                 <div @if(!$category->published) class="category grey_box unpublished" @else class="category white_box" @endif>
