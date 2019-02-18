@@ -64,7 +64,7 @@
 
     <!--                <span class="category__detail_control delete"><a href="{{route('admin.product.destroy', ['id'=>$product->id])}}"><i class="far fa-trash-alt"></i></a></span>-->
                 </div>    
-
+                
             @empty
                 <div>Товаров нет</div>
             @endforelse

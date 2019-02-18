@@ -114,9 +114,11 @@ class ManufactureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Manufacture $manufacture)
     {
-        //
+        $category->delete();
+
+        return redirect()->back()->with('success', 'Производитель успешно удален');
     }
     
     public function sort() 

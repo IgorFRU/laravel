@@ -1,7 +1,7 @@
 //Появление и исчезновение всплывающего окна о том, что что-то (категория, товар, пр.) удалено
-setTimeout(function () {
-    $('.alert-success').fadeIn(500, function () {
-        setTimeout(function () {
+setTimeout(function() {
+    $('.alert-success').fadeIn(500, function() {
+        setTimeout(function() {
             $('.alert-success').fadeOut(500)
         }, 4000);
     })
@@ -11,7 +11,7 @@ setTimeout(function () {
 
 
 $('.category__title').hover(
-    function () {
+    function() {
         let $block_width = $(this).width();
         let $text_width = $(this).find('span:first-child').width();
 
@@ -19,31 +19,31 @@ $('.category__title').hover(
             $(this).find('.tooltip').fadeIn(100);
         }
     },
-    function () {
+    function() {
         $(this).find('.tooltip').fadeOut(100);
     }
 );
 
 $('.ajax_test').click(function() {
     $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
     });
     $.ajax({
-    method: 'POST',
-    url: './admin/manufacture/sort',
-    dataType: 'json',
-    data: {
-        sort_by: 'manufacture',
-        sort_type: 'DESC'
-     },
-    success:function(response) {
-       //console.log(response);
-    },
-    error: function (data, textStatus, errorThrown) {
-        console.log(data);
+        method: 'POST',
+        url: '/admin/manufacture',
+        dataType: 'json',
+        data: {
+            sort_by: 'manufacture',
+            sort_type: 'DESC'
+        },
+        success: function(response) {
+            //console.log(response);
+        },
+        error: function(data, textStatus, errorThrown) {
+            console.log(data);
 
-    },
-})
+        },
+    })
 });
