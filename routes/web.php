@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::post('/manufacture/sort', 'ManufactureController@sort', ['as'=>'admin']);
     Route::get('/product/category-{category}', 'ProductController@category', ['as'=>'admin'])->name('admin.product.category');
     Route::resource('/product', 'ProductController', ['as'=>'admin']);
+    
 });
 
 Route::get('/', function () {
@@ -37,7 +38,7 @@ Route::get('/catalog/{category}', 'CatalogController@category')->name('category'
 Route::get('/catalog/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory')->middleware('breadcrumbs');
 
 Route::get('/catalog/category-{category}/{subcategory}/{product}/{parameter?}', 'CatalogController@product')->name('product');
-
+Route::get('/anyroute', 'CatalogController@anymethod')->name('anyroute');
 /*
 Route::get('/{category}/{subcategory}/{product}/{parameter?}',function($category, $subcategory, $product, $parameter = null){
     

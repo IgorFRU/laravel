@@ -225,6 +225,13 @@
             </section>
             <section class="categories">
                 <div class="wrap">
+                <p class="sortlink" data-sort_col="sort1_1" data-sort_type="sort1_2">10</p>
+                <p class="sortlink" data-sort_col="sort2_1" data-sort_type="sort2_2">--</p>
+                <a class="sortlink" data-sort_col=sort3_1 data-sort_type=sort3_2 href="/anyroute/?sort=qqq&sort2=888">sort2</a>
+                
+
+                
+
                     <h2>Полы</h2>
                     <div class="categories__boxes">
                         <div class="categories__boxes__category">
@@ -577,6 +584,17 @@
             </div>
         </div>
 -->
+
+<script>
+    const link_sort = document.querySelectorAll('.sortlink');
+    link_sort.forEach(element => {
+        element.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = window.location.href + '/anyroute/?sort_column=' + element.dataset.sort_col + '&sort_type=' + element.dataset.sort_type;
+        });
+    });
+
+</script>
 </body>
 
 </html>

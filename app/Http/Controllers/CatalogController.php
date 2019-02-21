@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
+use Illuminate\Http\Request;
 
 class CatalogController extends BaseController
 {
@@ -27,5 +28,14 @@ class CatalogController extends BaseController
         }
 
         echo $output;        
+    }
+
+    public function anymethod(Request $request) {
+        //dd($request->sort);
+        
+        echo $request->sort_column;
+        echo $request->sort_type;
+        
+        
     }
 }
