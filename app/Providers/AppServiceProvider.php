@@ -43,6 +43,7 @@ class AppServiceProvider extends ServiceProvider
                 'categories_published'      => \app\Category::where('published', 1)->count(),
                 'products_published'        => \app\Product::where('published', 1)->count(),
                 'manufactures_published'    => \app\Manufacture::where('published', 1)->count(),
+                'currencies_published'      => \app\Currency::get()->count(),
                 'cbr'                       => Cbr::get()
                 //'manufacturers_published'   => \app\Product::where('published', 1)->count()
             );

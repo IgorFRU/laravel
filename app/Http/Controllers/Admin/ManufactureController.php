@@ -116,7 +116,7 @@ class ManufactureController extends Controller
      */
     public function destroy(Manufacture $manufacture)
     {
-        $category->delete();
+        $manufacture->delete();
 
         return redirect()->back()->with('success', 'Производитель успешно удален');
     }

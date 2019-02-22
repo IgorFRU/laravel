@@ -4,6 +4,7 @@ namespace app\Http\Controllers\Admin;
 
 use app\Product;
 use app\Category;
+use app\Manufacture;
 use Illuminate\Http\Request;
 use app\Http\Controllers\Controller;
 
@@ -14,17 +15,29 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($category = null)
+    public function index(Request $request, $category = null)
     {
         $data = array (            
             'title'         => 'АДМИН - Паркетный мир - Товары',
-            'products'      => Product::orderBy('published', 'DESC')
-                                    ->orderBy('id', 'ASC')
+            'products'      => Product::leftJoin('categories', 'products.category_id', '=', 'categories.id')
+                                    ->select(
+                                        'products.product_name', 
+                                        'products.price', 
+                                        'products.scu', 
+                                        'products.published', 
+                                        'products.recomended', 
+                                        'products.id', 
+                                        'categories.title')
+                                    //->where()
+                                    ->orderBy('products.published', 'DESC')
+                                    ->orderBy('products.id', 'ASC')
                                     ->paginate(10),
-            'categories'    => [], ///oooi
+            'categories'    => Category::get(),
+            'manufactures'  => Manufacture::get(),
             'published'     => Product::where('published', 1)->count(),
             'unpublished'   => Product::where('published', 0)->count()
         ); 
+        // dd ($data['products']);
         return view('admin.products.index', $data);
     }
 

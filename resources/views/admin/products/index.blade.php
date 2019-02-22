@@ -1,3 +1,6 @@
+@php
+    $counter = 0;
+@endphp
 @extends('admin.layouts.app_admin')
 
 @section('content')
@@ -42,32 +45,57 @@
 -->
 
             <a href="{{route('admin.product.create')}}" class="category__add grey_box"><i class="fas fa-plus"></i></a>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Название</th>
+                    <th>Цена</th>
+                    <th>Артикул</th>
+                    <th>Публ.</th>
+                    <th>Реком.</th>
+                    <th>Категория</th>
+                    <th>id</th>
+                    <th>Просмотры</th>
+                    <th>...</th>
+                </tr>
             @forelse ($products as $product)
+            @php
+                $counter++
+            @endphp
+                <tr>
+                    <td>{{ $counter }}</td>
+                    <td>{{ $product->product_name }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td>{{ $product->scu }}</td>
+                    <td>{{ $product->published }}</td>
+                    <td>{{ $product->recomended }}</td>
+                    <td>{{ $product->title }}</td> {{-- Категория, полученная джойном --}}
+                    <td>{{ $product->id }}</td>
+                    <td>{{$product->views}}</td>
+                    <td>
+                        <form onsubmit="if(confirm('Удалить?')) {return true} else {return false}" action="{{route('admin.product.destroy', $product)}}" class="delete_mini_form" method="post">
+                            @csrf
+    
+                            <input type="hidden" name="_method" value="delete">
+    
+                            <span><a href="{{route('admin.product.edit', ['id'=>$product->id])}}"><i class="fas fa-pencil-alt"></i></a></span>
+    
+                            <button type="submit"><i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </td>
+                </tr>
 
-                <div @if(!$category->published) class="category grey_box unpublished" @else class="category white_box" @endif>
-                    <div class="category__title">
-                        <a href="{{route('admin.product.show', $category)}}"><span>{{$product->title}}</span></a>
-                        <div class="tooltip">{{$product->product_name}}</div>
-                    </div>
-                    <span class="category__detail_watches"><i class="fa fa-eye" aria-hidden="true"></i>{{$product->views}}</span>
 
-
-                    <form onsubmit="if(confirm('Удалить?')) {return true} else {return false}" action="{{route('admin.product.destroy', $product)}}" class="delete_mini_form" method="post">
-                       @csrf
-
-                        <input type="hidden" name="_method" value="delete">
-
-                        <span class="category__detail_control edit"><a href="{{route('admin.product.edit', ['id'=>$product->id])}}"><i class="fas fa-pencil-alt"></i></a></span>
-
-                        <button type="submit" class="category__detail_control delete"><i class="far fa-trash-alt"></i></button>
-                    </form>
-
-    <!--                <span class="category__detail_control delete"><a href="{{route('admin.product.destroy', ['id'=>$product->id])}}"><i class="far fa-trash-alt"></i></a></span>-->
-                </div>    
+                    
+                   
                 
             @empty
-                <div>Товаров нет</div>
+            <tr>
+                <td colspan="7">Товаров нет</td>
+            </tr>
+            
             @endforelse
+        </table>
         </div>
         {{$products->links()}}
     </div>

@@ -40,6 +40,7 @@ class CreateProductsTable extends Migration
         Schema::create('currencies', function (Blueprint $table) {
             $table->increments('id');
             $table->char('currency', 3);
+            $table->string('currency_rus', 16)->nullable();
             $table->string('css_style', 32)->nullable();
             $table->timestamps();
         });
