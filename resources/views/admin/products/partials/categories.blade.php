@@ -3,7 +3,7 @@
 
 @foreach($categories as $category)
 
-    <option value="{{$category->id ?? ""}}"
+    <option value="{{$category->id ?? ''}}"
     
     @isset($product->id)
     

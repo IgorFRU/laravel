@@ -52,6 +52,7 @@ class ProductController extends Controller
             'title'       => 'АДМИН - Паркетный мир - Добавление товара',
             'product'     => [],
             'categories'  => Category::with('children')->where('parent_id', 0)->get(),
+            'manufactures'=> Manufacture::get(),
             'delimiter'   => ''
         ); 
         
