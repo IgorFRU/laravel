@@ -5,17 +5,20 @@
 
     <option value="{{$category->id ?? ''}}"
     
-    @isset($product->id)
+    @isset($category->id)
     
-        @foreach($product->caqtegories as $category_product)
-        
-            @if($category->id == $category_product->id)
-                
+        {{-- @foreach($product->category_id as $category_product) --}}
+        @isset($product->id)
+            @if($category->id == $product->category_id)
+                    
                 selected = "selected"
             
             @endif
+        @endisset
         
-        @endforeach
+            
+        
+        {{-- @endforeach --}}
     
     @endisset
     

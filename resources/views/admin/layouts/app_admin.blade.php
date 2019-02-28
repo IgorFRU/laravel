@@ -147,9 +147,9 @@
     <main class="content90">
         @yield('content')
     </main>
-    @section('footer')
-        Footer
-    @show
+    <footer>
+        @yield('footer')
+    </footer>
 </body>
 
 </html>

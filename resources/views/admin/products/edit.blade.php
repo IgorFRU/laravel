@@ -7,13 +7,13 @@
         @slot('parent') Главная @endslot
         @slot('parent2') Товары @endslot
             @slot('parent2_route') /../admin/product @endslot        
-        @slot('active') Добавление товара @endslot
+        @slot('active') Редактирование товара @endslot
     @endcomponent
     
     <div class="categories light_grey_box edit_product">
-        <form action="{{route('admin.product.store')}}" method="post">
+        <form action="{{route('admin.product.update', $product)}}" method="post">
             @csrf
-
+            <input type="hidden" name="_method" value="put">
             {{-- Forme include --}}
 
             @include('admin.products.partials.form')

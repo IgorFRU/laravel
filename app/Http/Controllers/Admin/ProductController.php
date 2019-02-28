@@ -19,18 +19,8 @@ class ProductController extends Controller
     {
         $data = array (            
             'title'         => 'АДМИН - Паркетный мир - Товары',
-            'products'      => Product::leftJoin('categories', 'products.category_id', '=', 'categories.id')
-                                    ->select(
-                                        'products.product_name', 
-                                        'products.price', 
-                                        'products.scu', 
-                                        'products.published', 
-                                        'products.recomended', 
-                                        'products.id', 
-                                        'categories.title')
-                                    //->where()
-                                    ->orderBy('products.published', 'DESC')
-                                    ->orderBy('products.id', 'ASC')
+            'products'      => Product::orderBy('id', 'DESC')
+                                    ->orderBy('published', 'ASC')
                                     ->paginate(10),
             'categories'    => Category::get(),
             'manufactures'  => Manufacture::get(),
@@ -39,6 +29,18 @@ class ProductController extends Controller
         ); 
         // dd ($data['products']);
         return view('admin.products.index', $data);
+
+        // leftJoin('categories', 'products.category_id', '=', 'categories.id')
+        //                             ->select(
+        //                                 'products.product_name', 
+        //                                 'products.price', 
+        //                                 'products.scu', 
+        //                                 'products.published', 
+        //                                 'products.recomended', 
+        //                                 'products.id', 
+        //                                 'categories.title')
+        //                             //->where()
+        //                             ->
     }
 
     /**
@@ -89,7 +91,15 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $data = array (            
+            'title'       => 'АДМИН - Паркетный мир - Добавление товара',
+            'product'     => $product,
+            'categories'  => Category::with('children')->where('parent_id', 0)->get(),
+            'manufactures'=> Manufacture::orderBy('manufacture', 'ASC')->get(),
+            'delimiter'   => ''
+        ); 
+        
+        return view('admin.products.edit', $data);
     }
 
     /**
@@ -101,7 +111,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        dd($request);
     }
 
     /**
