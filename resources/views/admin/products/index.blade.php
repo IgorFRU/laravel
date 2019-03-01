@@ -71,9 +71,9 @@
                             <td>{{ $product->scu }}</td>
                             <td>{{ $product->published }}</td>
                             <td>{{ $product->recomended }}</td>
-                            <td>{{ $category->title }}</td> {{-- Категория, полученная джойном --}}
+                            <td>{{ $product->category->title }}</td> {{-- Категория, полученная джойном --}}
                             <td>{{ $product->id }}</td>
-                            <td>{{$product->views}}</td>
+                            <td>{{ $product->views }}</td>
                             <td>
                                 <form onsubmit="if(confirm('Удалить?')) {return true} else {return false}" action="{{route('admin.product.destroy', $product)}}" class="delete_mini_form" method="post">
                                     @csrf            

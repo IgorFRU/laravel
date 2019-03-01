@@ -17,9 +17,21 @@ class ProductController extends Controller
      */
     public function index(Request $request, $category = null)
     {
+        $columns = [
+            'id',
+            'product_name',
+            'scu',
+            'category_id',
+            'price',
+            'published',
+            'recomended',
+            'views'
+        ];
         $data = array (            
             'title'         => 'АДМИН - Паркетный мир - Товары',
-            'products'      => Product::orderBy('id', 'DESC')
+            'products'      => Product::select($columns)
+                                    ->with(['category:id,title'])
+                                    ->orderBy('id', 'DESC')
                                     ->orderBy('published', 'ASC')
                                     ->paginate(10),
             'categories'    => Category::get(),

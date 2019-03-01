@@ -8,15 +8,15 @@ class Product extends Model
 {
     protected $guarded = ['id', 'inner_scu', 'alias', 'created_at', 'created_at'];
     
-    public function manufactures() {
-        return $this->belongsTo("app\Manufacture");
+    public function manufacture() {
+        return $this->belongsTo(Manufacture::class);
     }
 
-    public function categories() {
-        return $this->belongsTo("app\Category");
+    public function category() {
+        return $this->belongsTo(Category::class);
     }
     
-    public function currencies() {
-        return $this->belongsTo("app\Currency");
+    public function currency() {
+        return $this->belongsTo(Currency::class);
     }
 }
