@@ -16,7 +16,7 @@ class Manufacture extends Model
         $this->attributes['slug'] = Str::slug(mb_substr($this->manufacture, 0, 60) . "-", "-");
     }
 
-    public function products() {
-        return $this->hasMany("app\Product");
+    public function product() {
+        return $this->hasMany(Product::class);
     }
 }
