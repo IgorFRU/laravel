@@ -152,6 +152,61 @@
     </div>
 </section>
 
+<section>
+    <P>Цена</P>
+    <div class="left_45">
+        <div class="row">
+            <label for="price">Цена базовая</label>
+            <input type="text" name="price" value="{{$product->price ?? ''}}">
+
+            <label for="currency_id">Валюта</label>
+            <select name="currency_id" id="" >
+                @foreach($currencies as $currency)
+                    <option value="{{ $currency->id }}"
+                        @isset($product->currency_id)
+                            @if ($currency->id == $product->currency_id)
+                            selected = "selected"
+                            @endif
+                        @endisset
+                    >
+                    {{ $currency->currency }}
+                </option>
+                @endforeach
+            </select>
+
+        </div>
+        
+    </div>
+    <div class="right_45">
+        <label for="sale"><i class="fas fa-percentage"></i></label>        
+            @if(isset($product->id))
+                <input type="checkbox" name="sale" id="" class="js_oneclick" value="{{ $product->sale }}" @if($product->sale) checked @endif>
+                {{-- Скрытое поле для отправки на сервер value неотмеченного чекбокса --}}
+                <input type="hidden" name="sale" id="" class="js_oneclick_hidden" value="{{ $product->sale }}" >  
+            @else
+                <input type="checkbox" name="sale" id="" class="js_oneclick" value="1"  checked >
+                {{-- Скрытое поле для отправки на сервер value неотмеченного чекбокса --}}
+                <input type="hidden" name="sale" id="" class="js_oneclick_hidden" value="1" > 
+            @endif
+
+        <label for="sale_id">Глобальная политика скидок</label>
+        <select name="sale_id" id="" >
+            <option value="0">Нет</option>
+            @foreach($sales as $sale)
+                <option value="{{ $sale->id }}"
+                    @isset($product->sale_id)
+                        @if ($sale->id == $product->sale_id)
+                        selected = "selected"
+                        @endif
+                    @endisset
+                >
+                {{ $sale->sale }} | {{ $sale->end_at }}
+            </option>
+            @endforeach
+        </select>    
+    </div>
+</section>
+
 
 <button>Сохранить</button>
 <input class="category__add grey_box" type="submit" name="submit" value="Сохранить и выйти">
