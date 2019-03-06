@@ -5,6 +5,9 @@ namespace app\Http\Controllers\Admin;
 use app\Product;
 use app\Category;
 use app\Manufacture;
+use app\Unit;
+use app\Currency;
+use app\Sale;
 use Illuminate\Http\Request;
 use app\Http\Controllers\Controller;
 
@@ -36,6 +39,7 @@ class ProductController extends Controller
                                     ->paginate(10),
             'categories'    => Category::get(),
             'manufactures'  => Manufacture::get(),
+            'currencies'    => Currency::get(),
             'published'     => Product::where('published', 1)->count(),
             'unpublished'   => Product::where('published', 0)->count()
         ); 
@@ -67,9 +71,11 @@ class ProductController extends Controller
             'product'     => [],
             'categories'  => Category::with('children')->where('parent_id', 0)->get(),
             'manufactures'=> Manufacture::get(),
+            'currencies'  => Currency::get(),
+            'units'       => Unit::get(),
             'delimiter'   => ''
         ); 
-        
+        // dd($data['categories']);
         return view('admin.products.create', $data);
     }
 
@@ -108,6 +114,9 @@ class ProductController extends Controller
             'product'     => $product,
             'categories'  => Category::with('children')->where('parent_id', 0)->get(),
             'manufactures'=> Manufacture::orderBy('manufacture', 'ASC')->get(),
+            'currencies'  => Currency::get(),
+            'units'       => Unit::get(),
+            'sales'       => Sale::get(),
             'delimiter'   => ''
         ); 
         

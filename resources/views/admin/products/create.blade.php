@@ -15,7 +15,7 @@
             @csrf
 
             {{-- Forme include --}}
-
+            
             @include('admin.products.partials.form')
         </form>
     </div>
