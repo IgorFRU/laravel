@@ -15,10 +15,16 @@ class CreateQuickPropertiesTable extends Migration
     {
         Schema::create('quick_properties', function (Blueprint $table) {
             $table->increments('id');            
-            $table->string('group', 32);
+            $table->integer('group_id')->unsigned();
             $table->string('property', 32);
             $table->string('value', 64);
             $table->string('css_style', 32);
+
+            $table->foreign('group_id')
+                ->references('id')
+                ->on('quick_property_groups')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');            
         });
     }
 

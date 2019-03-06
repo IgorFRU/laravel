@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagesTable extends Migration
+class CreateQuickPropertyGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('quick_property_groups', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('file');
-            $table->string('name');
-            $table->string('alt');            
-            $table->string('thumbnail');
-            $table->timestamps();
+            $table->string('group', 32)->unique();
         });
     }
 
@@ -30,6 +26,6 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('quick_property_groups');
     }
 }
