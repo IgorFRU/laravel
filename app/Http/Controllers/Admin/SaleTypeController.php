@@ -2,11 +2,11 @@
 
 namespace app\Http\Controllers\Admin;
 
-use app\SaleType;
+use app\Saletype;
 use Illuminate\Http\Request;
 use app\Http\Controllers\Controller;
 
-class SaleTypeController extends Controller
+class SaletypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -46,7 +46,13 @@ class SaleTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'sale_type' => 'required|unique:sale_type|max:64',
+        ]);
+
+        SaleType::create($request->all());
+        
+        return redirect()->route('admin.sale.index')->with('success', 'Скидка успешно добавлена');
     }
 
     /**

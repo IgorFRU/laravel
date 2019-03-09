@@ -18,7 +18,7 @@
         @endif
         
         <div class="categories light_grey_box">
-            <h2 class="categories__title">Товары ({{$published}}/{{$unpublished}})</h2>
+            <h2 class="categories__title">Товары</h2>
             
 <!--
             <form action="admin.product" method="get" class="category_select">

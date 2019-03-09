@@ -21,7 +21,7 @@
         <div class="categories light_grey_box">
             <h2 class="categories__title">Скидки</h2>
 
-            <a href="{{route('admin.unit.create')}}" class="category__add grey_box"><i class="fas fa-plus"></i></a>
+            <a href="{{route('admin.sale.create')}}" class="category__add grey_box"><i class="fas fa-plus"></i></a>
             @forelse ($sales as $sale)
 
                <div class="manufacture grey_box">

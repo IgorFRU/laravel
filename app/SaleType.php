@@ -4,7 +4,7 @@ namespace app;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SaleType extends Model
+class Saletype extends Model
 {
     protected $guarded = ['id'];
     

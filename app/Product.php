@@ -27,4 +27,8 @@ class Product extends Model
     public function sale() {
         return $this->belongsTo(Sale::class);
     }
+
+    public static function publishedCount() {
+        return Product::where('published', 1)->count();
+    }
 }

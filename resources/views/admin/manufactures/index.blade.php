@@ -19,7 +19,7 @@
         @endif
 
         <div class="categories light_grey_box">
-            <h2 class="categories__title">Производители ({{$published}}/{{$unpublished}})</h2>
+            <h2 class="categories__title">Производители</h2>
 
             <a href="{{route('admin.manufacture.create')}}" class="category__add grey_box"><i class="fas fa-plus"></i></a>
             @forelse ($manufactures as $manufacture)

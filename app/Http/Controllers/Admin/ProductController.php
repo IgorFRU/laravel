@@ -39,9 +39,7 @@ class ProductController extends Controller
                                     ->paginate(10),
             'categories'    => Category::get(),
             'manufactures'  => Manufacture::get(),
-            'currencies'    => Currency::get(),
-            'published'     => Product::where('published', 1)->count(),
-            'unpublished'   => Product::where('published', 0)->count()
+            'currencies'    => Currency::get()
         ); 
         // dd ($data['products']);
         return view('admin.products.index', $data);

@@ -34,7 +34,7 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
-    public function publishedCount() {
+    public static function publishedCount() {
         return Category::where('published', 1)->count();
     }
 

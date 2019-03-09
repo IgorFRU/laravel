@@ -19,4 +19,8 @@ class Manufacture extends Model
     public function product() {
         return $this->hasMany(Product::class);
     }
+
+    public static function publishedCount() {
+        return Manufacture::where('published', 1)->count();
+    }
 }

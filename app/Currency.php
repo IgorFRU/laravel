@@ -12,4 +12,8 @@ class Currency extends Model
     public function products() {
         return $this->hasMany("app\Product");
     }
+
+    // public static function count() {
+    //     return Currency::get()->count();
+    // }
 }

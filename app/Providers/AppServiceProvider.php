@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
             //     return Cbr::get();
             // });
 
-            $hour = 3600;
+            $hour = 60;
 
             $cbr = Cache::remember('cbr', $hour, function() {
                 return Cbr::get();
@@ -54,13 +54,13 @@ class AppServiceProvider extends ServiceProvider
                 return \app\Category::publishedCount();
             });
             $products_published = Cache::remember('products_published', $hour, function() {
-                return \app\Product::where('published', 1)->count();
+                return \app\Product::publishedCount();
             });
             $manufactures_published = Cache::remember('manufactures_published', $hour, function() {
-                return \app\Manufacture::where('published', 1)->count();
+                return \app\Manufacture::publishedCount();
             });  
             $currencies_published = Cache::remember('currencies_published', $hour, function() {
-                return \app\Currency::get()->count();
+                return \app\Currency::count();
             });               
 
             $data = array (
@@ -69,7 +69,6 @@ class AppServiceProvider extends ServiceProvider
                 'manufactures_published'    => $manufactures_published,
                 'currencies_published'      => $currencies_published,
                 'cbr'                       => $cbr
-                //'manufacturers_published'   => \app\Product::where('published', 1)->count()
             );
 
             // $cbr = Cbr::get();

@@ -13,7 +13,7 @@ class ManufactureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($sort_by = null, $sort_type = null)
+    public function index(Request $request)
     {
 //        $sort_by = 5;
         $data = array (
@@ -21,10 +21,7 @@ class ManufactureController extends Controller
             'manufactures'    => Manufacture::orderBy('published', 'DESC')
                                     ->orderBy('id', 'DESC')
                                     ->paginate(10),
-            'published'     => Manufacture::where('published', 1)->count(),
-            'unpublished'   => Manufacture::where('published', 0)->count(),
-            'sort_by'       => $sort_by,
-            'sort_type'     => $sort_type
+            'sort_by'       => $request->sort_by
         );
 
         return view('admin.manufactures.index', $data);

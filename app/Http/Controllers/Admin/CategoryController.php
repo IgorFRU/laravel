@@ -107,6 +107,14 @@ class CategoryController extends Controller
     {
         $category->update($request->except('alias'));
 
+        if (Cache::has('categories_published')) {
+            if ($request->published) {
+                Cache::increment('categories_published');
+            } else {
+                Cache::decrement('categories_published');
+            }            
+        }
+
         return redirect()->route('admin.category.index')->with('success', 'Категория успешно изменена');
         //return redirect()->back()->with('success', 'Категория успешно изменена');
     }
@@ -121,6 +129,10 @@ class CategoryController extends Controller
     {
         $category->delete();
         //Category::destroy($category['id']);
+
+        if (Cache::has('categories_published')) {
+            Cache::decrement('categories_published');           
+        }
 
         return redirect()->back()->with('success', 'Категория успешно удалена');
         //return redirect()->route('admin.category.index');
