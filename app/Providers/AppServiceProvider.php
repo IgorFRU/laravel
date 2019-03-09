@@ -5,6 +5,7 @@ namespace app\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Cache;
 
 use Illuminate\Pagination\Paginator;
 
@@ -39,16 +40,44 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('admin.layouts.app_admin', function ($view){
             
+            // $cbr = Cache::get('cbr', function() {
+            //     Cache::put('cbr', $cbr, 600);
+            //     return Cbr::get();
+            // });
+
+            $hour = 3600;
+
+            $cbr = Cache::remember('cbr', $hour, function() {
+                return Cbr::get();
+            });
+            $categories_published = Cache::remember('categories_published', $hour, function() {
+                return \app\Category::publishedCount();
+            });
+            $products_published = Cache::remember('products_published', $hour, function() {
+                return \app\Product::where('published', 1)->count();
+            });
+            $manufactures_published = Cache::remember('manufactures_published', $hour, function() {
+                return \app\Manufacture::where('published', 1)->count();
+            });  
+            $currencies_published = Cache::remember('currencies_published', $hour, function() {
+                return \app\Currency::get()->count();
+            });               
+
             $data = array (
-                'categories_published'      => \app\Category::where('published', 1)->count(),
-                'products_published'        => \app\Product::where('published', 1)->count(),
-                'manufactures_published'    => \app\Manufacture::where('published', 1)->count(),
-                'currencies_published'      => \app\Currency::get()->count(),
-                'cbr'                       => Cbr::get()
+                'categories_published'      => $categories_published,
+                'products_published'        => $products_published,
+                'manufactures_published'    => $manufactures_published,
+                'currencies_published'      => $currencies_published,
+                'cbr'                       => $cbr
                 //'manufacturers_published'   => \app\Product::where('published', 1)->count()
             );
+
+            // $cbr = Cbr::get();
+
+            // Cache::put('cbr', $cbr, 600);
+
+            // $value = Cache::get('cbr');
             
-//            $view->with('categories', \app\Category::where('published', 1)->get());
             $view->with($data);
         });
     }

@@ -10,6 +10,10 @@
         @if($category->parent_id == $category_list->id)
             selected=""
         @endif
+
+        @if($category->id == $category_list->parent_id)
+            disabled=""
+        @endif
         
         @if($category->id == $category_list->id)
             hidden="" {{-- скрываем саму категорию из списка родителей--}}

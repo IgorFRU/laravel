@@ -24,8 +24,6 @@ class Category extends Model
             $next_id = Category::select('id')->orderby('id', 'desc')->first()['id'];
             $this->attributes['alias'] .= '-' . ++$next_id;
         }
-
-
     }
     
     public function children() {
@@ -34,6 +32,10 @@ class Category extends Model
     
     public function product() {
         return $this->hasMany(Product::class);
+    }
+
+    public function publishedCount() {
+        return Category::where('published', 1)->count();
     }
 
 }

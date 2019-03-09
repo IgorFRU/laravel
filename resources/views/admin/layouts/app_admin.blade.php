@@ -63,6 +63,8 @@
                     <li><a href="{{ route('admin.manufacture.index') }}">Производители</a><span class="count normal_count">{{ $manufactures_published }}</span></li>
                     <li><a href="#">Характеристики</a></li>
                     <li><a href="{{ route('admin.currency.index') }}">Валюты</a><span class="count normal_count">{{ $currencies_published }}</span></li>
+                    <li><a href="{{ route('admin.unit.index') }}">Ед. изм.</a></li>
+                    <li><a href="{{ route('admin.sale.index') }}">Правила скидок</a></li>
                     <span class="separate"></span>
                     <li><a href="#">Заказы</a><span class="count alert_count">19</span></li>
                     <li><a href="#">Вопросы</a><span class="count alert_count">19</span></li>

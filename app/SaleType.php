@@ -4,13 +4,12 @@ namespace app;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Unit extends Model
+class SaleType extends Model
 {
-    // protected $guarded = ['id'];
-    protected $fillable = ['unit'];
-
-    public $timestamps = false;
+    protected $guarded = ['id'];
     
+    public $timestamps = false;
+
     public function product() {
         return $this->hasMany(Product::class);
     }

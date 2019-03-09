@@ -5,6 +5,7 @@ namespace app\Http\Controllers\Admin;
 use app\Category;
 use Illuminate\Http\Request;
 use app\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class CategoryController extends Controller
 {
@@ -19,9 +20,7 @@ class CategoryController extends Controller
             'title'         => 'АДМИН - Паркетный мир - Категории',
             'categories'    => Category::orderBy('published', 'DESC')
                                     ->orderBy('id', 'DESC')
-                                    ->paginate(10),
-            'published'     => Category::where('published', 1)->count(),
-            'unpublished'   => Category::where('published', 0)->count()
+                                    ->paginate(10)
         );
 
         return view('admin.categories.index', $data);
@@ -57,6 +56,10 @@ class CategoryController extends Controller
         //метод для массовго заполнения
 
         Category::create($request->all());
+
+        if (Cache::has('categories_published')) {
+            Cache::increment('categories_published');
+        }
         
         return redirect()->route('admin.category.index')->with('success', 'Категория успешно добавлена');
         //return redirect()->back()->with('success', 'Категория успешно сохранена');
