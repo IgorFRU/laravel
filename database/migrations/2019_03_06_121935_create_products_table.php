@@ -55,7 +55,7 @@ class CreateProductsTable extends Migration
                 ->onUpdate('cascade');
             $table->foreign('sale_type')
                 ->references('id')
-                ->on('sale_types')
+                ->on('saletypes')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
             $table->foreign('unit_id')

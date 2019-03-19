@@ -17,7 +17,7 @@ class SaletypeController extends Controller
     {
         $data = array (
             'title'         => 'АДМИН - Паркетный мир - Скидки',
-            'sales'         => SaleType::get()
+            'sales'         => Saletype::get()
         );
 
         return view('admin.sales.index', $data);
@@ -50,7 +50,7 @@ class SaletypeController extends Controller
             'sale_type' => 'required|unique:sale_type|max:64',
         ]);
 
-        SaleType::create($request->all());
+        Saletype::create($request->all());
         
         return redirect()->route('admin.sale.index')->with('success', 'Скидка успешно добавлена');
     }
@@ -58,10 +58,10 @@ class SaletypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \app\SaleType  $saleType
+     * @param  \app\Saletype  $saletype
      * @return \Illuminate\Http\Response
      */
-    public function show(SaleType $saleType)
+    public function show(Saletype $saletype)
     {
         //
     }
@@ -69,10 +69,10 @@ class SaletypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \app\SaleType  $saleType
+     * @param  \app\Saletype  $saletype
      * @return \Illuminate\Http\Response
      */
-    public function edit(SaleType $saleType)
+    public function edit(Saletype $saletype)
     {
         //
     }
@@ -81,10 +81,10 @@ class SaletypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \app\SaleType  $saleType
+     * @param  \app\Saletype  $saletype
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SaleType $saleType)
+    public function update(Request $request, Saletype $saletype)
     {
         //
     }
@@ -92,10 +92,10 @@ class SaletypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \app\SaleType  $saleType
+     * @param  \app\Saletype  $saletype
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SaleType $saleType)
+    public function destroy(Saletype $saletype)
     {
         //
     }

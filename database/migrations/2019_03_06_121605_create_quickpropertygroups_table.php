@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuickPropertyGroupsTable extends Migration
+class CreateQuickpropertygroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateQuickPropertyGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('quick_property_groups', function (Blueprint $table) {
+        Schema::create('quickpropertygroups', function (Blueprint $table) {
             $table->increments('id');
             $table->string('group', 32)->unique();
         });
@@ -26,6 +26,6 @@ class CreateQuickPropertyGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quick_property_groups');
+        Schema::dropIfExists('quickpropertygroups');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuickPropertiesTable extends Migration
+class CreateQuickpropertiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateQuickPropertiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('quick_properties', function (Blueprint $table) {
+        Schema::create('quickproperties', function (Blueprint $table) {
             $table->increments('id');            
             $table->integer('group_id')->unsigned();
             $table->string('property', 32);
@@ -22,7 +22,7 @@ class CreateQuickPropertiesTable extends Migration
 
             $table->foreign('group_id')
                 ->references('id')
-                ->on('quick_property_groups')
+                ->on('quickpropertygroups')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');            
         });
@@ -35,6 +35,6 @@ class CreateQuickPropertiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quick_properties');
+        Schema::dropIfExists('quickproperties');
     }
 }

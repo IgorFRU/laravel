@@ -24,8 +24,8 @@ class Product extends Model
         return $this->belongsTo(Unit::class);
     }
     
-    public function sale() {
-        return $this->belongsTo(Sale::class);
+    public function saletype() {
+        return $this->belongsTo(Saletype::class);
     }
 
     public static function publishedCount() {
