@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('currency_id')->unsigned()->nullable(); //чтобы при удалении валюты не было конфликта. По умолчанию, если валюта не выбрана - руб.
             $table->decimal('price', 6, 2)->unsigned()->nullable();
             $table->integer('sale')->default(0);
-            $table->integer('sale_type')->unsigned()->nullable();
+            $table->integer('rebate')->unsigned()->nullable(); //скидка
             $table->string('short_description', 255)->nullable();
             $table->text('description')->nullable();
             $table->string('meta-title', 255)->nullable();
@@ -53,9 +53,9 @@ class CreateProductsTable extends Migration
                 ->on('currencies')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
-            $table->foreign('sale_type')
+            $table->foreign('rebate')
                 ->references('id')
-                ->on('saletypes')
+                ->on('rebates')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
             $table->foreign('unit_id')
