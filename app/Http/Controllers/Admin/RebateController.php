@@ -1,9 +1,10 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace app\Http\Controllers\Admin;
 
-use app\Admin\Rebate;
+use app\Rebate;
 use Illuminate\Http\Request;
+use app\Http\Controllers\Controller;
 
 class RebateController extends Controller
 {
@@ -16,7 +17,7 @@ class RebateController extends Controller
     {
         $data = array (
             'title'         => 'АДМИН - Паркетный мир - Скидки',
-            'sales'         => Rebate::get()
+            'rebates'         => Rebate::get()
         );
 
         return view('admin.rebates.index', $data);
@@ -31,7 +32,7 @@ class RebateController extends Controller
     {
         $data = array (            
             'title' => 'АДМИН - Паркетный мир - добавление скидки',
-            'sale' => [],
+            'rebate' => [],
         );
         
         return view('admin.rebates.create', $data);
@@ -46,7 +47,7 @@ class RebateController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'rebate' => 'required|unique:rebate|max:64',
+            'rebate' => 'required|unique:rebates|max:64',
         ]);
 
         Rebate::create($request->all());
@@ -96,6 +97,8 @@ class RebateController extends Controller
      */
     public function destroy(Rebate $rebate)
     {
-        //
+        $rebate->delete();
+
+        return redirect()->back()->with('success', 'Скидка успешно удалена');
     }
 }

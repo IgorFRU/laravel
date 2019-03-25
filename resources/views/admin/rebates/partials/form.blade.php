@@ -1,13 +1,13 @@
 
     <div class="grey_box">
-    <label for="sale_type">Название</label>
-    <input type="text" name="sale_type" value="{{$sale_type->sale_type ?? ""}}" required>
+    <label for="rebate">Название</label>
+    <input type="text" name="rebate" value="{{$rebate->rebate ?? ""}}" required>
     </div>
     <div class="grey_box">
         <div class="row">
             <div>
                 <label for="value">Значение</label>
-                <input type="text" name="value" value="{{$sale_type->value ?? ""}}" >
+                <input type="text" name="value" value="{{$rebate->value ?? ""}}" >
             </div>
             <div>
                 <select name="type" id="">

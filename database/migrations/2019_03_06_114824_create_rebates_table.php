@@ -15,7 +15,7 @@ class CreateRebatesTable extends Migration
     {
         Schema::create('rebates', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('rebate', 32);
+            $table->string('rebate', 63);
             $table->integer('value');
             $table->enum('type', ['rub', '%']);
             $table->date('start_at')->nullable();
