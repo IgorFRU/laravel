@@ -1,18 +1,19 @@
 @extends('admin.layouts.app_admin')
 
+
 @section('content')
 
     @component('admin.components.breadcrumb')
         @slot('parent') Главная @endslot
         @slot('parent2') Скидки @endslot
-            @slot('parent2_route') /../admin/rebate @endslot        
-        @slot('active') Добавление скидки @endslot
+            @slot('parent2_route') /../admin/rebate @endslot
+        @slot('active') Редактирование скидки @endslot
     @endcomponent
-    
-    <div class="categories light_grey_box edit_product">
-        <form action="{{route('admin.rebate.store')}}" enctype="multipart/form-data" method="post">
-            @csrf
 
+    <div class="categories light_grey_box">
+        <form action="{{route('admin.rebate.update', $rebate)}}" method="post">
+            @csrf
+            <input type="hidden" name="_method" value="put">
             {{-- Forme include --}}
 
             @include('admin.rebates.partials.form')
@@ -28,5 +29,5 @@
             </ul>
         </div>
     @endif
-
+    
 @endsection

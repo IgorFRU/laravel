@@ -4,10 +4,30 @@ namespace app;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Str;
+
 class Product extends Model
 {
-    protected $guarded = ['id', 'inner_scu', 'alias', 'created_at', 'created_at'];
-    
+    // protected $guarded = ['id', 'inner_scu', 'alias', 'created_at', 'created_at'];
+    protected $fillable = ['scu', 'product_name', 'slug', 'category_id', 'manufacture_id', 
+                            'currency_id', 'price', 'sale', 'rebate', 'short_description',
+                            'description', 'meta_title', 'meta_description', 'meta_keywords',
+                            'published', 'recomended', 'sample', 'unit_id', 'packaging_sales',
+                            'in_package'];
+
+    public function setSlugAttribute($value) {
+        $this->attributes['slug'] = Str::slug(mb_substr($this->product_name, 0, 60) . "-", "-");
+        $this->attributes['slug'] .= '-' . $this->attributes['scu'];
+        $double = Product::where('slug', $this->attributes['slug'])->first();
+
+        if ($double) {
+            //Добавляем к алиасу id
+
+            $next_id = Product::select('id')->orderby('id', 'desc')->first()['id'];
+            $this->attributes['slug'] .= '-' . ++$next_id;
+        }
+    }
+
     public function manufacture() {
         return $this->belongsTo(Manufacture::class);
     }

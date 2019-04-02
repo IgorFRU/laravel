@@ -7,7 +7,7 @@ use app\Category;
 use app\Manufacture;
 use app\Unit;
 use app\Currency;
-use app\Sale;
+use app\Rebate;
 use Illuminate\Http\Request;
 use app\Http\Controllers\Controller;
 
@@ -71,6 +71,7 @@ class ProductController extends Controller
             'manufactures'=> Manufacture::get(),
             'currencies'  => Currency::get(),
             'units'       => Unit::get(),
+            'rebates'     => Rebate::get(),
             'delimiter'   => ''
         ); 
         // dd($data['categories']);
@@ -85,7 +86,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Product::create($request->all());
+        
+        return redirect()->route('admin.product.index')->with('success', 'Товар успешно добавлен');
     }
 
     /**
@@ -114,7 +118,7 @@ class ProductController extends Controller
             'manufactures'=> Manufacture::orderBy('manufacture', 'ASC')->get(),
             'currencies'  => Currency::get(),
             'units'       => Unit::get(),
-            'sales'       => Sale::get(),
+            'rebates'     => Rebate::get(),
             'delimiter'   => ''
         ); 
         
@@ -141,7 +145,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->back()->with('success', 'Товар успешно удален');
     }
     
     /**

@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rebate extends Model
 {
-    protected $guarded = ['id'];
+    //protected $table = 'rebates';
+
+    protected $fillable = ['rebate', 'value', 'type', 'start_at', 'end_at', 'active'];
     
     public $timestamps = false;
 

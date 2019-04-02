@@ -59,13 +59,13 @@
             </div>
             
             <div class="grey_box">
-                <label for="manufacturer_id">Производитель</label>
-                <select name="manufacturer_id" id="" >
+                <label for="manufacture_id">Производитель</label>
+                <select name="manufacture_id" id="" >
                     <option value="0">-- Не указан --</option>
                     @foreach($manufactures as $manufacture)
                         <option value="{{ $manufacture->id }}"
-                            @isset($product->manufacturer_id)
-                                @if ($manufacture->id == $product->manufacturer_id)
+                            @isset($product->manufacture_id)
+                                @if ($manufacture->id == $product->manufacture_id)
                                 selected = "selected"
                                 @endif
                             @endisset
@@ -84,8 +84,8 @@
     <p>Цены и размеры</p>
     <div class="left_45">
         <div class='row'>
-            <label for="unit">Ед.изм.</label>
-            <select name="unit" id="" >
+            <label for="unit_id">Ед.изм.</label>
+            <select name="unit_id" id="" >
                 @forelse($units as $unit)
                     <option value="{{ $unit->id }}"
                         @isset($product->unit_id)
@@ -112,42 +112,6 @@
                 @endif
             <label for="in_package">В упаковке</label>
             <input type="text" name="in_package" value="{{$product->in_package ?? ''}}">
-        </div>
-    </div>
-</section>
-
-<section>
-    <P>Мета-теги</P>
-    <div class="left_45">
-        <div class="grey_box">
-            <div class="row">
-                <label for="short_description">Описание</label>
-                <div>
-                    <label for="short_description_flag">Краткое описание из полного</label>
-                    <input type="checkbox" name="short_description_flag" id="" value="1">
-                </div>            
-            </div>
-            <textarea name="short_description" id="short_description" cols="30" rows="5" maxlength="255" placeholder="<255"
-                >{{$product->short_description ?? ''}}</textarea>
-        </div>
-        <div class="grey_box">
-            <label for="description">Описание</label>
-            <textarea name="description" id="description" cols="30" rows="10">{{$product->description ?? ''}}</textarea>
-        </div>
-    </div>
-
-    <div class="right_45">
-        <div class="grey_box">
-            <label for="meta_title">Заголовок (meta)</label>
-            <textarea name="meta_title" id="meta_title" cols="30" rows="2">{{$product->meta_title ?? ''}}</textarea>
-        </div>
-        <div class="grey_box">
-            <label for="meta_description">Описание (meta)</label>
-            <textarea name="meta_description" id="meta_description" cols="30" rows="10">{{$product->meta_description ?? ''}}</textarea>
-        </div>
-        <div class="grey_box">
-            <label for="meta_keywords">Ключевые слова (meta)</label>
-            <textarea name="meta_keywords" id="meta_keywords" cols="30" rows="2">{{$product->meta_keywords ?? ''}}</textarea>
         </div>
     </div>
 </section>
@@ -189,24 +153,59 @@
                 <input type="hidden" name="sale" id="" class="js_oneclick_hidden" value="1" > 
             @endif
 
-        <label for="sale_id">Глобальная политика скидок</label>
-        <select name="sale_id" id="" >
+        <label for="rebate">Глобальная политика скидок</label>
+        <select name="rebate" id="" >
             <option value="0">Нет</option>
-            @foreach($sales as $sale)
-                <option value="{{ $sale->id }}"
-                    @isset($product->sale_id)
-                        @if ($sale->id == $product->sale_id)
+            @foreach($rebates as $rebate)
+                <option value="{{ $rebate->id }}"
+                    @isset($product->rebate)
+                        @if ($rebate->id == $product->rebate)
                         selected = "selected"
                         @endif
                     @endisset
                 >
-                {{ $sale->sale }} | {{ $sale->end_at }}
-            </option>
+                {{ $rebate->rebate }} | {{ $rebate->value }}{{ $rebate->type }} @if($rebate->end_at)| {{ $rebate->end_at }} @endif
+                </option>
             @endforeach
         </select>    
     </div>
 </section>
 
+<section>
+    <P>Мета-теги</P>
+    <div class="left_45">
+        <div class="grey_box">
+            <div class="row">
+                <label for="short_description">Описание</label>
+                <div>
+                    <label for="short_description_flag">Краткое описание из полного</label>
+                    <input type="checkbox" name="short_description_flag" id="" value="1">
+                </div>            
+            </div>
+            <textarea name="short_description" id="short_description" cols="30" rows="5" maxlength="255" placeholder="<255"
+                >{{$product->short_description ?? ''}}</textarea>
+        </div>
+        <div class="grey_box">
+            <label for="description">Описание</label>
+            <textarea name="description" id="description" cols="30" rows="10">{{$product->description ?? ''}}</textarea>
+        </div>
+    </div>
+
+    <div class="right_45">
+        <div class="grey_box">
+            <label for="meta_title">Заголовок (meta)</label>
+            <textarea name="meta_title" id="meta_title" cols="30" rows="2">{{$product->meta_title ?? ''}}</textarea>
+        </div>
+        <div class="grey_box">
+            <label for="meta_description">Описание (meta)</label>
+            <textarea name="meta_description" id="meta_description" cols="30" rows="10">{{$product->meta_description ?? ''}}</textarea>
+        </div>
+        <div class="grey_box">
+            <label for="meta_keywords">Ключевые слова (meta)</label>
+            <textarea name="meta_keywords" id="meta_keywords" cols="30" rows="2">{{$product->meta_keywords ?? ''}}</textarea>
+        </div>
+    </div>
+</section>
 
 <button>Сохранить</button>
 <input class="category__add grey_box" type="submit" name="submit" value="Сохранить и выйти">

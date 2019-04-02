@@ -1,9 +1,10 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace app\Http\Controllers\Admin;
 
-use app\Admin\Rebate;
+use app\Rebate;
 use Illuminate\Http\Request;
+use app\Http\Controllers\Controller;
 
 class RebateController extends Controller
 {
@@ -16,7 +17,7 @@ class RebateController extends Controller
     {
         $data = array (
             'title'         => 'АДМИН - Паркетный мир - Скидки',
-            'sales'         => Rebate::get()
+            'rebates'         => Rebate::get()
         );
 
         return view('admin.rebates.index', $data);
@@ -31,7 +32,7 @@ class RebateController extends Controller
     {
         $data = array (            
             'title' => 'АДМИН - Паркетный мир - добавление скидки',
-            'sale' => [],
+            'rebate' => [],
         );
         
         return view('admin.rebates.create', $data);
@@ -46,7 +47,7 @@ class RebateController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'rebate' => 'required|unique:rebate|max:64',
+            'rebate' => 'required|unique:rebates|max:64',
         ]);
 
         Rebate::create($request->all());
@@ -73,7 +74,12 @@ class RebateController extends Controller
      */
     public function edit(Rebate $rebate)
     {
-        //
+        $data = array (            
+            'title' => 'АДМИН - Паркетный мир - редактирование скидки',
+            'rebate' => $rebate
+        );
+        
+        return view('admin.rebates.edit', $data);
     }
 
     /**
@@ -85,7 +91,13 @@ class RebateController extends Controller
      */
     public function update(Request $request, Rebate $rebate)
     {
-        //
+        $request->validate([
+            'rebate' => 'required|max:64',
+        ]);
+        
+        $rebate->update($request->all());
+
+        return redirect()->route('admin.rebate.index')->with('success', 'Скидка успешно изменена');
     }
 
     /**

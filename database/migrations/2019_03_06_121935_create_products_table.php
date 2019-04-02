@@ -26,9 +26,9 @@ class CreateProductsTable extends Migration
             $table->integer('rebate')->unsigned()->nullable(); //скидка
             $table->string('short_description', 255)->nullable();
             $table->text('description')->nullable();
-            $table->string('meta-title', 255)->nullable();
-            $table->string('meta-description', 255)->nullable();
-            $table->string('meta-keywords', 100)->nullable();
+            $table->string('meta_title', 255)->nullable();
+            $table->string('meta_description', 255)->nullable();
+            $table->string('meta_keywords', 100)->nullable();
             $table->tinyInteger('published')->default(1);
             $table->tinyInteger('recomended')->default(0);
             $table->integer('views')->default(0);
