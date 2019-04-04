@@ -16,4 +16,10 @@ class Currency extends Model
     // public static function count() {
     //     return Currency::get()->count();
     // }
+    
+    public static function currenciesList() {
+        // return Currency::lists('currency');
+
+        return Currency::pluck('currency');
+    }
 }

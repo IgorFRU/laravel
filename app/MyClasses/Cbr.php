@@ -3,6 +3,7 @@
 namespace app\MyClasses;
 
 use \Carbon\Carbon;
+use app\Currency;
 
 /*
 *
@@ -17,7 +18,8 @@ class Cbr
 {
     static $days = [];
     
-    static $valute_names = ['USD', 'EUR'];
+    //static $valute_names = ['USD', 'EUR'];
+    static $valute_names = [];
     static $valute_values = [];
 
     static $count_valutes;
@@ -25,7 +27,7 @@ class Cbr
     static $file;
 
     public static function configurate() {
-        //self::$valute_names = $valute_names;
+        self::$valute_names = Currency::currenciesList();
         self::$count_valutes = sizeof(self::$valute_names);
 
         self::$days[] = Carbon::now()->format('d.m.Y');
@@ -63,6 +65,14 @@ class Cbr
     public static function get() {
         self::configurate();
         return self::$valute_values;
+//        return Carbon::now()->format('d.m.Y');
+    }
+
+    public static function getNames() {
+        if (count(self::$valute_names) == 0) {
+            self::$valute_names = Currency::currenciesList();
+        }        
+        return self::$valute_names;
 //        return Carbon::now()->format('d.m.Y');
     }
 }

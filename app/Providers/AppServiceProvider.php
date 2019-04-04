@@ -50,6 +50,14 @@ class AppServiceProvider extends ServiceProvider
             $cbr = Cache::remember('cbr', $hour, function() {
                 return Cbr::get();
             });
+            // $cbrNames = Cache::remember('cbr', $hour, function() {
+            //     return Cbr::getNames();
+            // });
+
+            $cbrNames = Cbr::getNames();
+
+            //dd($cbrNames);
+
             $categories_published = Cache::remember('categories_published', $hour, function() {
                 return \app\Category::publishedCount();
             });
@@ -68,7 +76,8 @@ class AppServiceProvider extends ServiceProvider
                 'products_published'        => $products_published,
                 'manufactures_published'    => $manufactures_published,
                 'currencies_published'      => $currencies_published,
-                'cbr'                       => $cbr
+                'cbr'                       => $cbr,
+                'cbrNames'                  => $cbrNames
             );
 
             // $cbr = Cbr::get();

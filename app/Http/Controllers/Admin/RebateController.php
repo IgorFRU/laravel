@@ -108,6 +108,8 @@ class RebateController extends Controller
      */
     public function destroy(Rebate $rebate)
     {
-        //
+        $rebate->delete();
+
+        return redirect()->back()->with('success', 'Скидка успешно удалена');
     }
 }

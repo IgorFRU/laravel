@@ -80,7 +80,11 @@
             <ul class="currency">
                 <div class="currency__today">
                     Сегодня
-                    <span class="currency__child"><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">{{ $cbr[0] ?? 'er' }}</span><span
+                    <span class="currency__child"> 
+                            @php dd($cbr) @endphp
+                        @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
+                        @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
+                    <span class="currency__value">{{ $cbr[0] ?? 'er' }}</span><span
                     
                     @if(isset($cbr[2]) && $cbr[2] != -1)
                     
@@ -97,7 +101,10 @@
                     @endif
                     ></span></span>
                     
-                    <span class="currency__child"><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">{{ $cbr[1] ?? 'er' }}</span><span class="currency__green"></span></span>
+                    <span class="currency__child">
+                        @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
+                        @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
+                    <span class="currency__value">{{ $cbr[1] ?? 'er' }}</span><span class="currency__green"></span></span>
                 </div>
                 <div class="currency__tomorrow submenu">
                     Завтра

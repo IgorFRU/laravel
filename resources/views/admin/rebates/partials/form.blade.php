@@ -1,5 +1,6 @@
 
     <div class="grey_box">
+<<<<<<< HEAD
 
         <label for="active">Скидка активна</label>
                 
@@ -13,6 +14,8 @@
             
         </div>
     <div class="grey_box">
+=======
+>>>>>>> ee7cd64d71491b3a3e0a62258e146a7caa9c86bb
     <label for="rebate">Название</label>
     <input type="text" name="rebate" value="{{$rebate->rebate ?? ""}}" required>
     </div>
