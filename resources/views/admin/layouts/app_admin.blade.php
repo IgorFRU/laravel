@@ -81,7 +81,6 @@
                 <div class="currency__today">
                     Сегодня
                     <span class="currency__child"> 
-                            @php dd($cbr) @endphp
                         @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
                         @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
                     <span class="currency__value">{{ $cbr[0] ?? 'er' }}</span><span
@@ -94,10 +93,8 @@
                             class="currency__green"  
                         @endif
                         
-                    @elseif($cbr[2] == -1)
-                       
-                        class="currency__grey"
-                        
+                    @elseif($cbr[2] == -1)                       
+                        class="currency__grey"                        
                     @endif
                     ></span></span>
                     
@@ -108,8 +105,14 @@
                 </div>
                 <div class="currency__tomorrow submenu">
                     Завтра
-                    <span><i class="fa fa-usd" aria-hidden="true"></i><span class="currency__value">{{ $cbr[2] ?? 'er' }}</span></span>
-                    <span><i class="fa fa-eur" aria-hidden="true"></i><span class="currency__value">{{ $cbr[3] ?? 'er' }}</span></span>
+                    <span>
+                        @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
+                        @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
+                    <span class="currency__value">{{ $cbr[2] ?? 'er' }}</span></span>
+                    <span>
+                        @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
+                        @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif     
+                    <span class="currency__value">{{ $cbr[3] ?? 'er' }}</span></span>
                 </div>
             </ul>
             <ul><a class="nav-link" href="{{ route('mainpage') }}">Перейти на сайт</a></ul>

@@ -4,6 +4,7 @@ namespace app\MyClasses;
 
 use \Carbon\Carbon;
 use app\Currency;
+use app\Currencyrate;
 
 /*
 *
@@ -17,6 +18,7 @@ $c_today = new Course($valutes);
 class Cbr
 {
     static $days = [];
+    static $today;
     
     //static $valute_names = ['USD', 'EUR'];
     static $valute_names = [];
@@ -27,10 +29,11 @@ class Cbr
     static $file;
 
     public static function configurate() {
+        self::$today = Carbon::now()->format('d.m.Y');
         self::$valute_names = Currency::currenciesList();
         self::$count_valutes = sizeof(self::$valute_names);
 
-        self::$days[] = Carbon::now()->format('d.m.Y');
+        self::$days[] = self::$today;
         self::$days[] = Carbon::now()->addDay()->format('d.m.Y');
 
         self::getCourses();
@@ -39,6 +42,17 @@ class Cbr
 
     private static function getCourses() {
         for ($i=0; $i < sizeof(self::$days); $i++) { 
+
+            /**************************
+             * 
+             */
+            if (!Currencyrate::where('ondate', self::$today)) {
+                # code...
+            }
+
+            /**********
+             * 
+             */
 //            self::$file = simplexml_load_file("http://www.cbr.ru/scripts/XML_daily.asp?date_req=".self::$days[$i]);
             self::$file = simplexml_load_file(self::$days[$i]);
             $content = [];

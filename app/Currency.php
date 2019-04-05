@@ -17,9 +17,14 @@ class Currency extends Model
     //     return Currency::get()->count();
     // }
     
+    //список курсов валют для вывода на страницах админки и для отправки по этим валютам запросов в ЦБ
     public static function currenciesList() {
         // return Currency::lists('currency');
 
         return Currency::pluck('currency');
+    }
+
+    public function currencyrate() {
+        return $this->hasMany(Currencyrate::class);
     }
 }
