@@ -30,7 +30,9 @@ class Cbr
 
     public static function configurate() {
         self::$today = Carbon::now()->format('d.m.Y');
-        self::$valute_names = Currency::currenciesList();
+
+        //выбор валют, которые нуждаются в обновлении курса. Основная валюта только одна и это обычно рубль. Относительно нее все курсы
+        self::$valute_names = Currency::currenciesListToUpdate(); //добавить вызов метода, проверяющего, обновлять ли курс для валюты
         self::$count_valutes = sizeof(self::$valute_names);
 
         self::$days[] = self::$today;
@@ -46,26 +48,61 @@ class Cbr
             /**************************
              * 
              */
-            if (!Currencyrate::where('ondate', self::$today)) {
-                # code...
+            if (!Currencyrate::where('ondate', self::$today)->count()) {
+                //self::$file = simplexml_load_file("http://www.cbr.ru/scripts/XML_daily.asp?date_req=".self::$days[$i]);
+                self::$file = simplexml_load_file(self::$days[$i]);
+                $content = [];
+
+                foreach (self::$file AS $el){
+                    $content[strval($el->CharCode)] = strval($el->Value);
+                }
+            
+                for ($j=0; $j < self::$count_valutes; $j++) {
+                    //array_push(self::$valute_values, number_format(str_replace(',', '.', $content[self::$valute_names[$j]]), 2, '.', ''));
+                    self::$valute_values[] = number_format(str_replace(',', '.', $content[self::$valute_names[$j]]), 2, '.', '');
+                    // $todatbase['currency_id'] = Currency::select('id')->where('currency', self::$valute_names[$j])->pluck('id');
+                    $todatbase['currency_id'] = Currency::select('id')->where('currency', self::$valute_names[$j])->pluck('id');
+                    $todatbase['value'] = end(self::$valute_values);
+                    $todatbase['ondate'] = self::$days[$i];
+                    
+                    Currencyrate::create($todatbase);
+                }
+                //dd(self::$valute_values);
+            } else {
+                self::$file = simplexml_load_file(self::$days[$i]);
+                $content = [];
+
+                foreach (self::$file AS $el){
+                    $content[strval($el->CharCode)] = strval($el->Value);
+                }
+            
+                for ($j=0; $j < self::$count_valutes; $j++) {
+                    //array_push(self::$valute_values, number_format(str_replace(',', '.', $content[self::$valute_names[$j]]), 2, '.', ''));
+                    self::$valute_values[] = number_format(str_replace(',', '.', $content[self::$valute_names[$j]]), 2, '.', '');
+                }
+                //dd(self::$valute_values);
             }
 
             /**********
              * 
              */
 //            self::$file = simplexml_load_file("http://www.cbr.ru/scripts/XML_daily.asp?date_req=".self::$days[$i]);
-            self::$file = simplexml_load_file(self::$days[$i]);
-            $content = [];
+            // self::$file = simplexml_load_file(self::$days[$i]);
+            // $content = [];
 
-            foreach (self::$file AS $el){
-                $content[strval($el->CharCode)] = strval($el->Value);
-            }
+            // foreach (self::$file AS $el){
+            //     $content[strval($el->CharCode)] = strval($el->Value);
+            // }
             
-            for ($j=0; $j < self::$count_valutes; $j++) {
-                //array_push(self::$valute_values, number_format(str_replace(',', '.', $content[self::$valute_names[$j]]), 2, '.', ''));
-                self::$valute_values[] = number_format(str_replace(',', '.', $content[self::$valute_names[$j]]), 2, '.', '');
-            }
+            // for ($j=0; $j < self::$count_valutes; $j++) {
+            //     //array_push(self::$valute_values, number_format(str_replace(',', '.', $content[self::$valute_names[$j]]), 2, '.', ''));
+            //     self::$valute_values[] = number_format(str_replace(',', '.', $content[self::$valute_names[$j]]), 2, '.', '');
+            // }
         }
+    }
+
+    private function saveCurrencyRate() {
+
     }
 
     private static function isChanged() {
@@ -84,7 +121,7 @@ class Cbr
 
     public static function getNames() {
         if (count(self::$valute_names) == 0) {
-            self::$valute_names = Currency::currenciesList();
+            self::$valute_names = Currency::currenciesListToUpdate();
         }        
         return self::$valute_names;
 //        return Carbon::now()->format('d.m.Y');

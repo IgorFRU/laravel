@@ -17,7 +17,7 @@ class CreateCurrencyratesTable extends Migration
             $table->increments('id');
             $table->tinyInteger('currency_id');
             $table->double('value', 5, 2);
-            $table->date('ondate')->default(new DateTime());
+            $table->date('ondate');
 
             $table->foreign('currency_id')
                 ->references('id')

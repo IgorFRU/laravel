@@ -6,7 +6,7 @@
     @component('admin.components.breadcrumb')
         @slot('parent') Главная @endslot
         @slot('parent2') Валюты @endslot
-            @slot('parent2_route') /../admin/manufacture @endslot        
+            @slot('parent2_route') /../admin/currency @endslot        
         @slot('active') Добавление вылюты @endslot
     @endcomponent
     
