@@ -4,6 +4,8 @@ namespace app\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use app\MyClasses\Cbr;
+use \Carbon\Carbon;
 
 class Kernel extends ConsoleKernel
 {
@@ -26,6 +28,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('command:updatecurrencyrate')->everyMinute()
+          ->weekdays();
     }
 
     /**
