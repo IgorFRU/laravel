@@ -21,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        date_default_timezone_set('Europe/Moscow');
         
         Paginator::defaultView('admin.components.pagination');
         self::adminMenu();
@@ -47,10 +48,10 @@ class AppServiceProvider extends ServiceProvider
 
             $hour = 60;
 
-            // $cbr = Cache::remember('cbr', $hour, function() {
-            //     return Cbr::get();
-            // });
-            $cbr = Cbr::get();
+            $cbr = Cache::remember('cbr', $hour*6, function() {
+                return Cbr::get();
+            });
+            // $cbr = Cbr::get();
             
 
             // $cbrNames = Cache::remember('cbr', $hour, function() {

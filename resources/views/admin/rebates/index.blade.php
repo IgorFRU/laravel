@@ -8,8 +8,6 @@
         @slot('active') Скидки @endslot
     @endcomponent
 
-
-
     <div>
 
         @if (Session::has('success'))

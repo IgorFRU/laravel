@@ -16,8 +16,8 @@ class RebateController extends Controller
     public function index()
     {
         $data = array (
-            'title'         => 'АДМИН - Паркетный мир - Скидки',
-            'rebates'         => Rebate::get()
+            'title'     => 'АДМИН - Паркетный мир - Скидки',
+            'rebates'   => Rebate::get()
         );
 
         return view('admin.rebates.index', $data);
