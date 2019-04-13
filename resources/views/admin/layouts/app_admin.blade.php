@@ -83,37 +83,54 @@
                     <span class="currency__child"> 
                         @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
                         @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
-                    <span class="currency__value">{{ $cbr[0] ?? 'er' }}</span><span
-                    
-                    @if(isset($cbr[2]) && $cbr[2] != -1)
-                    
-                        @if(isset($cbr[0]) && $cbr[0] < $cbr[2])
-                            class="currency__red" 
-                        @elseif(isset($cbr[0]) && $cbr[0] > $cbr[2])
-                            class="currency__green"  
-                        @endif
-                        
-                    @elseif($cbr[2] == -1)                       
-                        class="currency__grey"                        
-                    @endif
-                    ></span></span>
+                        <span class="currency__value">{{ $cbr[0] ?? '-' }}</span>
+                        <span                    
+                        @if(isset($cbr[2]) && $cbr[2] != -1)                    
+                            @if(isset($cbr[0]) && $cbr[0] < $cbr[2])
+                                class="currency__red" 
+                            @elseif(isset($cbr[0]) && $cbr[0] > $cbr[2])
+                                class="currency__green"  
+                            @else                       
+                                class="currency__grey"                        
+                            @endif  
+                        @else                       
+                            class="currency__grey"                       
+                        @endif>
+                        </span>
+                    </span>
                     
                     <span class="currency__child">
                         @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
                         @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
-                    <span class="currency__value">{{ $cbr[1] ?? 'er' }}</span><span class="currency__green"></span></span>
+                        <span class="currency__value">{{ $cbr[1] ?? '-' }}</span>
+                        <span
+                            @if(isset($cbr[3]) && $cbr[2] != -1)                    
+                                @if(isset($cbr[1]) && $cbr[1] < $cbr[3])
+                                    class="currency__red" 
+                                @elseif(isset($cbr[1]) && $cbr[1] > $cbr[3])
+                                    class="currency__green"  
+                                @else                       
+                                    class="currency__grey"                        
+                                @endif 
+                            @else                       
+                                class="currency__grey"                       
+                            @endif>
+                        </span>
+                    </span>
                 </div>
-                <div class="currency__tomorrow submenu">
-                    Завтра
-                    <span>
-                        @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
-                        @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
-                    <span class="currency__value">{{ $cbr[2] ?? 'er' }}</span></span>
-                    <span>
-                        @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
-                        @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif     
-                    <span class="currency__value">{{ $cbr[3] ?? 'er' }}</span></span>
-                </div>
+                @if(isset($cbr[2]))
+                    <div class="currency__tomorrow submenu">
+                        Завтра
+                        <span>
+                            @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
+                            @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
+                        <span class="currency__value">{{ $cbr[2] ?? '-' }}</span></span>
+                        <span>
+                            @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
+                            @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif     
+                        <span class="currency__value">{{ $cbr[3] ?? '-' }}</span></span>
+                    </div>
+                @endif
             </ul>
             <ul><a class="nav-link" href="{{ route('mainpage') }}">Перейти на сайт</a></ul>
             <ul>

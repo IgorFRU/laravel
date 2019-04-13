@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
 
             $hour = 60;
 
-            $cbr = Cache::remember('cbr', $hour*6, function() {
+            $cbr = Cache::remember('cbr', $hour/600, function() {
                 return Cbr::get();
             });
             // $cbr = Cbr::get();
