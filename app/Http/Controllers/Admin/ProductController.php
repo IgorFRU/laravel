@@ -26,6 +26,7 @@ class ProductController extends Controller
             'scu',
             'category_id',
             'price',
+            'currency_id',
             'published',
             'recomended',
             'views'
@@ -38,6 +39,7 @@ class ProductController extends Controller
                                     ->orderBy('published', 'ASC')
                                     ->paginate(10),
             'categories'    => Category::get(),
+            'currencies'    => Currency::get(),
             'manufactures'  => Manufacture::get(),
             'currencies'    => Currency::get()
         ); 

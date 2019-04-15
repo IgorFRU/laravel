@@ -25,8 +25,7 @@ class Cbr
         self::$count_valutes = sizeof(self::$valute_names);
 
         self::getCourses(self::$today);
-
-        if (Carbon::now()->format('h') > '14') {
+        if (Carbon::now()->format('H') >= '14') {
             self::getCourses(self::$tomorrow);
         }
         

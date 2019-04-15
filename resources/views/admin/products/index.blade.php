@@ -67,11 +67,11 @@
                         <tr>
                             <td>{{ $counter }}</td>
                             <td><a href="{{route('admin.product.edit', ['id'=>$product->id])}}">{{ $product->product_name }}</a></td>
-                            <td>{{ $product->price }} руб.</td>
+                            <td>{{ $product->price }} <i class="fa fa-{{ mb_strtolower($product->currency->currency) }}" aria-hidden="true"></i></td>
                             <td>{{ $product->scu }}</td>
                             <td>{{ $product->published }}</td>
                             <td>{{ $product->recomended }}</td>
-                            <td>{{ $product->category->title }}</td> {{-- Категория, полученная джойном --}}
+                            <td>{{ $product->category->title ?? '- нет категории -' }}</td> {{-- Категория, полученная джойном --}}
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->views }}</td>
                             <td>

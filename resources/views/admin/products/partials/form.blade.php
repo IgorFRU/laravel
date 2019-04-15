@@ -53,7 +53,7 @@
             <div class="grey_box">
                 <label for="category_id">Родительская категория</label>
                 <select name="category_id" id="" >
-                    <option value="0">-- Без родителя --</option>
+                    <option value="">-- Без родителя --</option>
                     @include('admin.products.partials.categories', ['categories' => $categories])
                 </select>
             </div>
@@ -61,7 +61,7 @@
             <div class="grey_box">
                 <label for="manufacture_id">Производитель</label>
                 <select name="manufacture_id" id="" >
-                    <option value="0">-- Не указан --</option>
+                    <option value="">-- Не указан --</option>
                     @foreach($manufactures as $manufacture)
                         <option value="{{ $manufacture->id }}"
                             @isset($product->manufacture_id)
@@ -97,7 +97,7 @@
                     {{ $unit->unit }}
                 </option>
                 @empty
-                    <option value="0">Ничего нет</option>
+                    <option value="">Ничего нет</option>
                 @endforelse
             </select>
             <label for="packaging_sales">Кратно упаковкам?</label>
@@ -155,7 +155,7 @@
 
         <label for="rebate">Глобальная политика скидок</label>
         <select name="rebate" id="" >
-            <option value="0">Нет</option>
+            <option value="">Нет</option>
             @foreach($rebates as $rebate)
                 <option value="{{ $rebate->id }}"
                     @isset($product->rebate)
