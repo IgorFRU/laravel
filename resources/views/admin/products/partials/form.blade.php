@@ -51,9 +51,9 @@
         </div>
         <div class="right_45">  
             <div class="grey_box">
-                <label for="category_id">Родительская категория</label>
+                <label for="category_id">Категория</label>
                 <select name="category_id" id="" >
-                    <option value="">-- Без родителя --</option>
+                    <option value="">-- Не указанаP --</option>
                     @include('admin.products.partials.categories', ['categories' => $categories])
                 </select>
             </div>
@@ -133,7 +133,7 @@
                             @endif
                         @endisset
                     >
-                    {{ $currency->currency }}
+                    {{ $currency->currency_rus }}
                 </option>
                 @endforeach
             </select>

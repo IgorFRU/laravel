@@ -136,7 +136,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        dd($request);
+        $product->update($request->all());
+
+        return redirect()->route('admin.product.index')->with('success', 'Товар успешно изменен');
     }
 
     /**
