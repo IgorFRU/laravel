@@ -24,10 +24,16 @@ class Cbr
         self::$valute_names = Currency::currenciesListToUpdate(); //добавить вызов метода, проверяющего, обновлять ли курс для валюты
         self::$count_valutes = sizeof(self::$valute_names);
 
-        self::getCourses(self::$today);
-        if (Carbon::now()->format('H') >= '14') {
-            self::getCourses(self::$tomorrow);
+        if (self::$valute_names) {
+            self::getCourses(self::$today);
+            if (Carbon::now()->format('H') >= '14') {
+                self::getCourses(self::$tomorrow);
+            }
+        } else {
+            dd(self::$valute_names);
+            self::$valute_values = 0;
         }
+        
         
         //self::isChanged();
     }

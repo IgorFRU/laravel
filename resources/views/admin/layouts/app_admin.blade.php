@@ -81,8 +81,10 @@
                 <div class="currency__today">
                     Сегодня
                     <span class="currency__child"> 
-                        @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
-                        @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
+                        @if(isset($cbrNames[0]))
+                            @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
+                            @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
+                        @endif
                         <span class="currency__value">{{ $cbr[0] ?? '-' }}</span>
                         <span                    
                         @if(isset($cbr[2]) && $cbr[2] != -1)                    
@@ -100,8 +102,10 @@
                     </span>
                     
                     <span class="currency__child">
-                        @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
-                        @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
+                        @if(isset($cbrNames[1]))
+                            @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
+                            @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
+                        @endif
                         <span class="currency__value">{{ $cbr[1] ?? '-' }}</span>
                         <span
                             @if(isset($cbr[3]) && $cbr[2] != -1)                    
