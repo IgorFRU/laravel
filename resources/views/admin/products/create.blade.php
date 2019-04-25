@@ -10,13 +10,27 @@
         @slot('active') Добавление товара @endslot
     @endcomponent
     
+    @if (Session::has('success'))
+        <div class="alert alert-success">
+            {!! Session::get('success') !!}
+        </div>
+    @endif
+
     <div class="categories light_grey_box edit_product">
         <form action="{{route('admin.product.store')}}" method="post">
             @csrf
 
             {{-- Forme include --}}
             
-            @include('admin.products.partials.form')
+            @include('admin.products.partials.form')            
+            
+        </form>
+
+        {{-- Тут будут выведены уже загруженные изображения --}}
+
+        <form action="{{route('admin.img')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            @include('admin.products.partials.form_img')
         </form>
     </div>
 @endsection

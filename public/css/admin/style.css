@@ -1,11 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -245,7 +248,6 @@ body {
 .breadcrumb li {
     display: inline-block;
     padding: 0 10px;
-
 }
 
 .navbar {
@@ -270,7 +272,6 @@ body {
     color: #717171;
     font-size: 15px;
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-
 }
 
 .navbar ul:hover,
@@ -303,7 +304,6 @@ body {
 .navbar__right {
     line-height: 40px;
 }
-
 
 .navbar ul .submenu {
     /*    display: none;*/
@@ -338,7 +338,6 @@ body {
     padding-right: 70px;
     position: relative;
     line-height: 18px;
-
 }
 
 .count {
@@ -558,7 +557,6 @@ body {
     position: relative;
 }
 
-
 .categories .category__add {
     position: absolute;
     right: 22px;
@@ -667,10 +665,8 @@ body {
 
 .category__detail_watches,
 .category__detail_items,
-
 .subcategory__detail_watches,
 .subcategory__detail_items,
-
 .category__detail_control {
     line-height: 50px;
     padding: 0 5px;
@@ -683,10 +679,8 @@ body {
     word-wrap: break-word;
 }
 
-
 .category__detail_watches,
 .category__detail_items,
-
 .subcategory__detail_watches,
 .subcategory__detail_items {
     width: 15%;
@@ -702,13 +696,11 @@ body {
     transition: 0.3s;
 }
 
-
 .category__detail_control.delete:hover {
     background: #d26666;
     color: #ddd;
     transition: 0.3s;
 }
-
 
 .category__detail_control.edit:hover a,
 .category__detail_control.delete:hover a {
@@ -780,7 +772,6 @@ body {
 .unpublished {
     background: #404040;
 }
-
 
 .delete_mini_form {
     width: 20%;
@@ -875,4 +866,25 @@ body {
     transition: 0.2s 0.1s;
     width: 200px;
     left: 0;
+}
+
+form .row {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+}
+
+.row .left_45 {
+    width: 45%;
+}
+
+.row .right_45 {
+    width: 45%;
 }

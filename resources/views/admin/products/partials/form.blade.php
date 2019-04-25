@@ -53,7 +53,7 @@
             <div class="grey_box">
                 <label for="category_id">Категория</label>
                 <select name="category_id" id="" >
-                    <option value="">-- Не указанаP --</option>
+                    <option value="">-- Не указана --</option>
                     @include('admin.products.partials.categories', ['categories' => $categories])
                 </select>
             </div>
@@ -207,5 +207,4 @@
     </div>
 </section>
 
-<button>Сохранить</button>
 <input class="category__add grey_box" type="submit" name="submit" value="Сохранить и выйти">

@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     // Route::post('/manufacture/sort', 'ManufactureController@sort', ['as'=>'admin']);
     Route::get('/product/category-{category}', 'ProductController@category', ['as'=>'admin'])->name('admin.product.category');
     Route::resource('/product', 'ProductController', ['as'=>'admin']);
+    Route::any('/img', 'UploadImagesController@upload', ['as'=>'admin'])->name('admin.img');
     
 });
 
