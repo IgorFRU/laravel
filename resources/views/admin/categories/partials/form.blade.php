@@ -20,10 +20,27 @@
     <input type="text" name="alias" value="{{$category->alias ?? ''}}" readonly>
 </div>
 <div class="grey_box">
-    <label for="">Родительская категория</label>
+    <label for="parent_id">Родительская категория</label>
     <select name="parent_id" id="">
         <option value="0">-- Без родителя --</option>
         @include('admin.categories.partials.categories', ['categories' => $categories])
+    </select>
+</div>
+<div class="grey_box">
+    <label for="menu_id">Родительский пункт меню</label>
+    <select name="menu_id" id="" >
+        <option value="">-- Не указан --</option>
+        @foreach($menus as $menu)
+            <option value="{{ $menu->id }}"
+                @isset($category->menu_id)
+                    @if ($menu->id == $category->menu_id)
+                    selected = "selected"
+                    @endif
+                @endisset
+            >
+            {{ $menu->menu }}
+        </option>
+        @endforeach
     </select>
 </div>
 

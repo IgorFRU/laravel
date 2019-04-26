@@ -3,6 +3,7 @@
 namespace app\Http\Controllers\Admin;
 
 use app\Category;
+use app\Menu;
 use Illuminate\Http\Request;
 use app\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
@@ -39,6 +40,7 @@ class CategoryController extends Controller
             //коллекция вложенных подкатегорий
             'categories' => Category::with('children')->where('parent_id', '0')->get(),
             //символ, обозначающий вложенность категорий
+            'menus'=> Menu::orderBy('sortpriority', 'ASC')->get(),
             'delimiter' => ''
         );
         
@@ -90,6 +92,7 @@ class CategoryController extends Controller
             //коллекция вложенных подкатегорий
             'categories' => Category::with('children')->where('parent_id', '0')->get(),
             //символ, обозначающий вложенность категорий
+            'menus'=> Menu::orderBy('sortpriority', 'ASC')->get(),
             'delimiter' => ''
         );
         

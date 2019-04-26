@@ -10,7 +10,7 @@ class Category extends Model
 {
 //    protected $guarded = ['id', 'created_at', 'created_at'];
     
-    protected $fillable = ['title', 'parent_id', 'alias', 'published'];
+    protected $fillable = ['title', 'parent_id', 'alias', 'published', 'menu_id'];
     
     //Mutators
     public function setAliasAttribute($value) {
@@ -32,6 +32,10 @@ class Category extends Model
     
     public function product() {
         return $this->hasMany(Product::class);
+    }
+
+    public function menu() {
+        return $this->belongsTo(Menu::class);
     }
 
     public static function publishedCount() {

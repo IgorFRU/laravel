@@ -19,11 +19,11 @@ class CreateCurrencyratesTable extends Migration
             $table->double('value', 5, 2);
             $table->date('ondate');
 
-            $table->foreign('currency_id')
-                ->references('id')
-                ->on('currencies')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            // $table->foreign('currency_id')
+            //     ->references('id')
+            //     ->on('currencies')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
         });
     }
 

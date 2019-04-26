@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = array(
+            'menus'=> Menu::orderBy('sortpriority', 'ASC')->get(),
+        );
+        return view('home', $data);
     }
 }

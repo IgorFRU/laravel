@@ -46,9 +46,8 @@
             <ul>
                 Пункты меню
                 <div class="submenu">
-                    <li><a href="#">Добавить пункт меню</a></li>
-                    <li><a href="#">Удалить пункт меню</a></li>
-                    <li><a href="#">Все пункты меню</a></li>
+                    <li><a href="{{ route('admin.menu.index') }}">Все пункты меню</a></li>
+                    <li><a href="{{ route('admin.menu.create') }}">Добавить пункт меню</a></li>
                 </div>
 
             </ul>

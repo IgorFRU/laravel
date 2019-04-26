@@ -23,17 +23,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/product/category-{category}', 'ProductController@category', ['as'=>'admin'])->name('admin.product.category');
     Route::resource('/product', 'ProductController', ['as'=>'admin']);
     Route::any('/img', 'UploadImagesController@upload', ['as'=>'admin'])->name('admin.img');
+    Route::resource('/menu', 'MenuController', ['as'=>'admin']);
     
 });
 
-Route::get('/', function () {
-    $data = [
-        'title' => 'Паркетный мир - Симферополь',
-        'description' => 'Все виды паркета в Крыму по лучшим ценам'
-    ];
-    $data['breadcrumbs'] = \Request::get('breadcrumbs');
-    return view('welcome', $data);
-})->name('mainpage');
+Route::get('/', 'MainController@index')->name('mainpage');
 
 //Route::resource('/admin', 'Admin\AdminResource');
 
