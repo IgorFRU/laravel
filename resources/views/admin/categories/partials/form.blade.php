@@ -15,7 +15,11 @@
     <label for="">Название</label>
     <input type="text" name="title" value="{{$category->title ?? ''}}" required>
 </div>
-    <div class="grey_box">
+<div class="grey_box">
+    <label for="description">Описание</label>
+    <textarea name="description" id="" cols="30" rows="4" maxlength="255">{{$category->description ?? ''}}</textarea>
+</div>
+<div class="grey_box">
     <label for="">Алиас</label>
     <input type="text" name="alias" value="{{$category->alias ?? ''}}" readonly>
 </div>

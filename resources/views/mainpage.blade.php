@@ -36,7 +36,6 @@
         </div>
         <section class="top1">
             <div class="wrap">
-               {{var_dump(today())}}
                 <div class="top1__boxes">
                     <div class="top1_box">
                         <a href="#">
@@ -66,293 +65,42 @@
             <a class="sortlink" data-sort_col=sort3_1 data-sort_type=sort3_2 href="/anyroute/?sort=qqq&sort2=888">sort2</a>
             
 
-            
-
-                <h2>Полы</h2>
+            @forelse ($menus as $menu)
+                <h2>{{ $menu->menu }}</h2>
                 <div class="categories__boxes">
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
-                            <p>Паркетная доска</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">1571,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Трехслойная доска, пригодная как для полного приклеивания к основанию, так и для "плавающей" укладки. Возможна укладка на полы с подогревом. Паркетная доска обычно покрыта лаком или маслом.</span>
+                    
+                            @forelse ($categories as $category)
+                        
+                                @if ($category->menu_id == $menu->id)
+                                <div class="categories__boxes__category">
+                                    <a href="#">
+                                        <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
+                                    <p>{{ $category->title }}</p>
+                                    <div class="categories__boxes__category__price">
+                                        от <span class="price">1571,00</span> <i class="fas fa-ruble-sign"></i>
+                                    </div>
+                                    <div class="category__info">
+                                        
+                                        @if($category->description != '')
+                                            <div class="info">
+                                                <i class="fas fa-info-circle"></i>
+                                            </div>
+                                            <div class="categories__boxes__category__info">
+                                                <span>{{ $category->description }}</span>
+                                            </div>
+                                        @endif
+                                        
+                                     </div>
+                                    </a>
                                 </div>
-                            </div>                  
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
-                            <p>Массивная доска</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">1900,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Крупноформатный натуральный паркет. Срок службы - не менее 50 лет. Крепится только полным приклеиванием к фанере. Выпускается как без покрытия, так и обработанный на заводе лаком или маслом.</span>
-                                </div>  
-                            </div>                     
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
-                            <p>Паркет штучный</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">890,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Классический паркет как из классических, так и из экзотических пород дерева. Клеится на фанеру или очень качественную стяжку. Возможно тонирование лаками или маслами и восками.</span>
-                                </div> 
-                            </div>
-                                                            
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
-                            <p>Инженерная доска</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">3500,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Двухслойная доска, состоящая из ФСФ-ванеры и 4-6 миллиметрового слоя из ценных пород древесины. Возможна укладка на полы с подогремом, непосредственно на стяжку.</span>
-                                </div> 
-                            </div>                        
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
-                            <p>Пробковый паркет</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">1791,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Натуральный паркет из коры португальского пробкового дуба. Пробковый паркет невероятно теплый и очень простой в уходе. Замковые и клеевые варианты исполнения.</span>
-                                </div>  
-                            </div>                        
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
-                            <p>Ламинат</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">650,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Довольно прочные, простые в укладке и эксплуатации полы. Качественный ламинат прекрасно эксплуатируется в офисных помещениях с высокой нагрузкой. Благодаря замковому соединению с монтажом ламината справится даже не очень подготовленные мастер.</span>
-                                </div> 
-                            </div>                        
-                        </a>
-                    </div>
-                </div>
-                <h2>Стены</h2>
-                <div class="categories__boxes">
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
-                            <p>Пробковые стеновые панели</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">900,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Натуральный паркет из коры португальского пробкового дуба. Пробковый паркет невероятно теплый и очень простой в уходе. Замковые и клеевые варианты исполнения.</span>
-                                </div>  
-                            </div>                        
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
-                            <p>Ламинированные стеновые панели</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">3550,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Современное декоративное решение для стен. 3D исполнение, быстрый монтаж, все необходимые расходные материалы. Несколько вариантов декора.</span>
-                                </div> 
-                            </div>                        
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
-                            <p>Шпонированные стеновые панели</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">4450,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>2D и 3D шпонированные панели для стен из дуба (разные цвета) и экзотических пород дерева. Быстрый, простой монтаж, все необходимые аксессуары, отличное качество.</span>
-                                </div>  
-                            </div>                        
-                        </a>
-                    </div>
-                </div>
-                <h2>Химия</h2>
-                <div class="categories__boxes">
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
-                            <p>Клей для паркета</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">3550,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Качественный паркетный клей - залог длительной эксплуатации паркетных полов, именно поэтому клей для паркета должен быть профессиональным от серьезного завода.</span>
-                                </div> 
-                            </div>                        
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
-                            <p>Лак для паркета</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">2950,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Большой выбор профессиональных паркетных лаков на разных основах и для разных нагрузок.</span>
-                                </div>  
-                            </div>                        
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
-                            <p>Масла и воски</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">650,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Сложнокомпонентные масла и воски от ведущих европейских производителей. Широкая линейка продуктов как для внутренних, так и для наружных работ. Простое нанесение и обслуживание.</span>
-                                </div> 
-                            </div>                        
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
-                            <p>Клей для пробки</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">2950,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Специальные контактные клеи для пробкового паркета (клеевого) и стеновых пробковых панелей.</span>
-                                </div>  
-                            </div>                        
-                        </a>
-                    </div>
-                </div>
-                <h2>Погонаж и расходные материалы</h2>
-                <div class="categories__boxes">
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
-                            <p>Плинтус</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">250,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Шпонированный плинтус.</span>
-                                </div> 
-                            </div>                        
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
-                            <p>Подложка</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">50,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Только качественная проверенная подложка для настила под паркетную доску, ламинат и замковую пробку.</span>
-                                </div>  
-                            </div>                        
-                        </a>
-                    </div>
-                    <div class="categories__boxes__category">
-                        <a href="#">
-                            <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
-                            <p>Прочее</p>
-                            <div class="categories__boxes__category__price">
-                                от <span class="price">150,00</span> <i class="fas fa-ruble-sign"></i>
-                            </div>
-                            <div class="category__info">
-                               <div class="info">
-                                   <i class="fas fa-info-circle"></i>
-                               </div>
-                               <div class="categories__boxes__category__info">
-                                    <span>Мелкие расходные материалы.</span>
-                                </div> 
-                            </div>                        
-                        </a>
-                    </div>
-                </div>
+                                @endif
+                            
+                            @empty                        
+                            @endforelse      
+                        
+                </div>                
+            @empty                
+            @endforelse
             </div>
         </section>
         <section>

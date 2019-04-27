@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('parent_id')->default(0);
             $table->string('title', 64);
+            $table->string('description', 255)->nullable();
             $table->string('img', 32)->nullable();
             $table->string('alias');
             $table->tinyInteger('published')->default(1);

@@ -10,7 +10,7 @@ class Category extends Model
 {
 //    protected $guarded = ['id', 'created_at', 'created_at'];
     
-    protected $fillable = ['title', 'parent_id', 'alias', 'published', 'menu_id'];
+    protected $fillable = ['title', 'description', 'parent_id', 'alias', 'published', 'menu_id'];
     
     //Mutators
     public function setAliasAttribute($value) {
