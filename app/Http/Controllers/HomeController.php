@@ -23,9 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = array(
-            'menus'=> Menu::orderBy('sortpriority', 'ASC')->get(),
-        );
-        return view('home', $data);
+        // $data = array(
+        //     'menus'=> Menu::orderBy('sortpriority', 'ASC')->get(),
+        // );
+        // return view('home');
+        //return view('admin.core');
+        return redirect('/admin');
     }
 }
