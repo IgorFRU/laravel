@@ -73,7 +73,7 @@
                         
                                 @if ($category->menu_id == $menu->id)
                                 <div class="categories__boxes__category">
-                                    <a href="#">
+                                    <a href="/catalog/{{ $category->alias }}">
                                         <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
                                     <p>{{ $category->title }}</p>
                                     <div class="categories__boxes__category__price">

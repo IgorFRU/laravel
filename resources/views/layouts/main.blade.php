@@ -10,7 +10,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic-ext" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -120,11 +120,11 @@
                     @forelse ($categories as $category)
                         
                             @if ($category->menu_id == $menu->id)
-                                <li><a href="#">{{ $category->title }}</a>
+                                <li><a href="/catalog/{{ $category->alias }}">{{ $category->title }}</a>
                                     <ul class="mainmenu__ul_to_right">
                                     @forelse ($categories as $category_child)
                                         @if ($category_child->parent_id == $category->id)                                            
-                                            <li><a href="#">{{ $category_child->title }}</a>                                            
+                                            <li><a href="/catalog/{{ $category_child->alias }}">{{ $category_child->title }}</a>                                            
                                         @endif
                                     @empty                                        
                                     @endforelse

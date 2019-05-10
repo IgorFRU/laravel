@@ -10,6 +10,9 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Illuminate\Http\Request;
 
+use app\Menu;
+use app\Category;
+
 class CatalogController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -37,5 +40,19 @@ class CatalogController extends BaseController
         echo $request->sort_type;
         
         
+    }
+    public function category($category){
+        //dd($category);
+        $category = Category::where('alias', '=', $category)->get();
+        //dd( $category);
+        $data = [
+            'title' => $category[0]->title,
+            'description' => $category[0]->description,
+            'menus'=> Menu::orderBy('sortpriority', 'ASC')->get(),
+            'categories'=> Category::orderBy('title', 'ASC')->get(),
+        ];
+        //dd($data);
+        $data['breadcrumbs'] = \Request::get('breadcrumbs');
+        return view('category', $data);
     }
 }
