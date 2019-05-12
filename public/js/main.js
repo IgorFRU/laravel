@@ -2,14 +2,17 @@
 	var oldScroll = 0;
 	var clickToSmall = false;
 	var marginMainMenu = $('.mainmenu').css('margin-top');
+	var marginFirstSection = $('#firstsection').css('padding-top');
 
 	$('.fastmenu__tosmall').click(function() {
 		if ($('.fastmenu').hasClass('active')) {
 			clickToSmall = false;
 			$('.mainmenu').css('margin-top', marginMainMenu);
+			$('#firstsection').css('padding-top', marginFirstSection);
 		} else {
 			clickToSmall = true;
 			$('.mainmenu').css('margin-top', '45px');
+			$('#firstsection').css('padding-top', '89px');
 		}
 		$('.fastmenu').toggleClass('active');
 		$('.fastmenu__tosmall').toggleClass('active');
