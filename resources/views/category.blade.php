@@ -79,39 +79,29 @@
                 </div>
                 
             </div>            
-            <div class="wrap">                
-                <div class="products__cards">
-                    <div class="products__card">
-
-                    </div>
-                    <div class="products__card">
-
-                    </div>
-                    <div class="products__card">
-
-                    </div>
-                    <div class="products__card">
-
-                    </div>
-                    <div class="products__card">
-
-                    </div>
-                    <div class="products__card">
-
-                        </div>
+            <div class="wrap"> 
+                @forelse ($products as $product)
+                    <div class="products__cards">
                         <div class="products__card">
-    
+                            <div class="products__card__image">
+                                <img src="{{ asset('imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg')}}" alt="">
+                            </div>
+                            <div class="products__card__info">
+                                <div class="products__card__scu">
+                                    <span class="scu">
+                                        арт.:{{ $product->scu }}
+                                    </span>
+                                    <span class="manufacture">
+                                        <a href="#">{{ $product->manufacture->manufacture }}</a>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="products__card">
-    
-                        </div>
-                        <div class="products__card">
-    
-                        </div>
-                        <div class="products__card">
-    
-                        </div>
-                </div> 
+                        
+                    </div> 
+                @empty
+                    <div>товаров нет</div>
+                @endforelse
             </div>
             
         </section>

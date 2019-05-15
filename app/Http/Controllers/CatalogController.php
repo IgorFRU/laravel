@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 use app\Menu;
 use app\Category;
+use app\Product;
 
 class CatalogController extends BaseController
 {
@@ -50,8 +51,13 @@ class CatalogController extends BaseController
             'description' => $category[0]->description,
             'menus'=> Menu::orderBy('sortpriority', 'ASC')->get(),
             'categories'=> Category::orderBy('title', 'ASC')->get(),
+            'products' => Product::orderBy('product_name', 'ASC')
+                ->where([
+                    ['published', '=', '1'],
+                    ['category_id', '=', $category[0]->id]
+                ])->get(),
         ];
-        //dd($data);
+        // dd($data['products2']);
         $data['breadcrumbs'] = \Request::get('breadcrumbs');
         return view('category', $data);
     }
