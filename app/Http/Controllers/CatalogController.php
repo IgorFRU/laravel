@@ -51,7 +51,9 @@ class CatalogController extends BaseController
             'description' => $category[0]->description,
             'menus'=> Menu::orderBy('sortpriority', 'ASC')->get(),
             'categories'=> Category::orderBy('title', 'ASC')->get(),
-            'products' => Product::orderBy('product_name', 'ASC')
+            'category' => $category[0],
+            'products' => Product::orderBy('recomended', 'DESC')
+                ->orderBy('product_name', 'ASC')
                 ->where([
                     ['published', '=', '1'],
                     ['category_id', '=', $category[0]->id]
