@@ -28,6 +28,15 @@ class Product extends Model
         }
     }
 
+    public function toRub() {
+
+    }
+
+    public function getCurrencyIdAttribute($value) {
+        return $this->attributes['currency_id'];
+        // return $value;
+    }
+
     public function manufacture() {
         return $this->belongsTo(Manufacture::class);
     }

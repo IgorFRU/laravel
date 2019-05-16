@@ -59,7 +59,9 @@ class CatalogController extends BaseController
                     ['category_id', '=', $category[0]->id]
                 ])->get(),
         ];
-        // dd($data['products2']);
+
+        $qqq =  Product::find(2);
+        dd($qqq->currency_id);
         $data['breadcrumbs'] = \Request::get('breadcrumbs');
         return view('category', $data);
     }

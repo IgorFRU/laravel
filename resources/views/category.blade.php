@@ -110,9 +110,7 @@
                         <span class="products__card__price__old">
 
                         </span>
-                        <div class="products__card__price__new">
-                            {{ $product->price }}
-                        </div>
+                        <div class="products__card__price__new">{{ $product->price }}</div>
                     </div>
                 </div>
                 @empty
@@ -124,6 +122,7 @@
 
     </section>
 </article>
+
 <aside>
 
 </aside>

@@ -1,4 +1,4 @@
-//$(document).ready(function() {
+$(document).ready(function() {
 	var oldScroll = 0;
 	var clickToSmall = false;
 	var marginMainMenu = $('.mainmenu').css('margin-top');
@@ -51,19 +51,26 @@
 		}	
 	});
 
-if (($('.fastmenu__body__right__shopping_cart > span').html() == '') || ($('.fastmenu__body__right__shopping_cart > span').html() == 0)) {
-    $('.fastmenu__body__right__shopping_cart > span').hide();
-}
+	if (($('.fastmenu__body__right__shopping_cart > span').html() == '') || ($('.fastmenu__body__right__shopping_cart > span').html() == 0)) {
+		$('.fastmenu__body__right__shopping_cart > span').hide();
+	}
 
-$('.fastmenu__body__right__search > i').click(function() {
-    let search = $('.fastmenu__body__right__search > .search__form');
-    search.toggleClass('active');
-    
-//    if (search.hasClass('active')) {
-//        $('.fastmenu__body__tel').css('opacity', '0.5');
-//    }
-    
-    
+	$('.fastmenu__body__right__search > i').click(function() {
+		let search = $('.fastmenu__body__right__search > .search__form');
+		search.toggleClass('active');
+		
+	//    if (search.hasClass('active')) {
+	//        $('.fastmenu__body__tel').css('opacity', '0.5');
+	//    }
+		
+		
+	});
+
+	var prices = document.querySelectorAll('.products__card__price__new');
+	for (let i = 0; i < prices.length; i++) {		
+		if (prices[i].innerHTML%1 == 0) {
+			prices[i].innerHTML = parseInt(prices[i].innerHTML);
+		}
+	}
+	
 });
-
-//});
