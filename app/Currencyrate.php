@@ -14,5 +14,8 @@ class Currencyrate extends Model
         return $this->belongsTo(Currency::class);
     }
 
+    public function product() {
+        return $this->hasMany("app\Product");
+    }
 
 }

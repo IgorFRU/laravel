@@ -13,6 +13,7 @@ class Cbr
     static $tomorrow;
     static $valute_names = [];
     static $valute_values = [];
+    static $valute_values_array = [];
     static $count_valutes;
     static $file;
 
@@ -30,7 +31,7 @@ class Cbr
                 self::getCourses(self::$tomorrow);
             }
         } else {
-            dd(self::$valute_names);
+            //dd(self::$valute_names);
             self::$valute_values = 0;
         }
         
@@ -50,23 +51,30 @@ class Cbr
             }
         
             for ($j=0; $j < self::$count_valutes; $j++) {
-                self::$valute_values[] = number_format(str_replace(',', '.', $content[self::$valute_names[$j]]), 2, '.', '');
-
+                self::$valute_values = number_format(str_replace(',', '.', $content[self::$valute_names[$j]]), 2, '.', '');
+                //dd(self::$valute_values);
                 $todatabase['currency_id'] = Currency::where('currency', self::$valute_names[$j])->pluck('id')[0];
-                $todatabase['value'] = end(self::$valute_values);
+                // $todatabase['value'] = end(self::$valute_values);
+                $todatabase['value'] = self::$valute_values;
                 $todatabase['ondate'] = date("Y-m-d", strtotime($day));
                 
                 Currencyrate::create($todatabase);
             }
         } else {             
             for ($j=0; $j < self::$count_valutes; $j++) {
-                $valute_values_array = Currencyrate::select('value')->where([
+                $id = Currency::where('currency', self::$valute_names[$j])->pluck('id')[0];
+                
+                self::$valute_values_array[$id] = Currencyrate::where([
                     ['ondate', date("Y-m-d", strtotime($day))],
-                    ['currency_id', Currency::where('currency', self::$valute_names[$j])->pluck('id')[0]],
-                ])->pluck('value');
-                foreach ($valute_values_array as $value) {
-                    self::$valute_values[] = $value;
-                }                    
+                    ['currency_id', $id],
+                ])->pluck('value')[0];
+
+                foreach (self::$valute_values_array as $value) {                    
+                    self::$valute_values = $value;
+                }  
+
+                //dd(key($valute_values_array)) ;
+                //self::$valute_values[] =  $valute_values_array;   
             } 
         }
     }
@@ -86,6 +94,11 @@ class Cbr
     public static function get() {
         self::configurate();
         return self::$valute_values;
+    }
+
+    public static function getAssociate() {
+        self::configurate();
+        return self::$valute_values_array;
     }
 
     public static function getNames() {

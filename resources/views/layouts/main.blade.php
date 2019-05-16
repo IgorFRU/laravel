@@ -12,9 +12,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
+    
+    <script src="https://use.fontawesome.com/564e0d687f.js"></script>
 
 </head>
 
@@ -58,7 +61,7 @@
                     <div class="fastmenu__body">
                         <div class="logo">
                             <div class="logo__body">
-                                <a href="#">
+                                <a href="{{ route('mainpage') }}">
                                     <h1>Паркетный Мир</h1>
                                 </a>
                             </div>
@@ -112,7 +115,7 @@
             </div>
         </div>
         <ul class="mainmenu__ul">
-            <li class="mainmenu__li"><a href="#" class="mainmenu__a"><i class="fas fa-home"></i></a></li>
+            <li class="mainmenu__li"><a href="{{ route('mainpage') }}" class="mainmenu__a"><i class="fas fa-home"></i></a></li>
             
             @forelse ($menus as $menu)
                 <li class="mainmenu__li"><a href="#" class="mainmenu__a">{{ $menu->menu }}</a>

@@ -110,7 +110,30 @@
                         <span class="products__card__price__old">
 
                         </span>
-                        <div class="products__card__price__new">{{ $product->price }}</div>
+                        <div class="products__card__price__new"> 
+                            <div>
+                                <span class="value">                           
+                                    @if ($product->currency->to_update)
+                                        @php
+                                            $oneUnit = $product->price * $currencyrates[$product->currency->id];
+                                            $oneUnitNumeric = number_format($oneUnit, 2, '.', ' ');
+                                            echo ($oneUnitNumeric);
+                                        @endphp
+                                    @else
+                                        {{ $product->price }}
+                                    @endif
+                                </span>
+                                <i class="fa fa-rub"></i> 
+                            </div>
+                            
+                            <div class="products__card__price__new__package">
+                                <div class="active" data-price="@php echo ($oneUnitNumeric); @endphp"> за 1 {{ $product->unit->unit }}</div>
+                                @if ($product->in_package)
+                                    <div data-price="@php echo (number_format($oneUnit * $product->in_package, 2, '.', ' ')); @endphp"> за 1 уп.</div>
+                                @endif
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
                 @empty

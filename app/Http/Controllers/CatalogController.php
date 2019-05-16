@@ -6,13 +6,17 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Cache;
 
 
 use Illuminate\Http\Request;
 
 use app\Menu;
+use app\Currency;
 use app\Category;
 use app\Product;
+use app\Unit;
+use app\MyClasses\Cbr;
 
 class CatalogController extends BaseController
 {
@@ -43,14 +47,20 @@ class CatalogController extends BaseController
         
     }
     public function category($category){
-        //dd($category);
+        $hour = 60;
         $category = Category::where('alias', '=', $category)->get();
-        //dd( $category);
+        
         $data = [
             'title' => $category[0]->title,
             'description' => $category[0]->description,
-            'menus'=> Menu::orderBy('sortpriority', 'ASC')->get(),
+            'menus'=> Cache::remember(' menus', $hour, function() {    
+                return Menu::orderBy('sortpriority', 'ASC')->get();
+            }),
+            'currency'=> Currency::get()->pluck('id', 'currency', 'to_update'),
             'categories'=> Category::orderBy('title', 'ASC')->get(),
+            'unit'=>  Cache::remember(' unit', $hour, function() {
+                return Unit::get();
+            }),
             'category' => $category[0],
             'products' => Product::orderBy('recomended', 'DESC')
                 ->orderBy('product_name', 'ASC')
@@ -58,10 +68,10 @@ class CatalogController extends BaseController
                     ['published', '=', '1'],
                     ['category_id', '=', $category[0]->id]
                 ])->get(),
+            'currencyrates' => Cache::remember('cbr_associate', $hour, function() {
+                return Cbr::getAssociate();
+            }),
         ];
-
-        $qqq =  Product::find(2);
-        dd($qqq->currency_id);
         $data['breadcrumbs'] = \Request::get('breadcrumbs');
         return view('category', $data);
     }

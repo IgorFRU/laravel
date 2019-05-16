@@ -1134,11 +1134,38 @@ section.products .products__cards .products__card .products__card__info .product
     position: absolute;
     bottom: 0;
     width: 100%;
-    margin: 0 auto;
     text-align: center;
     padding: 5px;
+    background: #12506f;
+    box-sizing: border-box;
+    color: #fff;
 }
 
 .products__card__info .products__card__title a {
     color: #12506f;
+}
+
+.products__card__price__new .value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.products__card__price__new__package {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.products__card__price__new__package div {
+    width: 50%;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.products__card__price__new__package div:nth-child(1) {
+    border-right: 1px solid #236687;
+}
+
+.products__card__price__new__package div.active {
+    font-weight: bold;
 }

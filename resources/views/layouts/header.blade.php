@@ -35,7 +35,7 @@
                 <div class="fastmenu__body">
                     <div class="logo">
                         <div class="logo__body">
-                            <a href="#">
+                            <a href="{{ asset() }}">
                                 <h1>Паркетный Мир</h1>
                             </a>
                         </div>
