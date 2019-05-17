@@ -110,30 +110,52 @@
                         <span class="products__card__price__old">
 
                         </span>
-                        <div class="products__card__price__new"> 
+                        <div class="products__card__price__new">
                             <div>
                                 <span class="value">                           
                                     @if ($product->currency->to_update)
                                         @php
-                                            $oneUnit = $product->price * $currencyrates[$product->currency->id];
-                                            $oneUnitNumeric = number_format($oneUnit, 2, '.', ' ');
+                                            $oneUnit = floatToInt($product->price * $currencyrates[$product->currency->id]);
+                                            $oneUnitNumeric = $oneUnit;
                                             echo ($oneUnitNumeric);
                                         @endphp
                                     @else
-                                        {{ $product->price }}
+                                        @php
+                                            $oneUnit = floatToInt($product->price);
+                                            $oneUnitNumeric = $oneUnit;
+                                            echo ($oneUnitNumeric);
+                                        @endphp
                                     @endif
                                 </span>
-                                <i class="fa fa-rub"></i> 
+                                <i class="fa fa-rub"></i>
                             </div>
-                            
+
                             <div class="products__card__price__new__package">
-                                <div class="active" data-price="@php echo ($oneUnitNumeric); @endphp"> за 1 {{ $product->unit->unit }}</div>
+                                <div class="active" data-price="@php echo ($oneUnit); @endphp"> за 1 {{ $product->unit->unit }}</div>
                                 @if ($product->in_package)
-                                    <div data-price="@php echo (number_format($oneUnit * $product->in_package, 2, '.', ' ')); @endphp"> за 1 уп.</div>
+                                <div data-price="@php echo (round($oneUnitNumeric * $product->in_package, 2)); @endphp"> за 1 уп. ({{ round($product->in_package, 3) }} {{ $product->unit->unit }})</div>
                                 @endif
-                                
                             </div>
                         </div>
+                    </div>
+                    <div class="products__card__buttons">
+                        <div class="products__card__buttons__input">
+                            <input type="text" name="count" id="count" 
+                            data-price="@php echo (round($oneUnitNumeric * $product->in_package, 2)); @endphp" 
+                            data-count="@php echo (round($product->in_package, 2)); @endphp"
+                            data-countpackage="1"
+                            @if($product->packaging_sales) value= @php echo (round($product->in_package, 2)); echo ($product->unit->unit); @endphp @endif >
+                            <span class="plus"><i class="fa fa-plus"></i></span>
+                            <span class="minus"><i class="fa fa-minus"></i></span>
+                        </div>
+                        <div class="for_payment">
+                            к оплате: <span>@php echo (round($oneUnitNumeric * $product->in_package, 2)); @endphp</span> <i class="fa fa-rub"></i>
+                        </div>
+                        <div class="buttons">
+                            <div class="buy">В корзину</div>
+                            <div class="one_click">Купить в 1 клик</div>
+                        </div>
+
                     </div>
                 </div>
                 @empty
@@ -149,4 +171,17 @@
 <aside>
 
 </aside>
+
+@php 
+function floatToInt($number) { 
+    $floor = floor($number);
+    if ($number == $floor) { 
+        return number_format($number, 0, '.', ''); 
+    }
+    else {
+        return number_format(round($number, 2), 2, '.', '');
+    } 
+} 
+@endphp 
+
 @endsection
