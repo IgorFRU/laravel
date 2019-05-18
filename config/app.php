@@ -231,7 +231,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         //'Cbr' => app\Facades\Cbr::class,
-        'Image' => Intervention\Image\Facades\Image::class,
+        'ImageIntervention' => Intervention\Image\Facades\Image::class,
 
     ],
 

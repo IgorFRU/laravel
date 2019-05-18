@@ -8,6 +8,7 @@ use app\Manufacture;
 use app\Unit;
 use app\Currency;
 use app\Rebate;
+use app\Image;
 use Illuminate\Http\Request;
 use app\Http\Controllers\Controller;
 
@@ -66,17 +67,20 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $next_id = Product::max('id');
         $data = array (            
-            'title'       => 'АДМИН - Паркетный мир - Добавление товара',
-            'product'     => [],
-            'categories'  => Category::with('children')->where('parent_id', 0)->get(),
-            'manufactures'=> Manufacture::get(),
-            'currencies'  => Currency::get(),
-            'units'       => Unit::get(),
-            'rebates'     => Rebate::get(),
-            'delimiter'   => ''
+            'title'         => 'АДМИН - Паркетный мир - Добавление товара',
+            'product'       => [],
+            'categories'    => Category::with('children')->where('parent_id', 0)->get(),
+            'manufactures'  => Manufacture::get(),
+            'currencies'    => Currency::get(),
+            'units'         => Unit::get(),
+            'rebates'       => Rebate::get(),
+            'add_js'        => 'js/product.ajax.js',
+            'next_id'       => ++$next_id,
+            'delimiter'     => ''
         ); 
-        // dd($data['categories']);
+        // dd($data['next_id']);
         return view('admin.products.create', $data);
     }
 
@@ -121,6 +125,7 @@ class ProductController extends Controller
             'currencies'  => Currency::get(),
             'units'       => Unit::get(),
             'rebates'     => Rebate::get(),
+            'images'      => Image::where('product_id', '=', $product->id)->get(),
             'delimiter'   => ''
         ); 
         

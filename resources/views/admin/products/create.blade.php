@@ -28,7 +28,7 @@
 
         {{-- Тут будут выведены уже загруженные изображения --}}
 
-        <form action="{{route('admin.img')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('admin.productimg')}}" method="post" enctype="multipart/form-data">
             @csrf
             @include('admin.products.partials.form_img')
         </form>

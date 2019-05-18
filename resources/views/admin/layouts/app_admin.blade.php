@@ -14,6 +14,10 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/core.js') }}" defer></script>
+    
+    @isset($add_js)
+        <script src="{{ asset($add_js) }}" defer></script>
+    @endisset
     <script src="https://use.fontawesome.com/564e0d687f.js"></script>
 
 

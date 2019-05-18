@@ -18,6 +18,11 @@
 
             @include('admin.products.partials.form')
         </form>
+
+        <form action="{{route('admin.productimg')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            @include('admin.products.partials.form_img')
+        </form>
     </div>
 @endsection
 

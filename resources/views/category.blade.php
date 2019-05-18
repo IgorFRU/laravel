@@ -84,7 +84,12 @@
                 @forelse ($products as $product)
                 <div class="products__card">
                     <div class="products__card__image">
-                        <img src="{{ asset('imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg')}}" alt="">
+                        @if ($product->thumbnail)
+                            <img class="normal_product_image" src="{{ asset('imgs/products/thumbnail/')}}/{{ $product->thumbnail}}" alt="">
+                        @else
+                            <img src="{{ asset('imgs/image_not_found.png')}}" alt="">
+                        @endif
+                        
                     </div>
                     <div class="products__card__info">
                         <div class="products__card__scu">
@@ -184,4 +189,17 @@ function floatToInt($number) {
 } 
 @endphp 
 
+@if (Session::has('success'))
+    <div class="alert alert-success">
+        {!! Session::get('success') !!}
+    </div>
+@endif
+
+<form action="{{ route('send_question') }}" method="post">
+        @csrf
+    <input type="text" id="question_phone" name="phone" placeholder="Номер телефона" required>
+    <input type="text" id="question_name" name="name" placeholder="Имя" required>
+    <input type="text" id="question_question" name="question" placeholder="Ваш вопрос" required>
+    <input type="submit" id="question" value="Отправить">
+</form>
 @endsection

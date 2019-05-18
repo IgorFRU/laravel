@@ -16,6 +16,7 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
+    <script src="{{ asset('js/sendmail.ajax.js') }}" defer></script>
     
     <script src="https://use.fontawesome.com/564e0d687f.js"></script>
 

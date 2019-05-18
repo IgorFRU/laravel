@@ -16,6 +16,7 @@ use app\Currency;
 use app\Category;
 use app\Product;
 use app\Unit;
+use app\Image;
 use app\MyClasses\Cbr;
 
 class CatalogController extends BaseController

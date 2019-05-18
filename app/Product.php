@@ -61,6 +61,10 @@ class Product extends Model
         return $this->belongsTo(Rebate::class);
     }
 
+    public function images() {
+        return $this->hasMany(Image::class);
+    }
+
     public static function publishedCount() {
         return Product::where('published', 1)->count();
     }

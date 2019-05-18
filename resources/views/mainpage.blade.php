@@ -23,8 +23,11 @@
                                 <div class="help_btn__left">
                                     <i class="fas fa-question"></i>
                                 </div>
-                                <div class="help_btn__right">
-                                    Консультация
+                                <div class="help_btn__right"> <!-- container -->
+                                   Задать вопрос
+                                    
+
+
                                 </div>
                             </div>
                         </div>

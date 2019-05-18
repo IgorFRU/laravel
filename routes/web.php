@@ -22,12 +22,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     // Route::post('/manufacture/sort', 'ManufactureController@sort', ['as'=>'admin']);
     Route::get('/product/category-{category}', 'ProductController@category', ['as'=>'admin'])->name('admin.product.category');
     Route::resource('/product', 'ProductController', ['as'=>'admin']);
-    Route::any('/img', 'UploadImagesController@upload', ['as'=>'admin'])->name('admin.img');
+    Route::any('/productimg', 'UploadImagesController@product', ['as'=>'admin'])->name('admin.productimg');
     Route::resource('/menu', 'MenuController', ['as'=>'admin']);
     
 });
 
 Route::get('/', 'MainController@index')->name('mainpage');
+Route::post('/send-question', 'SandmailController@question')->name('send_question');
 
 //Route::resource('/admin', 'Admin\AdminResource');
 
