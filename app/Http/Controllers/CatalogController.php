@@ -68,9 +68,10 @@ class CatalogController extends BaseController
                     ['published', '=', '1'],
                     ['category_id', '=', $category[0]->id]
                 ])->get(),
-            'currencyrates' => Cache::remember('cbr_associate', $hour, function() {
-                return Cbr::getAssociate();
-            }),
+            // 'currencyrates' => Cache::remember('cbr_associate', $hour, function() {
+            //     return Cbr::getAssociate();
+            // }),
+            'currencyrates' => Cbr::getAssociate(),
         ];
         $data['breadcrumbs'] = \Request::get('breadcrumbs');
         return view('category', $data);

@@ -213,7 +213,7 @@ section {
     height: 30px;
     width: 30px;
     border-radius: 5px;
-    background: #12506f;
+    background: #577d90;
     text-align: center;
     cursor: pointer;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
@@ -224,7 +224,7 @@ section {
 .fastmenu__tosmall.active {
     width: 200px;
     transition: 0.2s;
-    background: #12506f;
+    background: #577d90;
 }
 
 .fastmenu__tosmall p {
@@ -415,7 +415,7 @@ menu {
     position: absolute;
     width: 100%;
     transition: 0.3s;
-    border-bottom: 4px solid rgb(38, 133, 181);
+    border-bottom: 4px solid rgb(87, 125, 144);
 }
 
 .mainmenu__burger {
@@ -1035,6 +1035,7 @@ section.products {
     position: relative;
     transition: 0.3s;
     background: #e8e8e8;
+    padding-bottom: 60px;
 }
 
 section.products .products__category {
@@ -1242,4 +1243,54 @@ section.products .products__cards .products__card:hover .products__card__buttons
 
 .for_payment span {
     font-weight: bold;
+}
+
+main {
+    
+}
+
+footer {
+    background: linear-gradient(#0b1823, #08101f);
+}
+
+footer .footer_content {
+    padding: 40px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer .footer_content .footer_content__card {
+    box-sizing: border-box;
+    width: 24%;
+}
+
+footer .footer_content .footer_content__title {
+    width: 80%;
+    border-bottom: 1px solid #577d90;
+    padding: 10px 0;
+    color: #b0cddc;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+footer .footer_content a {
+    color: #b0cddc;
+}
+
+.footer_content__card__phone {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer_content__card__phone a {
+    color: #fff !important;
+}
+
+.footer_content__card p {
+    margin: 0;
+    padding: 0;
 }

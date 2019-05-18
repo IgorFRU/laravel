@@ -40,7 +40,7 @@
 
 
                         <div>
-                            <li class="topmenu__work_today"><i class="fas fa-clock"></i> Сегодня до 18:00</li>
+                            <li class="topmenu__work_today"><i class="fas fa-clock"></i> Сегодня открыто до 18:00</li>
                             <div>
                                 <ul>
                                     <li>ПН-ПТ: 09:00 - 18:00</li>
@@ -151,35 +151,7 @@
         @yield('content')
         
     </main>
-    <!--
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Паркетный мир
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
--->
-
+        @include('layouts.footer')
 <script>
     const link_sort = document.querySelectorAll('.sortlink');
     link_sort.forEach(element => {
