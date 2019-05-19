@@ -77,11 +77,11 @@
                         <ul class="fastmenu__body__tel">
 
                             <li><a href="tel:+79788160166">8(978) 816 01 66</a></li>
-                            <li class="fastmenu__body__tel__hide"><a href="tel:+79788808206">8(978) 880 82 06</a></li>
+                            {{-- <li class="fastmenu__body__tel__hide"><a href="tel:+79788808206">8(978) 880 82 06</a></li> --}}
 
                             <li><a href="#" class="callme">Обратный звонок</a></li>
                         </ul>
-                        <div class="fastmenu__body__right">
+                        {{-- <div class="fastmenu__body__right">
                             <div class="fastmenu__body__right__search">
                                 <i class="fas fa-search"></i>
                                 <div class="search__form">
@@ -95,7 +95,7 @@
                                 <i class="fas fa-shopping-cart"></i>
                                 <span>5</span>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 

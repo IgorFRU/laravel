@@ -28,13 +28,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 });
 
 Route::get('/', 'MainController@index')->name('mainpage');
-Route::post('/send-question', 'SandmailController@question')->name('send_question');
+Route::get('/send-question', 'SandmailController@question')->name('send_question');
+Route::get('/oneclick-purcache', 'SandmailController@oneclick')->name('oneclick_purcache');
 
 //Route::resource('/admin', 'Admin\AdminResource');
 
 Route::get('/catalog/{category}', 'CatalogController@category')->name('category');
 
-Route::get('/catalog/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory')->middleware('breadcrumbs');
+//Route::get('/catalog/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory')->middleware('breadcrumbs');
 
 Route::get('/catalog/{category}/{product}/{parameter?}', 'CatalogController@product')->name('product');
 Route::get('/catalog/{category}/{subcategory}/{product}/{parameter?}', 'CatalogController@product')->name('product.subcategory');

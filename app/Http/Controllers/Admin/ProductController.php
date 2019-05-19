@@ -93,7 +93,15 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
+        
         Product::create($request->all());
+
+        // $last_id = Product::max('id');
+
+        // $thumbnail = Image::where('product_id', $last_id)->get();
+        // //dd($thumbnail);
+        // Product::where('id', $last_id)
+        //   ->update(['thumbnail' => $thumbnail->thumbnail]);
         
         return redirect()->route('admin.product.index')->with('success', 'Товар успешно добавлен');
     }

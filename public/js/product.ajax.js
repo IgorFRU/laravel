@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $(function() {
-        $('#save').on('click', function() {
+        $('#save').click(function() {
             var title = $('#title').val();
             var text = $('#text').val();
             $.ajax({

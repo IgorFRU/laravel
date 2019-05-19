@@ -36,7 +36,22 @@ class SandmailController extends Controller
          
         //return 'Сообщение отправлено на адрес '. $toEmail;
 
-        return redirect()->back()->with('success', 'Сообщение отправлено на адрес '. $toEmail);
+        //return redirect()->back()->with('success', 'Сообщение отправлено на адрес '. $toEmail);
         
+    }
+
+    public function oneclick(Request $request) {
+        $mail_body = '
+            <html>
+                <body>
+                    <p>Имя: '.$request->name.'</p>
+                    <p>Телефон: '.$request->phone.'</p>                        
+                    <p>Товар: '.$request->product.'</p>                     
+                    <p>Количество: '.$request->quantity.'</p>                    
+                    <p>Сумма: '.$request->price.'</p>                       
+                </body>
+            </html>';
+        $toEmail = "igor.parketmir@gmail.com";
+        Mail::to($toEmail)->send(new QuestionMail($mail_body));
     }
 }

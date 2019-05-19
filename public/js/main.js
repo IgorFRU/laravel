@@ -104,7 +104,7 @@ $(document).ready(function() {
 
     var pricePlus = document.querySelectorAll('.products__card__buttons__input > span.plus');
     pricePlus.forEach(function(plus, i) {
-        const countInInput = plus.parentNode.querySelector('.products__card__buttons__input > input');
+        const countInInput = plus.parentNode.parentNode.querySelector('.products__card__buttons__input > input');
         const forPayment = plus.parentNode.parentNode.querySelector('.for_payment > span');
         plus.addEventListener('click', () => {
             let count = countInInput.dataset.countpackage;
@@ -128,9 +128,33 @@ $(document).ready(function() {
                 countInInput.value = Math.round(countInInput.dataset.count * count * 100) / 100 + ' м.кв.';
                 forPayment.innerText = (Math.round(count * countInInput.dataset.price * 100) / 100).toLocaleString('ru');
             }
-
-
-
         });
+    });
+
+    var one_click = document.querySelectorAll('.one_click');
+    one_click.forEach(function(click, i) {
+        click.addEventListener('click', () => {
+            const quantity = click.parentNode.parentNode.querySelector('.products__card__buttons__input > input').value;
+            const price = click.parentNode.parentNode.querySelector('.for_payment > span').innerText;
+            const product = click.parentNode.parentNode.parentNode.querySelector('.products__card__info > .products__card__maininfo > .products__card__title > h3 > a');
+            $('#modal_oneclick_quantity').val(quantity);
+            $('#modal_oneclick_price').val(price + " руб.");
+            
+            $('#modal_oneclick_product').val(product);
+
+            $('.modal_oneclick').addClass('active');
+        });
+        
+    });
+
+    $('.btn+.help_btn').click(function() {
+        $('.modal_send_question').addClass('active');
+    });
+
+    $('.modal_oneclick__header__close').click(function() {
+        $('.modal_oneclick').removeClass("active");
+    });
+    $('.modal_send_question__header__close').click(function() {
+        $('.modal_send_question').removeClass("active");
     });
 });

@@ -29,6 +29,6 @@ class QuestionMail extends Mailable
      */
     public function build()
     {
-        return $this->view('partials.question')->subject('Вопрос с сайта parketpro.com');
+        return $this->view('partials.question')->subject('Письмо с сайта parketpro.com');
     }
 }

@@ -61,6 +61,21 @@
                 </div>
             </div>
         </section>
+        <div class="modal_send_question">
+            <div class="modal_send_question__header">
+                Задать вопрос
+                <div class="modal_send_question__header__close">
+                    
+                </div>
+            </div>
+            <form id="send_question">
+                @csrf
+                <input type="text" id="question_phone" name="phone" placeholder="Номер телефона" required>
+                <input type="text" id="question_name" name="name" placeholder="Имя" required>
+                <textarea id="question_question" name="question" placeholder="Ваш вопрос" required maxlength="500" rows="5"></textarea>
+                <div id="question">Отправить</div>
+            </form>
+        </div>
         <section class="categories">
             <div class="wrap">
             <p class="sortlink" data-sort_col="sort1_1" data-sort_type="sort1_2">10</p>
