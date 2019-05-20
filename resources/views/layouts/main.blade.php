@@ -50,10 +50,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="topmenu__right">
+                        {{-- <div class="topmenu__right">
                             <a href="#"><i class="fas fa-sign-in-alt"></i>  Вход</a>
                             <a href="#"><i class="fas fa-user-plus"></i>  Регистрация</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

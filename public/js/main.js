@@ -139,16 +139,16 @@ $(document).ready(function() {
             const product = click.parentNode.parentNode.parentNode.querySelector('.products__card__info > .products__card__maininfo > .products__card__title > h3 > a');
             $('#modal_oneclick_quantity').val(quantity);
             $('#modal_oneclick_price').val(price + " руб.");
-            
+
             $('#modal_oneclick_product').val(product);
 
             $('.modal_oneclick').addClass('active');
         });
-        
+
     });
 
-    $('.btn+.help_btn').click(function() {
-        $('.modal_send_question').addClass('active');
+    $('.help_btn').click(function() {
+        $('.modal_send_question').addClass("active");
     });
 
     $('.modal_oneclick__header__close').click(function() {

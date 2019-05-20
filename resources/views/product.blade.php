@@ -3,11 +3,11 @@
 @section('content')
 
 <section class="product" id="firstsection">
-    <div class="breadcrumbs">
+    {{-- <div class="breadcrumbs">
         <div class="wrap">
             breadcrumbs
         </div>
-    </div>
+    </div> --}}
 
     <div class="wrap">
         <div class="product__card white_card_global">
@@ -101,11 +101,13 @@
                     </div>
                 </div>
             </div>
+            @if(isset($product->description))
             <div class="product__bottom">
                 <div class="product__bottom__description">
-                    {{ $product->description ?? '' }}    
+                    {{ $product->description }}    
                 </div>
             </div>
+            @endif
         </div>
 
         @if (count($recomended_products))

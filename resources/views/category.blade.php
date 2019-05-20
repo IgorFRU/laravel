@@ -72,12 +72,12 @@
             </div>
 
         </div>
-        <div class="breadcrumbs">
+        {{-- <div class="breadcrumbs">
             <div class="wrap">
                 breadcrumbs
             </div>
 
-        </div>
+        </div> --}}
         <div class="wrap">
 
             <div class="products__cards">
