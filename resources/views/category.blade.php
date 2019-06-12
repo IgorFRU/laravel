@@ -94,10 +94,10 @@
                     <div class="products__card__info">
                         <div class="products__card__scu">
                             <span class="scu">
-                                        арт.: {{ $product->scu }}
+                                        арт.: {{ $product->scu ?? ''}}
                                     </span>
                             <span class="manufacture">
-                                        <a href="#">{{ $product->manufacture->manufacture }}</a>
+                                        <a href="#">{{ $product->manufacture->manufacture ?? ''}}</a>
                                     </span>
                         </div>
                         <div class="products__card__maininfo">
@@ -160,7 +160,6 @@
                             <div class="buy">В корзину</div>
                             <div class="one_click">Купить в 1 клик</div>
                         </div>
-
                     </div>
                 </div>
                 @empty

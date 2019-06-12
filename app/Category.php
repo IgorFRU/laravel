@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Category extends Model
-{
-//    protected $guarded = ['id', 'created_at', 'created_at'];
-    
+{    
     protected $fillable = ['title', 'description', 'parent_id', 'alias', 'published', 'menu_id'];
     
     //Mutators
@@ -19,8 +17,6 @@ class Category extends Model
         $double = Category::where('alias', $this->attributes['alias'])->first();
 
         if ($double) {
-            //Добавляем к алиасу id
-
             $next_id = Category::select('id')->orderby('id', 'desc')->first()['id'];
             $this->attributes['alias'] .= '-' . ++$next_id;
         }

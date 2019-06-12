@@ -94,7 +94,10 @@ class ProductController extends Controller
     {
 
         
-        Product::create($request->all());
+        $product = Product::create($request->all());
+
+        //return view('admin.products.edit', $data);
+        return redirect()->route('admin.product.edit', $product);
 
         // $last_id = Product::max('id');
 
@@ -103,7 +106,7 @@ class ProductController extends Controller
         // Product::where('id', $last_id)
         //   ->update(['thumbnail' => $thumbnail->thumbnail]);
         
-        return redirect()->route('admin.product.index')->with('success', 'Товар успешно добавлен');
+        //return redirect()->route('admin.product.index')->with('success', 'Товар успешно добавлен');
     }
 
     /**
@@ -125,6 +128,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        //dd($product);
         $data = array (            
             'title'       => 'АДМИН - Паркетный мир - Добавление товара',
             'product'     => $product,
@@ -151,7 +155,7 @@ class ProductController extends Controller
     {
         $product->update($request->all());
 
-        return redirect()->route('admin.product.index')->with('success', 'Товар успешно изменен');
+        return redirect()->route('admin.product.index')->with('success', 'Товар успешно сохранен');
     }
 
     /**

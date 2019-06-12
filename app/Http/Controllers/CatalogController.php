@@ -32,8 +32,7 @@ class CatalogController extends BaseController
 //        echo __METHOD__;
         $hour = 60;
         $product = Product::where('slug', $product)->get();
-        // dd($product[0]->category->id);
-// dd($product);
+        
         $data = [
             'title' => $product[0]->product_name,
             'category' => Category::where('alias', $category)->get()->pluck('title')[0],
@@ -59,7 +58,6 @@ class CatalogController extends BaseController
         ];
 
         $data['description'] = $data['category'];
-        // dd($data['image']);
         return view('product', $data);
     }
 
