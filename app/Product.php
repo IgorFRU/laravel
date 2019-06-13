@@ -62,7 +62,7 @@ class Product extends Model
     }
 
     public function images() {
-        return $this->hasMany(Image::class);
+        return $this->belongsToMany(Image::class);
     }
 
     public static function publishedCount() {

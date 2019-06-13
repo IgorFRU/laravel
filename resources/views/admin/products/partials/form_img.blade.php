@@ -1,6 +1,6 @@
 <section>
     <div class="grey_box">
-        
+
     </div>
 
 
@@ -16,8 +16,12 @@
         <label for="alt">Alt</label>
         <input type="text" name="alt" id="">
     </div>
+    <div class="grey_box">
+        <label for="main">Главное изображение</label>
+        <input type="checkbox" name="main" id="main" value="1">
+    </div>
 
-<input name="product_id" type="hidden" value="{{ $product->id ?? $next_id }}">
-    
+    <input name="product_id" type="hidden" value="{{ $product->id ?? '' }}">
+
     <input type="submit" id="imgupload" value="Отправить">
 </section>

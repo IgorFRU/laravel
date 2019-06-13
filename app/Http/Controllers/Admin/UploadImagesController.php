@@ -3,6 +3,7 @@
 namespace app\Http\Controllers\Admin;
 
 use app\Image;
+use app\ImageProduct;
 use app\Product;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic;
@@ -31,21 +32,36 @@ class UploadImagesController extends Controller
             })
             ->save($path_thumbnail . $filename_thumbnail);
 
-        Image::create([
-            'product_id' => $request->product_id,
+        if($request->main) {      
+            $imgs = Image::whereIn('id', ImageProduct::where('product_id', $request->product_id)
+                                                        ->pluck('image_id'))
+                            ->where('main', 1)
+                            ->get();
+            foreach ($imgs as $img) {
+                $img->main = 0;
+                $img->save();
+            }            
+        }
+
+        $image = Image::create([
             'file' => $filename, 
             'name' => $request->name,
             'alt' => $request->alt,
-            'thumbnail' => $filename_thumbnail
+            'thumbnail' => $filename_thumbnail,
+            'main' => $request->main
             ]);
         
         // $product = Product::find($request->product_id);
         // $product->thumbnail = $filename_thumbnail;        
         // $product->save();
 
-        Product::where('id', $request->product_id)
-          ->update(['thumbnail' => $filename_thumbnail]);
+        // Product::where('id', $request->product_id)
+        //   ->update(['thumbnail' => $filename_thumbnail]);
+
+        //ImageProduct
         
+        $image->products()->attach($request->product_id);
+
         return redirect()->back()->with('success', 'Изображение загружено');
     }
 }
