@@ -17,17 +17,65 @@
                     в магазине есть образец
                 </div>    
                 @endif
-                <div class="product__images">
+                {{-- <div class="product__images">
                     <div class="product__mainimage">
-                        @if (count($image))
-                            <img src="{{ asset('imgs/products/')}}/{{ $image[0]}}" alt="">
+                        @if (isset($mainimage[0]))
+                            <img src="{{ asset('imgs/products/')}}/{{ $mainimage[0]}}" alt="">
                         @else
                             <img src="{{ asset('imgs/image_not_found.png')}}" alt="">
                         @endif
                     </div>
+                    <div class="product__addimages">
+                        @forelse ($images as $image)
+                            <div class="product__addimages__items">
+                                <div class="product__addimages__item">
+                                    <img src="{{ asset('imgs/products/')}}/{{ $image}}" alt="">
+                                </div>                                
+                            </div>
+                        @empty
+                            
+                        @endforelse
+                    </div>
                     
                     
+                </div> --}}
+                <div class="product__images">
+                    @if (isset($images))
+                        @if (count($images) > 1)
+                            <div class="product__images__many">
+                                <div class="main_image">
+                                    @foreach ($images as $image)
+                                        @if ($image->main)
+                                        <img src="{{ asset('imgs/products/thumbnail')}}/{{ $image->thumbnail}}" alt="{{ $image->alt ?? '' }}">
+                                        @endif
+                                    @endforeach
+                                </div>
+                                <div class="images__container">
+                                    @forelse ($images as $image)
+                                    <div class="images__container__item">
+                                        <img @if($image->main) class="main_image" @endif src="{{ asset('imgs/products/thumbnail')}}/{{ $image->thumbnail}}" alt="{{ $image->alt ?? '' }}">
+                                    </div>                                        
+                                    @empty
+                                        
+                                    @endforelse
+                                </div>
+                            </div>
+                        @else
+                            <div class="product__images__one">
+
+                            </div>                            
+                        @endif
+                    @else
+                    <div class="product__mainimage">
+                        <img src="{{ asset('imgs/image_not_found.png')}}" alt="">
+                    </div>
+                    @endif
                 </div>
+
+
+
+
+
                 <div class="product__maininfo">
                     <div class="product__title">
                         <h1>{{ $product->product_name }}</h1>
@@ -35,8 +83,11 @@
                             <a href="{{ route('category', ['category' => $product->category->alias]) }}">{{ $product->category->title }}</a>
                         </div>
                         <div class="product__maininfo__add">
-                            <div class="product__scu">артикул: {{ $product->scu }}</div>
-                            <div class="product__manufacture">производитель: {{ $product->manufacture->manufacture }}</div>
+                            <div class="product__scu">артикул: {{ $product->scu ?? '' }}</div>
+                            @if ($product->manufacture)
+                                <div class="product__manufacture">производитель: {{ $product->manufacture->manufacture }}</div>
+                            @endif
+                            
                         </div>
                         <div class="product__short_description">
                             {{ $product->short_description ?? '' }}

@@ -50,12 +50,16 @@ class CatalogController extends BaseController
                 ['category_id', '=', $product[0]->category->id],
                 ['id', '<>', $product[0]->id]
             ])->get(),
-            'image' => Image::where('product_id', $product[0]->id)->get()->pluck('file'),
+            //'image' => Image::where('product_id', $product[0]->id)->get()->pluck('file'),
+            'mainimage' => Product::find($product[0]->id)->images->where('main', 1)->pluck('file'),
+            // 'images' => Product::find($product[0]->id)->images->where('main', '<>', 1)->pluck('file'),
+            'images' => Product::find($product[0]->id)->images,
             // 'currencyrates' => Cache::remember('cbr_associate', $hour, function() {
             //     return Cbr::getAssociate();
             // }),
             'currencyrates' => Cbr::getAssociate(),
         ];
+        // dd($data['images']);
 
         $data['description'] = $data['category'];
         return view('product', $data);
