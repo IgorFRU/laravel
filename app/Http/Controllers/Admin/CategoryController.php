@@ -131,6 +131,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        unlink(public_path('imgs/categories/'.$category->img));
         $category->delete();
         //Category::destroy($category['id']);
 

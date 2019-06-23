@@ -28,6 +28,21 @@
             @csrf
             @include('admin.products.partials.form_img')
         </form>
+        <div class="grey_box">
+            
+                <div class="image_thumbnail_row">
+                    
+                    @forelse ($images as $image)
+                        <div class="image_thumbnail100">
+                            <img src="{{asset('imgs/products/thumbnail')}}/{{ $image->thumbnail}}" alt="">
+                        </div>
+                    @empty                
+                        изображений нет
+                    @endforelse
+                </div>
+            
+                
+        </div>
     </div>
 @endsection
 

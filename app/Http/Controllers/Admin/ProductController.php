@@ -128,19 +128,17 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //dd($product);
         $data = array (            
             'title'       => 'АДМИН - Паркетный мир - Добавление товара',
             'product'     => $product,
+            'images'      => Product::find($product->id)->images,
             'categories'  => Category::with('children')->where('parent_id', 0)->get(),
             'manufactures'=> Manufacture::orderBy('manufacture', 'ASC')->get(),
             'currencies'  => Currency::get(),
             'units'       => Unit::get(),
             'rebates'     => Rebate::get(),
-            //'images'      => Image::where('product_id', '=', $product->id)->get(),
             'delimiter'   => ''
-        ); 
-        
+        );         
         return view('admin.products.edit', $data);
     }
 

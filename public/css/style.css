@@ -1720,3 +1720,21 @@ section.product .product__images .product__mainimage {
     margin-top: 10px;
     font-weight: bold;
 }
+
+.image_thumbnail_row {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 890px;
+    justify-content: space-between;
+}
+
+.image_thumbnail100 {
+    width: 100px;
+    height: 100px;
+    margin-right: 5px;
+}
+
+.image_thumbnail100 img {
+    max-height: 100%;
+}

@@ -31,7 +31,7 @@
                     </div>
                     <span class="category__detail_watches"><i class="fa fa-eye" aria-hidden="true"></i>{{ $article->views }}</span>
 
-                    <form onsubmit="if(confirm('Удалить?')) {return true} else {return false}" action="{{route('admin.article.destroy', $aticle)}}" class="delete_mini_form" method="post">
+                    <form onsubmit="if(confirm('Удалить?')) {return true} else {return false}" action="{{route('admin.article.destroy', $article)}}" class="delete_mini_form" method="post">
                        @csrf
 
                         <input type="hidden" name="_method" value="delete">

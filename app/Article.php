@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class Article extends Model
 {
-    protected $fillable = ['article_name', 'img', 'alias', 'published'];
+    protected $fillable = ['article_name', 'img', 'alias', 'description', 'published'];
 
     public function setAliasAttribute($value) {
         $this->attributes['alias'] = Str::slug(mb_substr($this->title, 0, 60) . "-", "-");

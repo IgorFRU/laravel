@@ -6,6 +6,7 @@ use app\Image;
 use app\ImageProduct;
 use app\Product;
 use app\Category;
+use app\Article;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic;
 use app\Http\Controllers\Controller;
@@ -102,6 +103,28 @@ class UploadImagesController extends Controller
 
         //dd($category[0]);
         $category[0]->save();
+
+        return redirect()->back()->with('success', 'Изображение загружено');
+    }
+
+    public function article(Request $request) {
+        $path = public_path().'\imgs\articles\\';
+        $file = $request->file('image');
+
+        $base_name = str_random(20);
+
+        $filename = $base_name .'.' . $file->getClientOriginalExtension() ?: 'png';
+        $img = ImageManagerStatic::make($file);
+        $img->resize(800, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->save($path . $filename);
+
+        $article = Article::where('id', $request->article_id)->get();
+        $article[0]->img = $filename;
+
+        //dd($category[0]);
+        $article[0]->save();
 
         return redirect()->back()->with('success', 'Изображение загружено');
     }

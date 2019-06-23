@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('article_name', 64);
             $table->string('img', 32)->nullable();
             $table->string('alias');
+            $table->text('description')->nullable();
             $table->tinyInteger('published')->default(1);
             $table->timestamps();
         });

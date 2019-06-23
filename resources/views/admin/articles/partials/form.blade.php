@@ -16,9 +16,13 @@
             <input type="text" name="article_name" value="{{$article->article_name ?? ''}}" required>
         </div>
         <div class="grey_box">
-            <label for="">Алиас</label>
+            <label for="alias">Алиас</label>
             <input type="text" name="alias" value="{{$article->alias ?? ''}}" readonly>
         </div>
+        <div class="grey_box">
+                <label for="description">Описание</label>
+                <textarea name="description" id="description" cols="30" rows="10">{{$article->description ?? ''}}</textarea>
+            </div>
         
         <input class="category__add grey_box" type="submit" name="submit" value="Сохранить">
         

@@ -6,6 +6,7 @@ use app\Article;
 use Illuminate\Http\Request;
 use app\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -94,7 +95,18 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $article->update($request->except('alias'));
+
+        if (Cache::has('articles_published')) {
+            if ($request->published) {
+                Cache::increment('articles_published');
+            } else {
+                Cache::decrement('articles_published');
+            }            
+        }
+
+        return redirect()->route('admin.article.index')->with('success', 'Статья успешно сохранена');
+        
     }
 
     /**
@@ -105,6 +117,12 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        unlink(public_path('imgs/articles/'.$article->img));
+        $article->delete();
+        if (Cache::has('articles_published')) {
+            Cache::decrement('articles_published');           
+        }
+
+        return redirect()->back()->with('success', 'Статья успешно удалена');
     }
 }
