@@ -137,7 +137,7 @@ class ProductController extends Controller
             'currencies'  => Currency::get(),
             'units'       => Unit::get(),
             'rebates'     => Rebate::get(),
-            'images'      => Image::where('product_id', '=', $product->id)->get(),
+            //'images'      => Image::where('product_id', '=', $product->id)->get(),
             'delimiter'   => ''
         ); 
         

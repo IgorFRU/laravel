@@ -5,6 +5,7 @@ namespace app\Http\Controllers\Admin;
 use app\Image;
 use app\ImageProduct;
 use app\Product;
+use app\Category;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic;
 use app\Http\Controllers\Controller;
@@ -43,6 +44,8 @@ class UploadImagesController extends Controller
             }            
         }
 
+        
+
         $image = Image::create([
             'file' => $filename, 
             'name' => $request->name,
@@ -59,8 +62,46 @@ class UploadImagesController extends Controller
         //   ->update(['thumbnail' => $filename_thumbnail]);
 
         //ImageProduct
+
+        
         
         $image->products()->attach($request->product_id);
+
+        $imgs = Image::whereIn('id', ImageProduct::where('product_id', $request->product_id)
+                                                        ->pluck('image_id'))
+                            ->where('main', 1)
+                            ->pluck('id');
+        //dd($imgs);
+        if (count($imgs) == 0) {
+            $mainimg = Image::whereIn('id', ImageProduct::where('product_id', $request->product_id)
+                                                        ->pluck('image_id'))
+                            ->get();
+            $mainimg[0]->main = 1;
+            $mainimg[0]->save();
+            // dd($mainimg[0]);
+        }
+
+        return redirect()->back()->with('success', 'Изображение загружено');
+    }
+
+    public function category(Request $request) {
+        $path = public_path().'\imgs\categories\\';
+        $file = $request->file('image');
+
+        $base_name = str_random(20);
+
+        $filename = $base_name .'.' . $file->getClientOriginalExtension() ?: 'png';
+        $img = ImageManagerStatic::make($file);
+        $img->resize(800, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->save($path . $filename);
+
+        $category = Category::where('id', $request->category_id)->get();
+        $category[0]->img = $filename;
+
+        //dd($category[0]);
+        $category[0]->save();
 
         return redirect()->back()->with('success', 'Изображение загружено');
     }

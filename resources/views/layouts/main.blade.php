@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{$title. '. ' . $description}}</title>
+    <title>{{ $title. '. ' . $description ?? ""}}</title>
+
+    <meta description="{{ $meta_description ?? $product->description ?? "Купить все виды паркета в Крыму по лучшим ценам!" }}">
+    <meta keywords="{{ $meta_keywords ?? "" }}">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic-ext" rel="stylesheet">

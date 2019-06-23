@@ -2,6 +2,11 @@
 
 
 @section('content')
+    @if (Session::has('success'))
+        <div class="alert alert-success">
+    {!! Session::get('success') !!}
+        </div>
+    @endif
 
     @component('admin.components.breadcrumb')
         @slot('parent') Главная @endslot

@@ -37,5 +37,4 @@ class Category extends Model
     public static function publishedCount() {
         return Category::where('published', 1)->count();
     }
-
 }

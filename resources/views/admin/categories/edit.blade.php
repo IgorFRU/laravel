@@ -2,7 +2,11 @@
 
 
 @section('content')
-
+    @if (Session::has('success'))
+        <div class="alert alert-success">
+    {!! Session::get('success') !!}
+        </div>
+    @endif
     @component('admin.components.breadcrumb')
         @slot('parent') Главная @endslot
         @slot('parent2') Категории @endslot
@@ -17,6 +21,11 @@
             {{-- Forme include --}}
 
             @include('admin.categories.partials.form')
+        </form>
+
+        <form action="{{route('admin.categoryimg')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            @include('admin.categories.partials.form_img')
         </form>
     </div>
 @endsection

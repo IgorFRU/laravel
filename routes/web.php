@@ -23,7 +23,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::get('/product/category-{category}', 'ProductController@category', ['as'=>'admin'])->name('admin.product.category');
     Route::resource('/product', 'ProductController', ['as'=>'admin']);
     Route::any('/productimg', 'UploadImagesController@product', ['as'=>'admin'])->name('admin.productimg');
+    Route::any('/categoryimg', 'UploadImagesController@category', ['as'=>'admin'])->name('admin.categoryimg');
+    Route::any('/articleimg', 'UploadImagesController@article', ['as'=>'admin'])->name('admin.articleimg');
     Route::resource('/menu', 'MenuController', ['as'=>'admin']);
+    Route::resource('/article', 'ArticleController', ['as'=>'admin']);
     
 });
 

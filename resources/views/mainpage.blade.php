@@ -50,10 +50,13 @@
                         </a>
                     </div>
                     <div class="top1_box">
-                        <a href="#">
+                        <a href="{{asset('articles')}}/">
                             <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
                             <p>Паркет из тика в ванной комнате</p>
                         </a>
+                    </div>
+                    <div class="top1_box_all">
+                        <a href="{{asset('articles')}}">Все статьи...</a>
                     </div>
                 </div>
             </div>
@@ -119,7 +122,12 @@
                                 @if ($category->menu_id == $menu->id)
                                 <div class="categories__boxes__category">
                                     <a href="/catalog/{{ $category->alias }}">
-                                        <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
+                                        @if ($category->img)
+                                            <img src="{{ asset('imgs/categories')}}/{{ $category->img }}" alt="">
+                                        @else
+                                            <img src="{{ asset('imgs/image_not_found.png') }}" alt="">
+                                        @endif
+                                        
                                     <p>{{ $category->title }}</p>
                                     <div class="categories__boxes__category__price">
                                         от <span class="price">1571,00</span> <i class="fas fa-ruble-sign"></i>

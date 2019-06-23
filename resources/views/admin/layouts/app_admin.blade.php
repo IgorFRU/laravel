@@ -75,6 +75,13 @@
                 </div>
             </ul>
             <ul>
+                Статьи
+                <div class="submenu">
+                    <li><a href="{{ route('admin.article.index') }}">Все статьи</a></li>
+                    <li><a href="{{ route('admin.article.create') }}">Добавить статью</a></li>
+                </div>
+            </ul>
+            <ul>
                 <a href="#">Статистика</a>
 
             </ul>

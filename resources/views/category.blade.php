@@ -82,13 +82,16 @@
 
             <div class="products__cards">
                 @forelse ($products as $product)
+                
                 <div class="products__card">
                     <div class="products__card__image">
-                        @if ($product->thumbnail)
-                            <img class="normal_product_image" src="{{ asset('imgs/products/thumbnail/')}}/{{ $product->thumbnail}}" alt="">
-                        @else
+                        @forelse ($product->images as $image)
+                            @if ($image->main)
+                                <img class="normal_product_image" src="{{ asset('imgs/products/thumbnail/')}}/{{ $image->thumbnail}}" alt="">
+                            @endif
+                        @empty
                             <img src="{{ asset('imgs/image_not_found.png')}}" alt="">
-                        @endif
+                        @endforelse
                         
                     </div>
                     <div class="products__card__info">

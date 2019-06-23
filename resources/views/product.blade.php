@@ -43,7 +43,7 @@
                     @if (isset($images))
                         @if (count($images) > 1)
                             <div class="product__images__many">
-                                <div class="main_image">
+                                <div class="main_product_image">
                                     @foreach ($images as $image)
                                         @if ($image->main)
                                         <img src="{{ asset('imgs/products/thumbnail')}}/{{ $image->thumbnail}}" alt="{{ $image->alt ?? '' }}">
@@ -51,31 +51,33 @@
                                     @endforeach
                                 </div>
                                 <div class="images__container">
-                                    @forelse ($images as $image)
-                                    <div class="images__container__item">
-                                        <img @if($image->main) class="main_image" @endif src="{{ asset('imgs/products/thumbnail')}}/{{ $image->thumbnail}}" alt="{{ $image->alt ?? '' }}">
-                                    </div>                                        
-                                    @empty
-                                        
-                                    @endforelse
+                                    @if (count($images) > 4)
+                                        <span class="up">&uarr;</span>
+                                        <span class="down">&darr;</span>
+                                    @endif
+                                    <div class="column">
+                                        @forelse ($images as $image)
+                                        <div class="images__container__item">
+                                            <img @if($image->main) class="main" @endif src="{{ asset('imgs/products/thumbnail')}}/{{ $image->thumbnail}}" alt="{{ $image->alt ?? '' }}">
+                                        </div>                                        
+                                        @empty
+                                            
+                                        @endforelse
+                                    </div>
+                                    
                                 </div>
                             </div>
                         @else
-                            <div class="product__images__one">
-
-                            </div>                            
+                            @if (count($images) == 0)
+                                <div class="product__images__one">
+                                    <img src="{{ asset('imgs/image_not_found.png')}}" alt="">
+                                </div>
+                            @endif                                
                         @endif
                     @else
-                    <div class="product__mainimage">
-                        <img src="{{ asset('imgs/image_not_found.png')}}" alt="">
-                    </div>
+                        
                     @endif
                 </div>
-
-
-
-
-
                 <div class="product__maininfo">
                     <div class="product__title">
                         <h1>{{ $product->product_name }}</h1>
@@ -155,7 +157,7 @@
             @if(isset($product->description))
             <div class="product__bottom">
                 <div class="product__bottom__description">
-                    {{ $product->description }}    
+                    {!! $product->description !!}    
                 </div>
             </div>
             @endif

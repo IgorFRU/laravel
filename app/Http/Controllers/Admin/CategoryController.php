@@ -57,13 +57,14 @@ class CategoryController extends Controller
     {
         //метод для массовго заполнения
 
-        Category::create($request->all());
+        $category = Category::create($request->all());
 
         if (Cache::has('categories_published')) {
             Cache::increment('categories_published');
         }
         
-        return redirect()->route('admin.category.index')->with('success', 'Категория успешно добавлена');
+        return redirect()->route('admin.category.edit', $category)->with('success', 'Категория успешно добавлена. Теперь можно загрузить изображение.');
+        //return redirect()->route('admin.category.index')->with('success', 'Категория успешно добавлена');
         //return redirect()->back()->with('success', 'Категория успешно сохранена');
     }
 
@@ -118,7 +119,7 @@ class CategoryController extends Controller
             }            
         }
 
-        return redirect()->route('admin.category.index')->with('success', 'Категория успешно изменена');
+        return redirect()->route('admin.category.index')->with('success', 'Категория успешно сохранена');
         //return redirect()->back()->with('success', 'Категория успешно изменена');
     }
 

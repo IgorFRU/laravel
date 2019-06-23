@@ -32,6 +32,8 @@ class CatalogController extends BaseController
 //        echo __METHOD__;
         $hour = 60;
         $product = Product::where('slug', $product)->get();
+        $product[0]->views++;
+        $product[0]->save();
         
         $data = [
             'title' => $product[0]->product_name,
@@ -50,16 +52,13 @@ class CatalogController extends BaseController
                 ['category_id', '=', $product[0]->category->id],
                 ['id', '<>', $product[0]->id]
             ])->get(),
-            //'image' => Image::where('product_id', $product[0]->id)->get()->pluck('file'),
             'mainimage' => Product::find($product[0]->id)->images->where('main', 1)->pluck('file'),
-            // 'images' => Product::find($product[0]->id)->images->where('main', '<>', 1)->pluck('file'),
             'images' => Product::find($product[0]->id)->images,
-            // 'currencyrates' => Cache::remember('cbr_associate', $hour, function() {
-            //     return Cbr::getAssociate();
-            // }),
             'currencyrates' => Cbr::getAssociate(),
+            'meta_description' => $product[0]->meta_description,
+            'meta_keywords' => $product[0]->meta_keywords,
         ];
-        // dd($data['images']);
+        // dd($data);
 
         $data['description'] = $data['category'];
         return view('product', $data);
@@ -106,6 +105,7 @@ class CatalogController extends BaseController
             //     return Cbr::getAssociate();
             // }),
             'currencyrates' => Cbr::getAssociate(),
+            // 'mainimages' => Product::images->where('main', 1)->pluck('file'),
         ];
         $data['breadcrumbs'] = \Request::get('breadcrumbs');
         return view('category', $data);

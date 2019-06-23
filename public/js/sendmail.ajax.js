@@ -43,6 +43,7 @@ $(document).ready(function() {
         var quantity = $('#modal_oneclick_quantity').val();
         var price = $('#modal_oneclick_price').val();
         var product = $('#modal_oneclick_product').val();
+        
         $.ajax({
             type: 'get',
             url: '/oneclick-purcache',

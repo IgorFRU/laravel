@@ -136,7 +136,10 @@ $(document).ready(function() {
         click.addEventListener('click', () => {
             const quantity = click.parentNode.parentNode.querySelector('.products__card__buttons__input > input').value;
             const price = click.parentNode.parentNode.querySelector('.for_payment > span').innerText;
-            const product = click.parentNode.parentNode.parentNode.querySelector('.products__card__info > .products__card__maininfo > .products__card__title > h3 > a');
+            var product = click.parentNode.parentNode.parentNode.querySelector('.products__card__info > .products__card__maininfo > .products__card__title > h3 > a');
+            if (!product) {
+                product = document.URL;
+            }
             $('#modal_oneclick_quantity').val(quantity);
             $('#modal_oneclick_price').val(price + " руб.");
 
@@ -157,4 +160,46 @@ $(document).ready(function() {
     $('.modal_send_question__header__close').click(function() {
         $('.modal_send_question').removeClass("active");
     });
+
+    //-----------------
+    //Управление миниатюрами и главным изображением в карточке товара на фронет
+    var mainProductImage = document.querySelector('.main_product_image > img');
+    var otherProductImagesContainer = document.querySelector('.images__container > .column');
+    var otherProductImages = document.querySelectorAll('.images__container__item > img');
+    var otherProductImagesSize = otherProductImages.length;
+    
+    var otherProductImageUp = document.querySelector('.images__container span.up');
+    var otherProductImageDown = document.querySelector('.images__container span.down');
+    
+    otherProductImages.forEach(function(img, i) {        
+        img.addEventListener('click', () => {
+            const mainThumbnail = img.parentNode.parentNode.querySelector('.main');
+            mainThumbnail.classList.remove('main');
+            img.classList.add('main');
+            mainProductImage.setAttribute('src', img.getAttribute('src'));
+        });      
+    });
+
+    var otherProductImagesPosition = 0;
+    var step = 0;
+    otherProductImageDown.addEventListener('click', () => {
+        otherProductImagesPosition-=75;
+        step++;
+        otherProductImagesContainer.style.top =otherProductImagesPosition+'px';
+        otherProductImageUp.style.display = 'block';
+        if (otherProductImagesSize - step == 4){
+            otherProductImageDown.style.display = 'none';
+        }
+    });
+    otherProductImageUp.addEventListener('click', () => {
+        otherProductImagesPosition+=75;
+        step--;
+        otherProductImagesContainer.style.top = otherProductImagesPosition+'px';
+        otherProductImageDown.style.display = 'block';
+        if (step == 0){
+            otherProductImageUp.style.display = 'none';
+        }
+    });   
+    //Конец
+    //-----------------------------------------  
 });
