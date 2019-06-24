@@ -50,7 +50,7 @@ class Product extends Model
     }
 
     public function currencyrate() {
-        return $this->belongsTo(Currencyrate::class);
+        return $this->belongsTo(Currencyrate::class, 'currency_id');
     }
     
     public function unit() {

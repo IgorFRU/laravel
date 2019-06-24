@@ -120,7 +120,7 @@
                         </span>
                         <div class="products__card__price__new">
                             <div>
-                                <span class="value">     
+                                <span class="value">
                                     @if ($product->currency->to_update)
                                         @php
                                             $oneUnit = floatToInt($product->price * $currencyrates[$product->currency->id]);

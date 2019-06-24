@@ -40,7 +40,8 @@ class Cbr
     }
 
     private static function getCourses($day) {        
-        
+        // $tmp = Currencyrate::where('ondate', date("Y-m-d", strtotime($day)))->get();
+        // dd($tmp[0]->currency->currency);
         if (!Currencyrate::where('ondate', date("Y-m-d", strtotime($day)))->count()) {
             self::$file = simplexml_load_file("http://www.cbr.ru/scripts/XML_daily.asp?date_req=".$day);
             //self::$file = simplexml_load_file($day);
@@ -64,10 +65,13 @@ class Cbr
             for ($j=0; $j < self::$count_valutes; $j++) {
                 $id = Currency::where('currency', self::$valute_names[$j])->pluck('id')[0];
                 
-                self::$valute_values_array[$id] = Currencyrate::where([
-                    ['ondate', date("Y-m-d", strtotime($day))],
-                    ['currency_id', $id],
-                ])->pluck('value')[0];
+                if ($day == self::$today) {
+                    self::$valute_values_array[$id] = Currencyrate::where([
+                        ['ondate', date("Y-m-d", strtotime($day))],
+                        ['currency_id', $id],
+                    ])->pluck('value')[0];
+                }
+                
 
                 foreach (self::$valute_values_array as $value) {                    
                     self::$valute_values = $value;
@@ -94,6 +98,16 @@ class Cbr
     public static function get() {
         self::configurate();
         return self::$valute_values;
+    }
+
+    public static function today() {
+        self::configurate();
+        return Currencyrate::where('ondate', date("Y-m-d", strtotime(self::$today)))->orderBy('currency_id', 'ASC')->get();
+    }
+
+    public static function tomorrow() {
+        self::configurate();
+        return Currencyrate::where('ondate', date("Y-m-d", strtotime(self::$tomorrow)))->orderBy('currency_id', 'ASC')->get();
     }
 
     public static function getAssociate() {

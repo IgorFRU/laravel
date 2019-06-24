@@ -48,18 +48,19 @@ class AppServiceProvider extends ServiceProvider
 
             $hour = 60;
 
-            $cbr = Cache::remember('cbr', $hour/600, function() {
-                return Cbr::get();
-            });
-            // $cbr = Cbr::get();
-            
+            // $cbr = Cache::remember('cbr', $hour/600, function() {
+            //     return Cbr::get();
+            // });
+            //$cbr = Cbr::get();
+            $cbrToday = Cbr::today();
+            $cbrTomorrow = Cbr::tomorrow();
+
 
             // $cbrNames = Cache::remember('cbr', $hour, function() {
             //     return Cbr::getNames();
             // });
 
             $cbrNames = Cbr::getNames();
-
             //dd($cbrNames);
 
             $categories_published = Cache::remember('categories_published', $hour, function() {
@@ -80,7 +81,8 @@ class AppServiceProvider extends ServiceProvider
                 'products_published'        => $products_published,
                 'manufactures_published'    => $manufactures_published,
                 'currencies_published'      => $currencies_published,
-                'cbr'                       => $cbr,
+                'cbrToday'                  => $cbrToday,
+                'cbrTomorrow'               => $cbrTomorrow,
                 'cbrNames'                  => $cbrNames
             );
 

@@ -397,6 +397,10 @@ body {
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
+.currency__today {
+    width: 250px;
+}
+
 .currency__tomorrow {
     padding-left: 10px !important;
 }
@@ -409,6 +413,7 @@ body {
     background: #3e3e3e;
     color: #eee;
     line-height: 29px;
+    margin-right: 5px;
 }
 
 .currency__red,
@@ -419,7 +424,7 @@ body {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    top: 5px;
+    top: 4px;
     right: 4px;
 }
 
@@ -907,4 +912,25 @@ form .row {
 
 .image_thumbnail100 img {
     max-height: 100%;
+}
+
+table.products_table {
+    width: 100%;
+    margin: 0 10px;
+} 
+
+table.products_table th,
+table.products_table td {
+    text-align: center;
+    padding: 0 5px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+table.products_table thead {
+    border-bottom: 3px solid rgba(0,0,0,0.1);
+}
+
+.text_align_left {
+    text-align: left !important;
 }

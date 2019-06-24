@@ -44,7 +44,7 @@
 -->
 
             <a href="{{route('admin.product.create')}}" class="category__add grey_box"><i class="fas fa-plus"></i></a>
-            <table>
+            <table class="products_table">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -66,7 +66,7 @@
                     @endphp
                         <tr>
                             <td>{{ $counter }}</td>
-                            <td><a href="{{route('admin.product.edit', ['id'=>$product->id])}}">{{ $product->product_name }}</a></td>
+                            <td class="text_align_left"><a href="{{route('admin.product.edit', ['id'=>$product->id])}}">{{ $product->product_name }}</a></td>
                             <td>{{ $product->price }} <i class="fa fa-{{ mb_strtolower($product->currency->currency) }}" aria-hidden="true"></i></td>
                             <td>{{ $product->scu }}</td>
                             <td>{{ $product->published }}</td>

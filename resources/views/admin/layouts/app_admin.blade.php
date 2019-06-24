@@ -89,6 +89,56 @@
         <div class="navbar__right">
             <ul class="currency">
                 <div class="currency__today">
+                    Сегодня                    
+                    @foreach ($cbrToday as $key=>$value)
+                    <span class="currency__child"> 
+                        <i class="fa fa-{{strtolower($value->currency->currency) ?? ''}}" aria-hidden="true"></i>
+                        <span class="currency__value">{{ $value->value ?? '-' }}</span>
+                        <span                    
+                        @if($value->value != -1)
+                            @isset($cbrTomorrow)
+                                @if($value->value < $cbrTomorrow[$key]->value)
+                                    class="currency__red" 
+                                @elseif($value->value > $cbrTomorrow[$key]->value)
+                                    class="currency__green"  
+                                @else                       
+                                    class="currency__grey"                        
+                                @endif
+                            @endisset                                   
+                        @else                       
+                            class="currency__grey"                       
+                        @endif>
+                        </span>
+                    </span>
+                    @endforeach   
+                </div>
+                @isset($cbrTomorrow)
+                <div class="currency__tomorrow submenu">
+                        Завтра
+                        @foreach ($cbrTomorrow as $value)
+                        <span>
+                            <i class="fa fa-{{strtolower($value->currency->currency) ?? ''}}" aria-hidden="true"></i>
+                            <span class="currency__value">{{ $value->value ?? '-' }}</span>
+                        </span>    
+                        @endforeach
+                </div>
+                @endisset
+                {{-- @if(isset($cbr[2]))
+                    <div class="currency__tomorrow submenu">
+                        Завтра
+                        <span>
+                            @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
+                            @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
+                        <span class="currency__value">{{ $cbr[2] ?? '-' }}</span></span>
+                        <span>
+                            @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
+                            @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif     
+                        <span class="currency__value">{{ $cbr[3] ?? '-' }}</span></span>
+                    </div>
+                @endif --}}
+            </ul>
+            {{-- <ul class="currency">
+                <div class="currency__today">
                     Сегодня
                     <span class="currency__child"> 
                         @if(isset($cbrNames[0]))
@@ -145,7 +195,7 @@
                         <span class="currency__value">{{ $cbr[3] ?? '-' }}</span></span>
                     </div>
                 @endif
-            </ul>
+            </ul> --}}
             <ul><a class="nav-link" href="{{ route('mainpage') }}">Перейти на сайт</a></ul>
             <ul>
                 <!-- Authentication Links -->
