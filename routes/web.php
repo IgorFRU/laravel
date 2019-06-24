@@ -33,6 +33,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 Route::get('/', 'MainController@index')->name('mainpage');
 Route::get('/send-question', 'SandmailController@question')->name('send_question');
 Route::get('/oneclick-purcache', 'SandmailController@oneclick')->name('oneclick_purcache');
+Route::get('/articles', 'ArticleController@index')->name('articles.index');
+Route::get('/articles/{article}', 'ArticleController@show')->name('article.show');
 
 //Route::resource('/admin', 'Admin\AdminResource');
 

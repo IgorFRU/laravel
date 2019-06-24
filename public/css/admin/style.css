@@ -888,3 +888,23 @@ form .row {
 .row .right_45 {
     width: 45%;
 }
+
+
+.image_thumbnail_row {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 890px;
+    justify-content: flex-start;
+}
+
+.image_thumbnail100 {
+    width: 100px;
+    height: 100px;
+    margin-right: 5px;
+    overflow: hidden;
+}
+
+.image_thumbnail100 img {
+    max-height: 100%;
+}

@@ -37,24 +37,14 @@
         <section class="top1">
             <div class="wrap">
                 <div class="top1__boxes">
-                    <div class="top1_box">
-                        <a href="#">
-                            <img src={{asset('imgs/Tikovyie-polyi-v-vannoy.jpg')}} alt="">
-                            <p>Паркет из тика в ванной комнате</p>
-                        </a>
-                    </div>
-                    <div class="top1_box">
-                        <a href="#">
-                            <img src="imgs/Vyibelennaya-shirokaya-parketnaya-doska--1024x717.jpg" alt="">
-                            <p>Масла OSMO - отличная защита деревянных фасадов</p>
-                        </a>
-                    </div>
-                    <div class="top1_box">
-                        <a href="{{asset('articles')}}/">
-                            <img src="imgs/Tikovyie-polyi-v-vannoy.jpg" alt="">
-                            <p>Паркет из тика в ванной комнате</p>
-                        </a>
-                    </div>
+                    @foreach ($articles as $article)
+                        <div class="top1_box">
+                            <a href="{{ route('article.show', ['article' => $article->alias]) }}">
+                                <img src="{{asset('imgs/articles')}}/{{ $article->img }}" alt="">
+                                <p>{{ $article->article_name }}</p>
+                            </a>
+                        </div>    
+                    @endforeach
                     <div class="top1_box_all">
                         <a href="{{asset('articles')}}">Все статьи...</a>
                     </div>

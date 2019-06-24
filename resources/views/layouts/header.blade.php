@@ -8,7 +8,7 @@
                         <a href="#">Доставка</a>
                         <a href="#">Оплата</a>
                         <a href="#">Контакты</a>
-                        <a href="#">Статьи</a>
+                        <a href="{{ route('articles.index') }}">Статьи</a>
                         <a href="#" class="topmenu__left__red">Акции</a>
                     </div>
 
