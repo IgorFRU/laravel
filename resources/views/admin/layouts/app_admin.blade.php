@@ -96,7 +96,7 @@
                         <span class="currency__value">{{ $value->value ?? '-' }}</span>
                         <span                    
                         @if($value->value != -1)
-                            @isset($cbrTomorrow)
+                            @if(count($cbrTomorrow))
                                 @if($value->value < $cbrTomorrow[$key]->value)
                                     class="currency__red" 
                                 @elseif($value->value > $cbrTomorrow[$key]->value)
@@ -104,7 +104,7 @@
                                 @else                       
                                     class="currency__grey"                        
                                 @endif
-                            @endisset                                   
+                            @endif                                   
                         @else                       
                             class="currency__grey"                       
                         @endif>
@@ -112,7 +112,7 @@
                     </span>
                     @endforeach   
                 </div>
-                @isset($cbrTomorrow)
+                @if(count($cbrTomorrow))
                 <div class="currency__tomorrow submenu">
                         Завтра
                         @foreach ($cbrTomorrow as $value)
@@ -122,80 +122,8 @@
                         </span>    
                         @endforeach
                 </div>
-                @endisset
-                {{-- @if(isset($cbr[2]))
-                    <div class="currency__tomorrow submenu">
-                        Завтра
-                        <span>
-                            @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
-                            @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
-                        <span class="currency__value">{{ $cbr[2] ?? '-' }}</span></span>
-                        <span>
-                            @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
-                            @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif     
-                        <span class="currency__value">{{ $cbr[3] ?? '-' }}</span></span>
-                    </div>
-                @endif --}}
-            </ul>
-            {{-- <ul class="currency">
-                <div class="currency__today">
-                    Сегодня
-                    <span class="currency__child"> 
-                        @if(isset($cbrNames[0]))
-                            @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
-                            @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
-                        @endif
-                        <span class="currency__value">{{ $cbr[0] ?? '-' }}</span>
-                        <span                    
-                        @if(isset($cbr[2]) && $cbr[2] != -1)                    
-                            @if(isset($cbr[0]) && $cbr[0] < $cbr[2])
-                                class="currency__red" 
-                            @elseif(isset($cbr[0]) && $cbr[0] > $cbr[2])
-                                class="currency__green"  
-                            @else                       
-                                class="currency__grey"                        
-                            @endif  
-                        @else                       
-                            class="currency__grey"                       
-                        @endif>
-                        </span>
-                    </span>
-                    
-                    <span class="currency__child">
-                        @if(isset($cbrNames[1]))
-                            @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
-                            @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
-                        @endif
-                        <span class="currency__value">{{ $cbr[1] ?? '-' }}</span>
-                        <span
-                            @if(isset($cbr[3]) && $cbr[2] != -1)                    
-                                @if(isset($cbr[1]) && $cbr[1] < $cbr[3])
-                                    class="currency__red" 
-                                @elseif(isset($cbr[1]) && $cbr[1] > $cbr[3])
-                                    class="currency__green"  
-                                @else                       
-                                    class="currency__grey"                        
-                                @endif 
-                            @else                       
-                                class="currency__grey"                       
-                            @endif>
-                        </span>
-                    </span>
-                </div>
-                @if(isset($cbr[2]))
-                    <div class="currency__tomorrow submenu">
-                        Завтра
-                        <span>
-                            @if ($cbrNames[0] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
-                            @if ($cbrNames[0] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif 
-                        <span class="currency__value">{{ $cbr[2] ?? '-' }}</span></span>
-                        <span>
-                            @if ($cbrNames[1] == 'USD')<i class="fa fa-usd" aria-hidden="true"></i> @endif
-                            @if ($cbrNames[1] == 'EUR')<i class="fa fa-eur" aria-hidden="true"></i> @endif     
-                        <span class="currency__value">{{ $cbr[3] ?? '-' }}</span></span>
-                    </div>
                 @endif
-            </ul> --}}
+            </ul>
             <ul><a class="nav-link" href="{{ route('mainpage') }}">Перейти на сайт</a></ul>
             <ul>
                 <!-- Authentication Links -->
@@ -226,11 +154,6 @@
                     </div>
                 </ul>
                 @endguest
-
-
-
-
-
             </ul>
 
         </div>

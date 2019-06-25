@@ -58,7 +58,7 @@
         </div>
     </section>--}}
     <section class="products" id="firstsection">
-        <div class="products__category" style="background-image: url({{ asset('imgs/444.jpg')}}); background-size: cover; ">
+        <div class="products__category" style="background-image: url({{ asset('imgs/categories/444.jpg')}}); background-size: cover; ">
             <div class="background_transparent_cover">
                 <div class="wrap">
                     <div class="products__category__title">

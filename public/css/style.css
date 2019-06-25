@@ -1720,3 +1720,11 @@ section.product .product__images .product__mainimage {
     margin-top: 10px;
     font-weight: bold;
 }
+
+.about_main {
+    color: #333;
+}
+
+.about_main p {
+    text-indent: 20px;
+}

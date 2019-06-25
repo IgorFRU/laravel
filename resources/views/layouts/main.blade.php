@@ -111,13 +111,13 @@
         </div>
     </header>
     <menu class="mainmenu">
-        <div class="mainmenu__burger">
+        {{-- <div class="mainmenu__burger">
             <div class="burger">Меню
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-        </div>
+        </div> --}}
         <ul class="mainmenu__ul">
             <li class="mainmenu__li"><a href="{{ route('mainpage') }}" class="mainmenu__a"><i class="fas fa-home"></i></a></li>
             

@@ -119,9 +119,9 @@
                                         @endif
                                         
                                     <p>{{ $category->title }}</p>
-                                    <div class="categories__boxes__category__price">
+                                    {{-- <div class="categories__boxes__category__price">
                                         от <span class="price">1571,00</span> <i class="fas fa-ruble-sign"></i>
-                                    </div>
+                                    </div> --}}
                                     <div class="category__info">
                                         
                                         @if($category->description != '')
@@ -148,6 +148,16 @@
                          
             @endforelse
             </div>
+        </section>
+        <section class="about_main">
+            <div class="wrap">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, quaerat illo? Sint veniam architecto vitae autem excepturi ipsum deleniti. Inventore consectetur tempore nam provident sunt? Ducimus ipsa perspiciatis accusamus vero.
+                At esse eaque vero sapiente repellendus molestiae totam officia laborum pariatur. Nemo totam expedita voluptatem perferendis rem officia repudiandae iste placeat necessitatibus! Aspernatur animi fugit velit nobis voluptatem ipsa odit.
+                Rerum dolore aut quo impedit est, ut id voluptates labore velit vitae iusto optio error aliquam facere nam enim assumenda sint vero cupiditate minus fugit consequuntur minima molestias! Numquam, odio.
+                Voluptatum nostrum sed mollitia porro adipisci deserunt pariatur, obcaecati alias odit sapiente accusantium, expedita, soluta ipsum. Unde consequuntur, eos, debitis magni commodi, quod adipisci deserunt explicabo perspiciatis nihil esse recusandae!
+                Nesciunt nulla temporibus suscipit. Nobis distinctio, doloremque perferendis ipsa velit eveniet eum alias consectetur exercitationem, asperiores expedita beatae excepturi hic mollitia labore quo debitis ad corporis voluptatibus recusandae quibusdam voluptas.</p>
+            </div>
+            
         </section>
         <section>
             <div class="wrap content">
