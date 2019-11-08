@@ -33,14 +33,14 @@
             <div class="topmenu">
                 <div class="wrap">
                     <div class="topmenu__body">
-                        <div class="topmenu__left">
+                        {{-- <div class="topmenu__left">
                             <a href="#">О нас</a>
                             <a href="#">Доставка</a>
                             <a href="#">Оплата</a>
                             <a href="#">Контакты</a>
                             <a href="{{ route('articles.index') }}">Статьи</a>
                             <a href="#" class="topmenu__left__red">Акции</a>
-                        </div>
+                        </div> --}}
 
 
                         <div>
@@ -82,7 +82,7 @@
                             <li><a href="tel:+79788160166">8(978) 816 01 66</a></li>
                             {{-- <li class="fastmenu__body__tel__hide"><a href="tel:+79788808206">8(978) 880 82 06</a></li> --}}
 
-                            <li><a href="#" class="callme">Обратный звонок</a></li>
+                            {{-- <li><a href="#" class="callme">Обратный звонок</a></li> --}}
                         </ul>
                         {{-- <div class="fastmenu__body__right">
                             <div class="fastmenu__body__right__search">

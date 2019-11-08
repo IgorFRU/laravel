@@ -32,36 +32,40 @@ class CatalogController extends BaseController
 //        echo __METHOD__;
         $hour = 60;
         $product = Product::where('slug', $product)->get();
-        $product[0]->views++;
-        $product[0]->save();
-        
-        $data = [
-            'title'         => $product[0]->product_name,
-            'category'      => Category::where('alias', $category)->get()->pluck('title')[0],
-            'menus'         => Cache::remember(' menus', $hour, function() {    
-                return Menu::orderBy('sortpriority', 'ASC')->get();
-            }),
-            'categories'    => Category::orderBy('title', 'ASC')->get(),
-            'currency'      => Currency::get()->pluck('id', 'currency', 'to_update'),
-            'unit'          =>  Cache::remember(' unit', $hour, function() {
-                return Unit::get();
-            }),
-            'product'       => $product[0],
-            'recomended_products' => Product::where([
-                ['recomended', '=', '1'],
-                ['category_id', '=', $product[0]->category->id],
-                ['id', '<>', $product[0]->id]
-            ])->get(),
-            'mainimage'     => Product::find($product[0]->id)->images->where('main', 1)->pluck('file'),
-            'images'        => Product::find($product[0]->id)->images,
-            'currencyrates' => Cbr::getAssociate(),
-            'meta_description' => $product[0]->meta_description,
-            'meta_keywords' => $product[0]->meta_keywords,
-        ];
-        // dd($data['currencyToday']);
+        if (count($product) == 0) {
+            abort(404);
+        } else {
+            $product[0]->views++;
+            $product[0]->save();
+            
+            $data = [
+                'title'         => $product[0]->product_name,
+                'category'      => Category::where('alias', $category)->get()->pluck('title')[0],
+                'menus'         => Cache::remember(' menus', $hour, function() {    
+                    return Menu::orderBy('sortpriority', 'ASC')->get();
+                }),
+                'categories'    => Category::orderBy('title', 'ASC')->get(),
+                'currency'      => Currency::get()->pluck('id', 'currency', 'to_update'),
+                'unit'          =>  Cache::remember(' unit', $hour, function() {
+                    return Unit::get();
+                }),
+                'product'       => $product[0],
+                'recomended_products' => Product::where([
+                    ['recomended', '=', '1'],
+                    ['category_id', '=', $product[0]->category->id],
+                    ['id', '<>', $product[0]->id]
+                ])->get(),
+                'mainimage'     => Product::find($product[0]->id)->images->where('main', 1)->pluck('file'),
+                'images'        => Product::find($product[0]->id)->images,
+                'currencyrates' => Cbr::getAssociate(),
+                'meta_description' => $product[0]->meta_description,
+                'meta_keywords' => $product[0]->meta_keywords,
+            ];
+            // dd($data['currencyToday']);
 
-        $data['description'] = $data['category'];
-        return view('product', $data);
+            $data['description'] = $data['category'];
+            return view('product', $data);
+        }
     }
 
     public function anymethod(Request $request) {

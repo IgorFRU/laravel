@@ -16,16 +16,16 @@ class Product extends Model
                             'in_package'];
 
     public function setSlugAttribute($value) {
-        $this->attributes['slug'] = Str::slug(mb_substr($this->product_name, 0, 60) . "-", "-");
-        $this->attributes['slug'] .= '-' . $this->attributes['scu'];
-        $double = Product::where('slug', $this->attributes['slug'])->first();
+        if ($this->attributes['slug'] == '') {
+            $this->attributes['slug'] = Str::slug(mb_substr($this->product_name, 0, 60) . "-", "-");
+            $this->attributes['slug'] .= '-' . $this->attributes['scu'];
+            $double = Product::where('slug', $this->attributes['slug'])->first();
 
-        if ($double) {
-            //Добавляем к алиасу id
-
-            $next_id = Product::select('id')->orderby('id', 'desc')->first()['id'];
-            $this->attributes['slug'] .= '-' . ++$next_id;
-        }
+            if ($double) {
+                $next_id = Product::select('id')->orderby('id', 'desc')->first()['id'];
+                $this->attributes['slug'] .= '-' . ++$next_id;
+            }
+        }        
     }
 
     public function toRub() {
