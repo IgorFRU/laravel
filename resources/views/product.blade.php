@@ -1,7 +1,6 @@
 @extends('layouts.main') 
 
 @section('content')
-
 <section class="product" id="firstsection">
     {{-- <div class="breadcrumbs">
         <div class="wrap">

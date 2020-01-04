@@ -383,7 +383,7 @@ section.top1 {
     cursor: pointer;
     margin: 5px 0;
     color: #333;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .topmenu__work_today~div>ul {
@@ -490,7 +490,7 @@ menu .mainmenu__ul ul {
     display: inherit;
     position: absolute;
     list-style: none;
-    background: #333;
+    background: #577d90;
     transform: scaleY(0);
     transform-origin: top;
     transition: 0.3s;
@@ -1529,7 +1529,7 @@ section.product .product__images .product__images__many .images__container span 
     z-index: 2;
 }
 
-section.product .product__images .product__images__many .images__container span.up {    
+section.product .product__images .product__images__many .images__container span.up {
     top: 0px;
     background: #f9a362;
     height: 27px;

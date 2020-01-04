@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ $title. '. ' . $description ?? ""}}</title>
+    <title>{{ $title. '. Паркетный мир - Симферополь' ?? "Паркетный мир - Симферополь"}}</title>
 
     <meta description="{{ $meta_description ?? $product->description ?? "Купить все виды паркета в Крыму по лучшим ценам!" }}">
     <meta keywords="{{ $meta_keywords ?? "" }}">
@@ -44,7 +44,7 @@
 
 
                         <div>
-                            <li class="topmenu__work_today"><i class="fas fa-clock"></i> Сегодня открыто до 18:00</li>
+                            <li class="topmenu__work_today"><i class="fas fa-clock"></i> Сегодня работаем до 18:00</li>
                             <div>
                                 <ul>
                                     <li>ПН-ПТ: 09:00 - 18:00</li>

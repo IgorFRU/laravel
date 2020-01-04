@@ -38,12 +38,12 @@ Route::get('/articles/{article}', 'ArticleController@show')->name('article.show'
 
 //Route::resource('/admin', 'Admin\AdminResource');
 
-Route::get('/catalog/{category}', 'CatalogController@category')->name('category');
+Route::get('/catalog/{category}', 'CatalogController@category')->middleware('currencyrates')->name('category');
 
 //Route::get('/catalog/{category}/{subcategory}', 'CatalogController@subcategory')->name('subcategory')->middleware('breadcrumbs');
 
-Route::get('/catalog/{category}/{product}/{parameter?}', 'CatalogController@product')->name('product');
-Route::get('/catalog/{category}/{subcategory}/{product}/{parameter?}', 'CatalogController@product')->name('product.subcategory');
+Route::get('/catalog/{category}/{product}/{parameter?}', 'CatalogController@product')->middleware('currencyrates')->name('product');
+Route::get('/catalog/{category}/{subcategory}/{product}/{parameter?}', 'CatalogController@product')->middleware('currencyrates')->name('product.subcategory');
 Route::get('/anyroute', 'CatalogController@anymethod')->name('anyroute');
 /*
 Route::get('/{category}/{subcategory}/{product}/{parameter?}',function($category, $subcategory, $product, $parameter = null){

@@ -34,23 +34,25 @@
                 </div>
             </section>
         </div>
-        <section class="top1">
-            <div class="wrap">
-                <div class="top1__boxes">
-                    @foreach ($articles as $article)
-                        <div class="top1_box">
-                            <a href="{{ route('article.show', ['article' => $article->alias]) }}">
-                                <img src="{{asset('imgs/articles')}}/{{ $article->img }}" alt="">
-                                <p>{{ $article->article_name }}</p>
-                            </a>
-                        </div>    
-                    @endforeach
-                    <div class="top1_box_all">
-                        <a href="{{asset('articles')}}">Все статьи...</a>
+        @if (count($articles) > 0)
+            <section class="top1">
+                <div class="wrap">
+                    <div class="top1__boxes">
+                        @foreach ($articles as $article)
+                            <div class="top1_box">
+                                <a href="{{ route('article.show', ['article' => $article->alias]) }}">
+                                    <img src="{{asset('imgs/articles')}}/{{ $article->img }}" alt="">
+                                    <p>{{ $article->article_name }}</p>
+                                </a>
+                            </div>    
+                        @endforeach
+                        <div class="top1_box_all">
+                            <a href="{{asset('articles')}}">Все статьи...</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section> 
+        @endif
         <section id="recomended_products">
             <div class="wrap">
                 @if (isset($recomended_products) && count($recomended_products))
@@ -109,7 +111,7 @@
                     <div class="categories__boxes">                    
                             @forelse ($categories as $category)
                         
-                                @if ($category->menu_id == $menu->id)
+                                @if ($category->menu_id == $menu->id && count($category->product) > 0)
                                 <div class="categories__boxes__category">
                                     <a href="/catalog/{{ $category->alias }}">
                                         @if ($category->img)

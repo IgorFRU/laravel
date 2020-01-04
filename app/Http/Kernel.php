@@ -58,5 +58,6 @@ class Kernel extends HttpKernel
         'guest' => \app\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin_isset' => \app\Http\Middleware\RedirectIfAdminIsset::class,
+        'currencyrates' => \app\Http\Middleware\CurrencyRatesUpdate::class,
     ];
 }

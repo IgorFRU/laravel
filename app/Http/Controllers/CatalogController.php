@@ -31,41 +31,37 @@ class CatalogController extends BaseController
     {
 //        echo __METHOD__;
         $hour = 60;
-        $product = Product::where('slug', $product)->get();
-        if (count($product) == 0) {
-            abort(404);
-        } else {
-            $product[0]->views++;
-            $product[0]->save();
-            
-            $data = [
-                'title'         => $product[0]->product_name,
-                'category'      => Category::where('alias', $category)->get()->pluck('title')[0],
-                'menus'         => Cache::remember(' menus', $hour, function() {    
-                    return Menu::orderBy('sortpriority', 'ASC')->get();
-                }),
-                'categories'    => Category::orderBy('title', 'ASC')->get(),
-                'currency'      => Currency::get()->pluck('id', 'currency', 'to_update'),
-                'unit'          =>  Cache::remember(' unit', $hour, function() {
-                    return Unit::get();
-                }),
-                'product'       => $product[0],
-                'recomended_products' => Product::where([
-                    ['recomended', '=', '1'],
-                    ['category_id', '=', $product[0]->category->id],
-                    ['id', '<>', $product[0]->id]
-                ])->get(),
-                'mainimage'     => Product::find($product[0]->id)->images->where('main', 1)->pluck('file'),
-                'images'        => Product::find($product[0]->id)->images,
-                'currencyrates' => Cbr::getAssociate(),
-                'meta_description' => $product[0]->meta_description,
-                'meta_keywords' => $product[0]->meta_keywords,
-            ];
-            // dd($data['currencyToday']);
-
-            $data['description'] = $data['category'];
-            return view('product', $data);
-        }
+        $product = Product::where('slug', $product)->firstOrFail();
+        // dd($product);
+        $product->views++;
+        $product->save();
+        
+        $data = [
+            'title'         => $product->product_name . $product->category->title,
+            'category'      => Category::where('alias', $category)->get()->pluck('title')[0],
+            'menus'         => Cache::remember(' menus', $hour, function() {    
+                return Menu::orderBy('sortpriority', 'ASC')->get();
+            }),
+            'categories'    => Category::orderBy('title', 'ASC')->get(),
+            'currency'      => Currency::get()->pluck('id', 'currency', 'to_update'),
+            'unit'          =>  Cache::remember(' unit', $hour, function() {
+                return Unit::get();
+            }),
+            'product'       => $product,
+            'recomended_products' => Product::where([
+                ['recomended', '=', '1'],
+                ['category_id', '=', $product->category->id],
+                ['id', '<>', $product->id]
+            ])->get(),
+            'mainimage'     => Product::find($product->id)->images->where('main', 1)->pluck('file'),
+            'images'        => Product::find($product->id)->images,
+            'currencyrates' => Cbr::getAssociate(),
+            'meta_description' => $product->meta_description,
+            'meta_keywords' => $product->meta_keywords,
+        ];
+        // dd($data['currencyrates']);
+        return view('product', $data);
+        
     }
 
     public function anymethod(Request $request) {
@@ -85,11 +81,11 @@ class CatalogController extends BaseController
      */
     public function category($category){
         $hour = 60;
-        $category = Category::where('alias', '=', $category)->get();
+        $category = Category::where('alias', $category)->firstOrFail();
         
         $data = [
-            'title' => $category[0]->title,
-            'description' => $category[0]->description,
+            'title' => $category->title,
+            // 'description' => $category[0]->description,
             'menus'=> Cache::remember(' menus', $hour, function() {    
                 return Menu::orderBy('sortpriority', 'ASC')->get();
             }),
@@ -98,12 +94,12 @@ class CatalogController extends BaseController
             'unit'=>  Cache::remember(' unit', $hour, function() {
                 return Unit::get();
             }),
-            'category' => $category[0],
+            'category' => $category,
             'products' => Product::orderBy('recomended', 'DESC')
                 ->orderBy('product_name', 'ASC')
                 ->where([
-                    ['published', '=', '1'],
-                    ['category_id', '=', $category[0]->id]
+                    ['published', '1'],
+                    ['category_id', $category->id]
                 ])->get(),
             // 'currencyrates' => Cache::remember('cbr_associate', $hour, function() {
             //     return Cbr::getAssociate();

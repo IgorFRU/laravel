@@ -66,7 +66,7 @@
                             {{ $title }}
 
                         </h1>
-                        <p>{{ $description }}</p>
+                        <p>{{ $category->description }}</p>
                     </div>
                 </div>
             </div>
