@@ -16,7 +16,8 @@ class Product extends Model
                             'in_package'];
 
     public function setSlugAttribute($value) {
-        if ($this->attributes['slug'] == '') {
+        dd($this);
+        if ($this->attributes['slug'] == '' || $this->attributes['slug'] == NULL) {
             $this->attributes['slug'] = Str::slug(mb_substr($this->product_name, 0, 60) . "-", "-");
             $this->attributes['slug'] .= '-' . $this->attributes['scu'];
             $double = Product::where('slug', $this->attributes['slug'])->first();

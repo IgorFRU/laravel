@@ -44,20 +44,9 @@ class ProductController extends Controller
             'manufactures'  => Manufacture::get(),
             'currencies'    => Currency::get()
         ); 
-        // dd ($data['products']);
+
         return view('admin.products.index', $data);
 
-        // leftJoin('categories', 'products.category_id', '=', 'categories.id')
-        //                             ->select(
-        //                                 'products.product_name', 
-        //                                 'products.price', 
-        //                                 'products.scu', 
-        //                                 'products.published', 
-        //                                 'products.recomended', 
-        //                                 'products.id', 
-        //                                 'categories.title')
-        //                             //->where()
-        //                             ->
     }
 
     /**
@@ -80,7 +69,7 @@ class ProductController extends Controller
             'next_id'       => ++$next_id,
             'delimiter'     => ''
         ); 
-        // dd($data['next_id']);
+        
         return view('admin.products.create', $data);
     }
 
@@ -93,6 +82,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
+        // dd($request->all());
         
         $product = Product::create($request->all());
 
